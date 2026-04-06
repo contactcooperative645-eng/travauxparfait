@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace Artisan — TravauxParfait</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A; --blue:#1A56DB; --blue-h:#1446BB; --blue-l:#EBF2FF;
+  --green:#15803D; --green-l:#DCFCE7; --green-d:#166534;
+  --orange:#E8580C; --org-l:#FEF0E7;
+  --amber:#D97706; --amber-l:#FEF3C7;
+  --red:#DC2626; --red-l:#FEF2F2;
+  --cream:#F8F6F1; --light:#FAFAF8; --mid:#5A6478; --border:#E4E4E0; --white:#FFFFFF;
+  --ff-serif:'Playfair Display',Georgia,serif;
+  --ff-sans:'DM Sans',system-ui,sans-serif;
+  --nav-h:64px; --gutter:5%; --max-w:960px;
+  --r:6px; --r-md:12px; --r-lg:18px; --r-xl:24px; --r-full:100px;
+  --sh-sm:0 1px 6px rgba(11,31,58,.06); --sh-md:0 4px 20px rgba(11,31,58,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{font-family:var(--ff-sans);background:var(--light);color:var(--navy);-webkit-font-smoothing:antialiased;padding-top:var(--nav-h)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--gutter);background:var(--navy);gap:1rem}
+.nav__logo{display:flex;align-items:center;gap:.55rem;font-family:var(--ff-serif);font-size:1.15rem;font-weight:700;color:var(--white)}
+.nav__logo em{font-style:normal;color:#60A5FA}
+.nav__badge{font-size:.7rem;font-weight:600;background:rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:.25rem .7rem;border-radius:var(--r-full);border:1px solid rgba(255,255,255,.15);margin-left:.3rem}
+.nav__spacer{flex:1}
+.nav__user{display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:rgba(255,255,255,.7)}
+.nav__avatar{width:32px;height:32px;border-radius:50%;background:var(--blue);display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--white);flex-shrink:0}
+
+/* ── LAYOUT ── */
+.page{max-width:var(--max-w);margin:0 auto;padding:2rem var(--gutter) 5rem}
+
+/* ── STATUT BANNIÈRE ── */
+.status-banner{border-radius:var(--r-lg);padding:1.3rem 1.6rem;margin-bottom:2rem;display:flex;align-items:center;gap:1.2rem}
+.status-banner.pending{background:var(--amber-l);border:1.5px solid rgba(217,119,6,.25)}
+.status-banner.approved{background:var(--green-l);border:1.5px solid rgba(21,128,61,.25)}
+.status-banner.rejected{background:var(--red-l);border:1.5px solid rgba(220,38,38,.2)}
+.status-banner__icon{font-size:1.8rem;flex-shrink:0}
+.status-banner__title{font-size:1rem;font-weight:700;margin-bottom:.2rem}
+.status-banner.pending .status-banner__title{color:var(--amber)}
+.status-banner.approved .status-banner__title{color:var(--green)}
+.status-banner.rejected .status-banner__title{color:var(--red)}
+.status-banner__text{font-size:.82rem;line-height:1.55}
+.status-banner.pending .status-banner__text{color:#92400E}
+.status-banner.approved .status-banner__text{color:var(--green-d)}
+.status-banner.rejected .status-banner__text{color:#991B1B}
+
+/* ── GRILLE ── */
+.dash-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+@media(min-width:640px){.dash-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ── CARDS STATS ── */
+.stat-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.3rem;display:flex;flex-direction:column;gap:.3rem}
+.stat-card__label{font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mid)}
+.stat-card__value{font-family:var(--ff-serif);font-size:2.2rem;font-weight:700;color:var(--navy);line-height:1}
+.stat-card__sub{font-size:.75rem;color:var(--mid)}
+.stat-card__icon{font-size:1.4rem;margin-bottom:.3rem}
+
+/* ── SECTION TITLE ── */
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;margin-top:2rem}
+.section-head h2{font-family:var(--ff-serif);font-size:1.2rem;font-weight:700;color:var(--navy)}
+.section-head a{font-size:.8rem;color:var(--blue);font-weight:500}
+
+/* ── LEADS CARDS ── */
+.leads-list{display:flex;flex-direction:column;gap:.75rem}
+.lead-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.4rem;display:flex;flex-direction:column;gap:.75rem;transition:box-shadow .2s}
+.lead-card:hover{box-shadow:var(--sh-md)}
+.lead-card.new{border-color:var(--blue)}
+.lead-card__top{display:flex;align-items:flex-start;gap:.8rem}
+.lead-card__icon{width:40px;height:40px;border-radius:var(--r-md);background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.lead-card__meta{flex:1;min-width:0}
+.lead-card__title{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.lead-card__loc{font-size:.78rem;color:var(--mid)}
+.lead-card__badge{flex-shrink:0}
+.badge{font-size:.65rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.22rem .65rem;border-radius:var(--r-full)}
+.badge-new{background:var(--blue-l);color:var(--blue);border:1px solid rgba(26,86,219,.2)}
+.badge-seen{background:var(--cream);color:var(--mid);border:1px solid var(--border)}
+.badge-pending{background:var(--amber-l);color:var(--amber)}
+.lead-card__details{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem}
+.lead-detail{font-size:.78rem;color:var(--mid);display:flex;align-items:center;gap:.3rem}
+.lead-detail::before{content:'·';color:var(--border)}
+.lead-detail:first-child::before{display:none}
+.lead-card__locked{background:var(--light);border-radius:var(--r-md);padding:.85rem 1rem;display:flex;align-items:center;gap:.75rem;border:1px dashed var(--border)}
+.lead-card__locked-text{font-size:.8rem;color:var(--mid);line-height:1.5}
+.lead-card__locked-text strong{color:var(--navy)}
+.lead-card__actions{display:flex;gap:.5rem;flex-wrap:wrap}
+.btn-sm{padding:.45rem 1rem;border-radius:var(--r);font-size:.8rem;font-weight:600;cursor:pointer;border:none;display:inline-flex;align-items:center;gap:.3rem;transition:all .15s}
+.btn-sm-primary{background:var(--blue);color:var(--white)}
+.btn-sm-primary:hover{background:var(--blue-h)}
+.btn-sm-outline{background:transparent;color:var(--mid);border:1.5px solid var(--border)}
+.btn-sm-outline:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── DOCS STATUS ── */
+.docs-grid{display:grid;grid-template-columns:1fr;gap:.6rem}
+@media(min-width:600px){.docs-grid{grid-template-columns:repeat(2,1fr)}}
+.doc-item{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);padding:.9rem 1.1rem;display:flex;align-items:center;gap:.8rem}
+.doc-item__icon{font-size:1.2rem;flex-shrink:0}
+.doc-item__name{font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:.1rem}
+.doc-item__status{font-size:.72rem}
+.doc-item.ok .doc-item__status{color:var(--green)}
+.doc-item.pending .doc-item__status{color:var(--amber)}
+.doc-item.missing .doc-item__status{color:var(--red)}
+.doc-item__dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-left:auto}
+.doc-item.ok .doc-item__dot{background:var(--green)}
+.doc-item.pending .doc-item__dot{background:var(--amber)}
+.doc-item.missing .doc-item__dot{background:var(--red)}
+
+/* ── PROFIL ── */
+.profil-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem;display:flex;flex-direction:column;gap:.8rem}
+.profil-row{display:flex;gap:.5rem;font-size:.85rem}
+.profil-row span:first-child{color:var(--mid);min-width:110px;flex-shrink:0}
+.profil-row strong{color:var(--navy)}
+
+/* ── EMPTY STATE ── */
+.empty-state{text-align:center;padding:3rem 1rem;color:var(--mid)}
+.empty-state__icon{font-size:2.5rem;margin-bottom:.8rem;display:block;opacity:.5}
+.empty-state h3{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.4rem}
+.empty-state p{font-size:.85rem;line-height:1.6}
+
+/* ── PENDING OVERLAY ── */
+.locked-overlay{position:relative}
+.locked-overlay::after{content:'🔒 Accès après validation';position:absolute;inset:0;background:rgba(248,246,241,.92);display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:600;color:var(--mid);border-radius:var(--r-lg);backdrop-filter:blur(2px)}
+</style>
+</head>
+<body>
+
+<!-- NAV ARTISAN -->
+<nav class="nav" role="navigation" aria-label="Espace artisan">
+  <a href="/index.html" class="nav__logo">
+    Travaux<em>Parfait</em>
+  </a>
+  <span class="nav__badge">Espace Artisan</span>
+  <div class="nav__spacer"></div>
+  <div class="nav__user">
+    <div class="nav__avatar" aria-hidden="true" id="nav-avatar">JD</div>
+    <span id="nav-name">Jean Dupont</span>
+  </div>
+</nav>
+
+<main class="page" id="main">
+
+  <!-- BANNIÈRE STATUT — change selon l'état -->
+  <div class="status-banner pending" id="status-banner" role="status" aria-live="polite">
+    <span class="status-banner__icon" id="status-icon" aria-hidden="true">⏳</span>
+    <div>
+      <div class="status-banner__title" id="status-title">Dossier en cours de vérification</div>
+      <p class="status-banner__text" id="status-text">Notre équipe vérifie vos documents (RGE, décennale, Kbis). Vous recevrez un email de confirmation sous <strong>48h ouvrées</strong>. Les leads de votre zone seront accessibles dès validation.</p>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="dash-grid">
+    <div class="stat-card">
+      <span class="stat-card__icon" aria-hidden="true">📥</span>
+      <div class="stat-card__label">Leads reçus</div>
+      <div class="stat-card__value" id="stat-leads">0</div>
+      <div class="stat-card__sub">ce mois-ci</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__icon" aria-hidden="true">📞</span>
+      <div class="stat-card__label">Contacts pris</div>
+      <div class="stat-card__value" id="stat-contacts">0</div>
+      <div class="stat-card__sub">appels passés</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-card__icon" aria-hidden="true">🏆</span>
+      <div class="stat-card__label">Statut dossier</div>
+      <div class="stat-card__value" style="font-size:1.1rem;margin-top:.4rem" id="stat-status">En attente</div>
+      <div class="stat-card__sub" id="stat-status-sub">Vérification en cours</div>
+    </div>
+  </div>
+
+  <!-- LEADS (verrouillés tant que non validé) -->
+  <div id="leads-section">
+    <div class="section-head">
+      <h2>Vos demandes en attente</h2>
+    </div>
+
+    <!-- État : dossier en attente -->
+    <div id="leads-locked">
+      <div class="leads-list">
+
+        <!-- Lead exemple flou — à débloquer après validation -->
+        <div class="lead-card new">
+          <div class="lead-card__top">
+            <div class="lead-card__icon" aria-hidden="true">⚡</div>
+            <div class="lead-card__meta">
+              <div class="lead-card__title">Mise aux normes tableau électrique</div>
+              <div class="lead-card__loc">📍 Paris 11e (75) · Reçu il y a 2h</div>
+            </div>
+            <span class="badge badge-new">Nouveau</span>
+          </div>
+          <div class="lead-card__details">
+            <span class="lead-detail">Appartement T3</span>
+            <span class="lead-detail">Urgence modérée</span>
+            <span class="lead-detail">Budget : non communiqué</span>
+          </div>
+          <div class="lead-card__locked">
+            <span style="font-size:1.4rem" aria-hidden="true">🔒</span>
+            <div class="lead-card__locked-text">
+              <strong>Coordonnées masquées</strong><br>
+              Les coordonnées du particulier seront visibles dès que votre dossier sera validé par notre équipe.
+            </div>
+          </div>
+        </div>
+
+        <div class="lead-card">
+          <div class="lead-card__top">
+            <div class="lead-card__icon" aria-hidden="true">🔥</div>
+            <div class="lead-card__meta">
+              <div class="lead-card__title">Entretien chaudière gaz</div>
+              <div class="lead-card__loc">📍 Boulogne-Billancourt (92) · Reçu hier</div>
+            </div>
+            <span class="badge badge-seen">Vu</span>
+          </div>
+          <div class="lead-card__details">
+            <span class="lead-detail">Maison individuelle</span>
+            <span class="lead-detail">Entretien annuel</span>
+          </div>
+          <div class="lead-card__locked">
+            <span style="font-size:1.4rem" aria-hidden="true">🔒</span>
+            <div class="lead-card__locked-text">
+              <strong>Coordonnées masquées</strong><br>
+              Validez votre dossier pour accéder aux coordonnées et rappeler ce particulier.
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p style="font-size:.78rem;color:var(--mid);margin-top:.9rem;text-align:center">Ces demandes sont réelles dans votre zone. Validez votre dossier pour les traiter.</p>
+    </div>
+
+    <!-- État : validé (masqué par défaut) -->
+    <div id="leads-active" style="display:none">
+      <div class="leads-list" id="leads-list">
+        <!-- Peuplé par JS si validé -->
+      </div>
+      <div class="empty-state" id="empty-leads" style="display:none">
+        <span class="empty-state__icon" aria-hidden="true">📭</span>
+        <h3>Aucune demande pour l'instant</h3>
+        <p>Les demandes de particuliers dans votre zone apparaîtront ici dès leur réception.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MES DOCUMENTS -->
+  <div class="section-head">
+    <h2>Mes documents</h2>
+    <a href="/inscription-artisan.html">Mettre à jour →</a>
+  </div>
+  <div class="docs-grid">
+    <div class="doc-item ok" id="doc-rge">
+      <span class="doc-item__icon" aria-hidden="true">🏆</span>
+      <div>
+        <div class="doc-item__name">Certificat RGE</div>
+        <div class="doc-item__status">✓ Reçu — en cours de vérification</div>
+      </div>
+      <div class="doc-item__dot" aria-hidden="true"></div>
+    </div>
+    <div class="doc-item ok" id="doc-decennale">
+      <span class="doc-item__icon" aria-hidden="true">🛡️</span>
+      <div>
+        <div class="doc-item__name">Assurance décennale</div>
+        <div class="doc-item__status">✓ Reçue — en cours de vérification</div>
+      </div>
+      <div class="doc-item__dot" aria-hidden="true"></div>
+    </div>
+    <div class="doc-item ok" id="doc-kbis">
+      <span class="doc-item__icon" aria-hidden="true">📄</span>
+      <div>
+        <div class="doc-item__name">Extrait Kbis</div>
+        <div class="doc-item__status">✓ Reçu — en cours de vérification</div>
+      </div>
+      <div class="doc-item__dot" aria-hidden="true"></div>
+    </div>
+    <div class="doc-item pending" id="doc-rcpro">
+      <span class="doc-item__icon" aria-hidden="true">📋</span>
+      <div>
+        <div class="doc-item__name">RC Pro</div>
+        <div class="doc-item__status">⏳ Non fourni (optionnel)</div>
+      </div>
+      <div class="doc-item__dot" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <!-- MON PROFIL -->
+  <div class="section-head">
+    <h2>Mon profil</h2>
+  </div>
+  <div class="profil-card">
+    <div class="profil-row">
+      <span>Nom</span>
+      <strong id="prof-nom">Jean Dupont</strong>
+    </div>
+    <div class="profil-row">
+      <span>Entreprise</span>
+      <strong id="prof-entreprise">Dupont Électricité SARL</strong>
+    </div>
+    <div class="profil-row">
+      <span>SIRET</span>
+      <strong id="prof-siret">123 456 789 00012</strong>
+    </div>
+    <div class="profil-row">
+      <span>Spécialité</span>
+      <strong id="prof-metier">Électricien</strong>
+    </div>
+    <div class="profil-row">
+      <span>Zones IDF</span>
+      <strong id="prof-zones">75, 92, 78</strong>
+    </div>
+    <div class="profil-row">
+      <span>Téléphone</span>
+      <strong id="prof-tel">06 12 34 56 78</strong>
+    </div>
+    <div class="profil-row">
+      <span>Email</span>
+      <strong id="prof-email"><a href="/contact.html">Formulaire de contact →</a></strong>
+    </div>
+    <div style="margin-top:.5rem;padding-top:.9rem;border-top:1px solid var(--border)">
+      <a href="/contact.html">Formulaire de contact →</a>
+    </div>
+  </div>
+
+  <!-- AIDE -->
+  <div style="margin-top:2rem;padding:1.2rem 1.4rem;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg)">
+    <h3 style="font-size:.88rem;font-weight:700;color:var(--navy);margin-bottom:.6rem">Besoin d'aide ?</h3>
+    <p style="font-size:.8rem;color:var(--mid);line-height:1.6;margin-bottom:.8rem">Notre équipe répond sous 4h ouvrées.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:.6rem">
+      <a href="/contact.html">Formulaire de contact →</a>
+      
+    </div>
+  </div>
+
+</main>
+
+<script>
+'use strict';
+
+// ══════════════════════════════════════════════════════════════
+// DONNÉES DÉMO — En production, ces données viendraient
+// d'une API (Airtable, Supabase...) appelée avec l'ID artisan
+// depuis l'URL : /espace-artisan.html?id=ART-001&token=xxx
+// ══════════════════════════════════════════════════════════════
+
+// Lire les paramètres URL (si présents)
+const params = new URLSearchParams(window.location.search);
+const artisanId    = params.get('id')     || 'DEMO';
+const artisanToken = params.get('token')  || null;
+const artisanStatus = params.get('status') || 'pending'; // pending | approved | rejected
+
+// Données démo (remplacer par appel API en production)
+const artisanData = {
+  prenom:     'Jean',
+  nom:        'Dupont',
+  entreprise: 'Dupont Électricité SARL',
+  siret:      '123 456 789 00012',
+  metier:     'Électricien',
+  zones:      '75, 92, 78',
+  tel:        '06 12 34 56 78',
+  email:      'jean@dupont-elec.fr',
+  status:     artisanStatus,
+  leads: [] // vide tant que pending — peuplé par API quand approved
+};
+
+// ── Remplir le profil ──────────────────────────────────────
+function fillProfile(d) {
+  document.getElementById('nav-name').textContent    = d.prenom + ' ' + d.nom;
+  document.getElementById('nav-avatar').textContent  = (d.prenom[0] + d.nom[0]).toUpperCase();
+  document.getElementById('prof-nom').textContent        = d.prenom + ' ' + d.nom;
+  document.getElementById('prof-entreprise').textContent = d.entreprise;
+  document.getElementById('prof-siret').textContent      = d.siret;
+  document.getElementById('prof-metier').textContent     = d.metier;
+  document.getElementById('prof-zones').textContent      = d.zones;
+  document.getElementById('prof-tel').textContent        = d.tel;
+  document.getElementById('prof-email').textContent      = d.email;
+}
+
+// ── Mettre à jour le statut ────────────────────────────────
+function applyStatus(status) {
+  const banner = document.getElementById('status-banner');
+  const icon   = document.getElementById('status-icon');
+  const title  = document.getElementById('status-title');
+  const text   = document.getElementById('status-text');
+  const statEl = document.getElementById('stat-status');
+  const subEl  = document.getElementById('stat-status-sub');
+
+  banner.className = 'status-banner';
+
+  if (status === 'pending') {
+    banner.classList.add('pending');
+    icon.textContent  = '⏳';
+    title.textContent = 'Dossier en cours de vérification';
+    text.innerHTML    = 'Notre équipe vérifie vos documents (RGE, décennale, Kbis). Vous recevrez un email de confirmation sous <strong>48h ouvrées</strong>. Les leads de votre zone seront accessibles dès validation.';
+    statEl.textContent = 'En attente';
+    subEl.textContent  = 'Vérification en cours';
+    document.getElementById('leads-locked').style.display  = 'block';
+    document.getElementById('leads-active').style.display  = 'none';
+    document.getElementById('stat-leads').textContent    = '—';
+    document.getElementById('stat-contacts').textContent = '—';
+
+  } else if (status === 'approved') {
+    banner.classList.add('approved');
+    icon.textContent  = '✅';
+    title.textContent = 'Profil validé — Vous recevez des leads !';
+    text.innerHTML    = 'Votre dossier a été vérifié et approuvé. Les coordonnées des particuliers dans vos zones d\'intervention vous sont maintenant transmises.';
+    statEl.textContent = 'Validé';
+    subEl.textContent  = 'Actif depuis aujourd\'hui';
+    document.getElementById('leads-locked').style.display = 'none';
+    document.getElementById('leads-active').style.display = 'block';
+    document.getElementById('stat-leads').textContent    = artisanData.leads.length;
+    document.getElementById('stat-contacts').textContent = '0';
+    renderLeads(artisanData.leads);
+
+  } else if (status === 'rejected') {
+    banner.classList.add('rejected');
+    icon.textContent  = '❌';
+    title.textContent = 'Dossier incomplet — Action requise';
+    text.innerHTML    = 'Un ou plusieurs documents sont invalides ou expirés. Vérifiez l\'email envoyé par notre équipe et renvoyez les documents demandés.';
+    statEl.textContent = 'Incomplet';
+    subEl.textContent  = 'Documents à corriger';
+    document.getElementById('leads-locked').style.display = 'block';
+    document.getElementById('leads-active').style.display = 'none';
+  }
+}
+
+// ── Afficher les leads (quand approved) ───────────────────
+function renderLeads(leads) {
+  const list  = document.getElementById('leads-list');
+  const empty = document.getElementById('empty-leads');
+  if (!leads.length) {
+    empty.style.display = 'block';
+    list.style.display  = 'none';
+    return;
+  }
+  list.style.display  = 'flex';
+  empty.style.display = 'none';
+  const icons = { electricien:'⚡', plombier:'🔧', chauffagiste:'🔥', climatisation:'❄️', vmc:'🌬️', isolation:'🏠' };
+  list.innerHTML = leads.map(l => `
+    <div class="lead-card ${l.isNew ? 'new' : ''}">
+      <div class="lead-card__top">
+        <div class="lead-card__icon" aria-hidden="true">${icons[l.metier] || '🏗'}</div>
+        <div class="lead-card__meta">
+          <div class="lead-card__title">${l.description}</div>
+          <div class="lead-card__loc">📍 Dept ${l.dept} · ${l.timeAgo}</div>
+        </div>
+        <span class="badge ${l.isNew ? 'badge-new' : 'badge-seen'}">${l.isNew ? 'Nouveau' : 'Vu'}</span>
+      </div>
+      <div class="lead-card__details">
+        <span class="lead-detail">${l.prenom}</span>
+        <span class="lead-detail">${l.tel}</span>
+        ${l.delai ? `<span class="lead-detail">${l.delai}</span>` : ''}
+      </div>
+      <div class="lead-card__actions">
+        <a href="tel:${l.tel.replace(/\s/g,'')}" class="btn-sm btn-sm-primary">📞 Appeler ${l.prenom}</a>
+        <button type="button" class="btn-sm btn-sm-outline" onclick="markSeen(${l.id})">Marquer
+
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+</body>
+</html>

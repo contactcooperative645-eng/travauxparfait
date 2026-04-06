@@ -124,6 +124,15 @@ textarea.fi{resize:vertical;min-height:120px;line-height:1.6}
 </head>
 <body>
 
+<!-- Formulaire Netlify contact (détection statique) -->
+<form name="tp-contact" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="tp-contact">
+  <input name="bot-field">
+  <input name="objet"><input name="nom"><input name="email">
+  <input name="tel"><textarea name="message"></textarea>
+</form>
+
+
 <!-- NAV -->
 <nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
   <a href="/index.html" class="nav__logo">
@@ -400,22 +409,16 @@ async function submitForm() {
   document.getElementById('form-loading').style.display = 'flex';
 
   try {
-    // ── PRODUCTION : décommenter + remplacer YOUR_FORMSPREE_ID ──────────────
-    // const res = await fetch('https://formspree.io/f/YOUR_FORMSPREE_ID', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    //   body: JSON.stringify({
-    //     objet:   selectedObjet,
-    //     nom:     nom.value,
-    //     email:   email.value,
-    //     tel:     document.getElementById('tel').value,
-    //     message: message.value,
-    //   })
-    // });
-    // if (!res.ok) throw new Error('network');
-    // ─────────────────────────────────────────────────────────────────────────
-
-    await new Promise(r => setTimeout(r, 1200)); // simulation MVP
+    // Netlify Forms
+    const fd=new FormData();
+    fd.append('form-name','tp-contact');
+    fd.append('objet',    selectedObjet);
+    fd.append('nom',      nom.value);
+    fd.append('email',    email.value);
+    fd.append('tel',      document.getElementById('tel').value);
+    fd.append('message',  message.value);
+    const res=await fetch('/',{method:'POST',body:fd});
+    if(!res.ok) throw new Error('network');
 
     document.getElementById('form-loading').style.display = 'none';
     document.getElementById('form-success').style.display = 'flex';

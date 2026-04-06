@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — TravauxParfait</title>
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A; --blue:#1A56DB; --blue-l:#EBF2FF;
+  --green:#15803D; --green-l:#DCFCE7; --green-d:#166534;
+  --orange:#E8580C;
+  --amber:#D97706; --amber-l:#FEF3C7;
+  --red:#DC2626; --red-l:#FEF2F2;
+  --cream:#F8F6F1; --light:#FAFAF8; --mid:#5A6478; --border:#E4E4E0; --white:#FFFFFF;
+  --ff:'DM Sans',system-ui,sans-serif;
+  --r:6px; --r-md:10px; --r-lg:14px; --r-full:100px;
+  --sh-sm:0 1px 6px rgba(11,31,58,.06); --sh-md:0 4px 16px rgba(11,31,58,.10);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:15px}
+body{font-family:var(--ff);background:var(--light);color:var(--navy);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:3px}
+
+/* ── LOGIN ── */
+.login-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--navy);padding:2rem}
+.login-card{background:var(--white);border-radius:16px;padding:2.2rem;width:100%;max-width:380px;box-shadow:var(--sh-md)}
+.login-logo{font-size:1.2rem;font-weight:700;color:var(--navy);margin-bottom:.3rem}
+.login-logo span{color:var(--blue)}
+.login-sub{font-size:.78rem;color:var(--mid);margin-bottom:1.8rem}
+.login-label{font-size:.75rem;font-weight:600;color:var(--navy);display:block;margin-bottom:.35rem}
+.login-input{width:100%;padding:.68rem .9rem;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--ff);font-size:.9rem;color:var(--navy);outline:none;transition:border-color .15s}
+.login-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.login-btn{width:100%;margin-top:1.2rem;padding:.78rem;background:var(--navy);color:var(--white);border:none;border-radius:var(--r);font-family:var(--ff);font-size:.92rem;font-weight:600;cursor:pointer;transition:background .15s}
+.login-btn:hover{background:#162030}
+.login-err{font-size:.75rem;color:var(--red);margin-top:.5rem;display:none}
+.login-err.show{display:block}
+
+/* ── APP ── */
+.app{display:none;min-height:100vh;flex-direction:column}
+
+/* ── TOP BAR ── */
+.topbar{height:56px;background:var(--navy);display:flex;align-items:center;padding:0 1.5rem;gap:1rem;position:sticky;top:0;z-index:100}
+.topbar__logo{font-size:1rem;font-weight:700;color:var(--white)}
+.topbar__logo span{color:#60A5FA}
+.topbar__badge{font-size:.65rem;font-weight:700;background:rgba(255,255,255,.12);color:rgba(255,255,255,.7);padding:.2rem .6rem;border-radius:var(--r-full)}
+.topbar__spacer{flex:1}
+.topbar__user{font-size:.78rem;color:rgba(255,255,255,.6)}
+.topbar__logout{font-size:.75rem;color:rgba(255,255,255,.4);cursor:pointer;padding:.3rem .6rem;border-radius:var(--r);border:1px solid rgba(255,255,255,.15);transition:all .15s}
+.topbar__logout:hover{color:rgba(255,255,255,.8);border-color:rgba(255,255,255,.35)}
+
+/* ── LAYOUT ── */
+.app-body{display:flex;flex:1}
+.sidebar{width:200px;background:var(--white);border-right:1px solid var(--border);padding:1rem 0;flex-shrink:0;display:none}
+@media(min-width:768px){.sidebar{display:block}}
+.sidebar-item{display:flex;align-items:center;gap:.6rem;padding:.65rem 1.2rem;font-size:.82rem;font-weight:500;color:var(--mid);cursor:pointer;transition:all .15s;border-left:3px solid transparent}
+.sidebar-item:hover{color:var(--navy);background:var(--cream)}
+.sidebar-item.active{color:var(--navy);background:var(--blue-l);border-left-color:var(--blue);font-weight:600}
+.sidebar-item__count{margin-left:auto;background:var(--red);color:var(--white);font-size:.65rem;font-weight:700;padding:.15rem .5rem;border-radius:var(--r-full)}
+
+.main{flex:1;padding:1.5rem;overflow-x:auto}
+
+/* ── STATS ROW ── */
+.stats-row{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:1.5rem}
+@media(min-width:640px){.stats-row{grid-template-columns:repeat(4,1fr)}}
+.stat{background:var(--white);border:1px solid var(--border);border-radius:var(--r-md);padding:.9rem 1.1rem}
+.stat__n{font-size:1.8rem;font-weight:700;color:var(--navy);line-height:1}
+.stat__l{font-size:.7rem;color:var(--mid);margin-top:.2rem}
+.stat--pending .stat__n{color:var(--amber)}
+.stat--ok .stat__n{color:var(--green)}
+.stat--leads .stat__n{color:var(--blue)}
+
+/* ── FILTRES ── */
+.filters{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1.2rem}
+.filter-btn{padding:.35rem .9rem;border-radius:var(--r-full);font-size:.75rem;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--mid);transition:all .15s}
+.filter-btn:hover{border-color:var(--navy);color:var(--navy)}
+.filter-btn.active{background:var(--navy);color:var(--white);border-color:var(--navy)}
+.search-wrap{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem}
+.search-input{flex:1;max-width:280px;padding:.5rem .85rem;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--ff);font-size:.82rem;color:var(--navy);outline:none}
+.search-input:focus{border-color:var(--blue)}
+
+/* ── TABLE ARTISANS ── */
+.table-wrap{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.table-head{display:none}
+@media(min-width:768px){
+  .table-head{display:grid;grid-template-columns:2fr 1.5fr 1fr 1fr 1fr 120px;padding:.6rem 1rem;background:var(--cream);border-bottom:1px solid var(--border);font-size:.7rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--mid)}
+}
+
+.art-row{padding:1rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;gap:.6rem;cursor:pointer;transition:background .15s}
+.art-row:last-child{border-bottom:none}
+.art-row:hover{background:var(--light)}
+@media(min-width:768px){
+  .art-row{display:grid;grid-template-columns:2fr 1.5fr 1fr 1fr 1fr 120px;align-items:center;gap:.5rem;padding:.75rem 1rem}
+}
+
+.art-name{font-weight:600;font-size:.88rem;color:var(--navy)}
+.art-meta{font-size:.73rem;color:var(--mid)}
+.art-zone{font-size:.75rem;color:var(--mid)}
+.art-metier{font-size:.75rem;color:var(--navy);font-weight:500}
+
+/* Statut badges */
+.status-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.65rem;font-weight:700;padding:.22rem .65rem;border-radius:var(--r-full)}
+.sb-pending{background:var(--amber-l);color:var(--amber)}
+.sb-approved{background:var(--green-l);color:var(--green)}
+.sb-rejected{background:var(--red-l);color:var(--red)}
+.sb-new{background:var(--blue-l);color:var(--blue)}
+
+/* Actions */
+.actions{display:flex;gap:.4rem}
+.act-btn{padding:.3rem .75rem;border-radius:var(--r);font-size:.72rem;font-weight:600;cursor:pointer;border:none;transition:all .15s;white-space:nowrap}
+.act-approve{background:var(--green-l);color:var(--green-d)}
+.act-approve:hover{background:var(--green);color:var(--white)}
+.act-reject{background:var(--red-l);color:var(--red)}
+.act-reject:hover{background:var(--red);color:var(--white)}
+.act-view{background:var(--blue-l);color:var(--blue)}
+.act-view:hover{background:var(--blue);color:var(--white)}
+
+/* ── MODAL DÉTAIL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(11,31,58,.5);z-index:500;display:none;align-items:center;justify-content:center;padding:1rem}
+.modal-overlay.open{display:flex}
+.modal{background:var(--white);border-radius:var(--r-lg);width:100%;max-width:560px;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(11,31,58,.25)}
+.modal-head{padding:1.2rem 1.4rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:var(--white)}
+.modal-head h3{font-size:1rem;font-weight:700;color:var(--navy)}
+.modal-close{width:28px;height:28px;border-radius:50%;background:var(--cream);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;color:var(--mid);transition:background .15s}
+.modal-close:hover{background:var(--border)}
+.modal-body{padding:1.4rem;display:flex;flex-direction:column;gap:1rem}
+.modal-field{display:flex;gap:.5rem;font-size:.83rem}
+.modal-field span:first-child{color:var(--mid);min-width:100px;flex-shrink:0}
+.modal-field strong{color:var(--navy)}
+.modal-docs{display:flex;flex-direction:column;gap:.4rem}
+.modal-doc{display:flex;align-items:center;gap:.6rem;padding:.55rem .8rem;background:var(--light);border-radius:var(--r);font-size:.8rem}
+.modal-doc__name{flex:1;font-weight:500;color:var(--navy)}
+.modal-doc__status{font-size:.7rem}
+.modal-actions{padding:1rem 1.4rem;border-top:1px solid var(--border);display:flex;gap:.6rem;justify-content:flex-end;position:sticky;bottom:0;background:var(--white)}
+.modal-btn{padding:.65rem 1.4rem;border-radius:var(--r);font-size:.85rem;font-weight:600;cursor:pointer;border:none;transition:all .15s}
+.modal-btn-approve{background:var(--green);color:var(--white)}
+.modal-btn-approve:hover{background:var(--green-d)}
+.modal-btn-reject{background:var(--red-l);color:var(--red)}
+.modal-btn-reject:hover{background:var(--red);color:var(--white)}
+.modal-btn-cancel{background:var(--cream);color:var(--mid)}
+.modal-btn-cancel:hover{background:var(--border)}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:600;padding:.8rem 1.2rem;border-radius:var(--r-md);font-size:.82rem;font-weight:600;color:var(--white);transform:translateY(100px);opacity:0;transition:all .3s;pointer-events:none;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:var(--green)}
+.toast.error{background:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     ÉCRAN LOGIN
+══════════════════════════════════ -->
+<div class="login-wrap" id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">Travaux<span>Parfait</span></div>
+    <p class="login-sub">Espace administration — accès restreint</p>
+    <label class="login-label" for="pwd">Mot de passe</label>
+    <input class="login-input" type="password" id="pwd" placeholder="••••••••" onkeydown="if(event.key==='Enter')login()">
+    <button class="login-btn" onclick="login()">Accéder au tableau de bord</button>
+    <p class="login-err" id="login-err">Mot de passe incorrect. Réessayez.</p>
+    <p style="font-size:.7rem;color:var(--mid);margin-top:1.2rem">
+      ⚠️ Mot de passe par défaut : <code style="background:var(--cream);padding:1px 5px;border-radius:3px">admin2025</code><br>
+      <strong>À changer dès la mise en production</strong> (dans le code JS ci-dessous)
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     APPLICATION ADMIN
+══════════════════════════════════ -->
+<div class="app" id="app">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="topbar__logo">Travaux<span>Parfait</span></div>
+    <div class="topbar__badge">ADMIN</div>
+    <div class="topbar__spacer"></div>
+    <span class="topbar__user">Administrateur</span>
+    <button class="topbar__logout" onclick="logout()">Déconnexion</button>
+  </div>
+
+  <div class="app-body">
+
+    <!-- Sidebar -->
+    <nav class="sidebar" role="navigation" aria-label="Navigation admin">
+      <div class="sidebar-item active" onclick="setView('artisans')">
+        🔧 Artisans
+        <span class="sidebar-item__count" id="badge-pending">0</span>
+      </div>
+      <div class="sidebar-item" onclick="setView('leads')">📥 Demandes</div>
+      <div class="sidebar-item" onclick="setView('stats')">📊 Statistiques</div>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!-- ── STATS ── -->
+      <div class="stats-row">
+        <div class="stat stat--pending">
+          <div class="stat__n" id="cnt-pending">0</div>
+          <div class="stat__l">En attente</div>
+        </div>
+        <div class="stat stat--ok">
+          <div class="stat__n" id="cnt-approved">0</div>
+          <div class="stat__l">Validés</div>
+        </div>
+        <div class="stat">
+          <div class="stat__n" id="cnt-rejected">0</div>
+          <div class="stat__l">Refusés</div>
+        </div>
+        <div class="stat stat--leads">
+          <div class="stat__n" id="cnt-total">0</div>
+          <div class="stat__l">Total dossiers</div>
+        </div>
+      </div>
+
+      <!-- ── FILTRES + RECHERCHE ── -->
+      <div class="filters" role="group" aria-label="Filtrer par statut">
+        <button class="filter-btn active" onclick="applyFilter('all', this)">Tous</button>
+        <button class="filter-btn" onclick="applyFilter('pending', this)">⏳ En attente</button>
+        <button class="filter-btn" onclick="applyFilter('approved', this)">✅ Validés</button>
+        <button class="filter-btn" onclick="applyFilter('rejected', this)">❌ Refusés</button>
+      </div>
+      <div class="search-wrap">
+        <input class="search-input" type="search" id="search-input" placeholder="Rechercher par nom, email, zone…" oninput="applySearch(this.value)">
+      </div>
+
+      <!-- ── TABLE ── -->
+      <div class="table-wrap">
+        <div class="table-head" aria-hidden="true">
+          <span>Artisan</span>
+          <span>Contact</span>
+          <span>Spécialité</span>
+          <span>Zone(s)</span>
+          <span>Statut</span>
+          <span>Actions</span>
+        </div>
+        <div id="artisans-list">
+          <!-- Rempli par JS -->
+        </div>
+      </div>
+
+      <!-- Vue leads (masquée par défaut) -->
+      <div id="view-leads" style="display:none">
+        <p style="font-size:.85rem;color:var(--mid);padding:2rem;text-align:center">
+          📥 Les demandes particuliers seront affichées ici une fois connectées à Formspree ou Airtable.<br>
+          <strong style="color:var(--navy)">Section à connecter au backend de ton choix.</strong>
+        </p>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- ── MODAL DÉTAIL ARTISAN ── -->
+<div class="modal-overlay" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-head">
+      <h3 id="modal-title">Dossier artisan</h3>
+      <button class="modal-close" onclick="closeModal()" aria-label="Fermer">✕</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <!-- Rempli par JS -->
+    </div>
+    <div class="modal-actions">
+      <button class="modal-btn modal-btn-cancel" onclick="closeModal()">Fermer</button>
+      <button class="modal-btn modal-btn-reject" id="modal-btn-reject">❌ Refuser</button>
+      <button class="modal-btn modal-btn-approve" id="modal-btn-approve">✅ Valider</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast notification -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+'use strict';
+
+// ══════════════════════════════════════════════════════════════
+// CONFIGURATION
+// ══════════════════════════════════════════════════════════════
+// ⚠️ CHANGER CE MOT DE PASSE avant mise en production !
+const ADMIN_PASSWORD = 'admin2025';
+
+// ══════════════════════════════════════════════════════════════
+// DONNÉES DÉMO
+// En production : remplacer par fetch() vers Airtable/Supabase
+// ══════════════════════════════════════════════════════════════
+let artisans = [
+  {
+    id: 'ART-001', prenom:'Jean', nom:'Dupont', entreprise:'Dupont Électricité',
+    siret:'12345678900012', tel:'06 12 34 56 78', email:'jean@dupont-elec.fr',
+    metier:'Électricien', zones:'75, 92, 78', experience:'5-10 ans',
+    status:'pending', date:'2025-01-15',
+    docs:{ rge:true, decennale:true, kbis:true, rcpro:false },
+    isNew: true,
+  },
+  {
+    id:'ART-002', prenom:'Marie', nom:'Martin', entreprise:'Martin Plomberie',
+    siret:'98765432100015', tel:'07 23 45 67 89', email:'marie@martin-plomberie.fr',
+    metier:'Plombier', zones:'92, 94', experience:'10+',
+    status:'pending', date:'2025-01-14',
+    docs:{ rge:true, decennale:true, kbis:true, rcpro:true },
+    isNew: true,
+  },
+  {
+    id:'ART-003', prenom:'Ahmed', nom:'Benali', entreprise:'Benali Chauffage',
+    siret:'55544433300011', tel:'06 34 56 78 90', email:'ahmed@benali-chauffage.fr',
+    metier:'Chauffagiste / PAC', zones:'75, 91, 93', experience:'3-5 ans',
+    status:'approved', date:'2025-01-10',
+    docs:{ rge:true, decennale:true, kbis:true, rcpro:false },
+  },
+  {
+    id:'ART-004', prenom:'Sophie', nom:'Leclerc', entreprise:'Leclerc Isolation',
+    siret:'11122233300018', tel:'06 45 67 89 01', email:'sophie@leclerc-iso.fr',
+    metier:'Isolation', zones:'78, 95', experience:'1-3 ans',
+    status:'rejected', date:'2025-01-08',
+    docs:{ rge:false, decennale:true, kbis:true, rcpro:false },
+    rejectReason:'Certificat RGE expiré — merci de fournir une attestation en cours de validité.',
+  },
+];
+
+let currentFilter = 'all';
+let currentSearch = '';
+let currentArtisanId = null;
+
+// ══════════════════════════════════════════════════════════════
+// LOGIN
+// ══════════════════════════════════════════════════════════════
+function login() {
+  const pwd = document.getElementById('pwd').value;
+  const err = document.getElementById('login-err');
+  if (pwd === ADMIN_PASSWORD) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app').style.display         = 'flex';
+    renderAll();
+  } else {
+    err.classList.add('show');
+    document.getElementById('pwd').focus();
+  }
+}
+function logout() {
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('app').style.display          = 'none';
+  document.getElementById('pwd').value = '';
+}
+
+// ══════════════════════════════════════════════════════════════
+// VUES
+// ══════════════════════════════════════════════════════════════
+function setView(view) {
+  document.querySelectorAll('.sidebar-item').forEach((el, i) => {
+    el.classList.toggle('active', ['artisans','leads','stats'][i] === view);
+  });
+  document.querySelector('.stats-row').style.display   = view === 'artisans' ? 'grid' : 'none';
+  document.querySelector('.filters').style.display     = view === 'artisans' ? 'flex' : 'none';
+  document.querySelector('.search-wrap').style.display = view === 'artisans' ? 'flex' : 'none';
+  document.querySelector('.table-wrap').style.display  = view === 'artisans' ? 'block' : 'none';
+  document.getElementById('view-leads').style.display  = view === 'leads'    ? 'block' : 'none';
+}
+
+// ══════════════════════════════════════════════════════════════
+// RENDER
+// ══════════════════════════════════════════════════════════════
+function renderAll() {
+  updateStats();
+  renderList();
+}
+
+function updateStats() {
+  const pend = artisans.filter(a => a.status === 'pending').length;
+  const appr = artisans.filter(a => a.status === 'approved').length;
+  const rej  = artisans.filter(a => a.status === 'rejected').length;
+  document.getElementById('cnt-pending').textContent  = pend;
+  document.getElementById('cnt-approved').textContent = appr;
+  document.getElementById('cnt-rejected').textContent = rej;
+  document.getElementById('cnt-total').textContent    = artisans.length;
+  document.getElementById('badge-pending').textContent = pend;
+  document.getElementById('badge-pending').style.display = pend > 0 ? 'inline-flex' : 'none';
+}
+
+function renderList() {
+  let filtered = artisans;
+  if (currentFilter !== 'all') filtered = filtered.filter(a => a.status === currentFilter);
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    filtered = filtered.filter(a =>
+      (a.prenom + ' ' + a.nom + a.email + a.zones + a.metier).toLowerCase().includes(q)
+    );
+  }
+
+  const list = document.getElementById('artisans-list');
+  if (!filtered.length) {
+    list.innerHTML = '<div style="padding:2rem;text-align:center;font-size:.85rem;color:var(--mid)">Aucun artisan trouvé.</div>';
+    return;
+  }
+
+  const statusBadge = {
+    pending:  '<span class="status-badge sb-pending">⏳ En attente</span>',
+    approved: '<span class="status-badge sb-approved">✅ Validé</span>',
+    rejected: '<span class="status-badge sb-rejected">❌ Refusé</span>',
+  };
+
+  const docsOk = d => Object.values(d).filter(Boolean).length;
+
+  list.innerHTML = filtered.map(a => `
+    <div class="art-row" onclick="openModal('${a.id}')" role="row" tabindex="0" onkeydown="if(event.key==='Enter')openModal('${a.id}')">
+      <div>
+        <div class="art-name">${a.prenom} ${a.nom} ${a.isNew ? '<span class="status-badge sb-new" style="margin-left:4px">Nouveau</span>' : ''}</div>
+        <div class="art-meta">${a.entreprise} · ${a.date}</div>
+      </div>
+      <div>
+        <div class="art-meta">${a.email}</div>
+        <div class="art-meta">${a.tel}</div>
+      </div>
+      <div class="art-metier">${a.metier}</div>
+      <div class="art-zone">${a.zones}</div>
+      <div>${statusBadge[a.status] || ''}</div>
+      <div class="actions" onclick="event.stopPropagation()">
+        <button class="act-btn act-view" onclick="openModal('${a.id}')">👁 Voir</button>
+        ${a.status !== 'approved' ? `<button class="act-btn act-approve" onclick="changeStatus('${a.id}','approved')">✓</button>` : ''}
+        ${a.status !== 'rejected' ? `<button class="act-btn act-reject"  onclick="changeStatus('${a.id}','rejected')">✗</button>` : ''}
+      </div>
+    </div>`
+  ).join('');
+}
+
+// ══════════════════════════════════════════════════════════════
+// MODAL
+// ══════════════════════════════════════════════════════════════
+function openModal(id) {
+  const a = artisans.find(x => x.id === id);
+  if (!a) return;
+  currentArtisanId = id;
+  a.isNew = false; // marquer comme vu
+  renderList();
+
+  const docNames = { rge:'Certificat RGE', decennale:'Attestation décennale', kbis:'Extrait Kbis', rcpro:'RC Pro' };
+  const docsHtml = Object.entries(a.docs).map(([k, v]) => `
+    <div class="modal-doc">
+      <span style="font-size:1rem">${v ? '✅' : '❌'}</span>
+      <span class="modal-doc__name">${docNames[k]}</span>
+      <span class="modal-doc__status" style="color:${v ? 'var(--green)' : 'var(--red)'}">${v ? 'Fourni' : 'Manquant'}</span>
+      ${v ? `<a href="#" style="font-size:.72rem;color:var(--blue);margin-left:.5rem" onclick="event.preventDefault();alert('En production : lien vers le fichier sur Airtable/Supabase.')">Télécharger</a>` : ''}
+    </div>`).join('');
+
+  document.getElementById('modal-title').textContent = `${a.prenom} ${a.nom} — ${a.entreprise}`;
+  document.getElementById('modal-body').innerHTML = `
+    <div>
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem">Informations</div>
+      <div style="display:flex;flex-direction:column;gap:.35rem">
+        ${field('SIRET', a.siret)}
+        ${field('Téléphone', `<a href="tel:${a.tel}" style="color:var(--blue)">${a.tel}</a>`)}
+        ${field('Email', ``)}
+        ${field('Spécialité', a.metier)}
+        ${field('Zones IDF', a.zones)}
+        ${field('Expérience', a.experience)}
+        ${field('Dossier reçu', a.date)}
+        ${field('Statut actuel', `<span style="font-weight:700;color:${a.status==='approved'?'var(--green)':a.status==='rejected'?'var(--red)':'var(--amber)'}">${{pending:'En attente',approved:'Validé',rejected:'Refusé'}[a.status]}</span>`)}
+        ${a.rejectReason ? field('Motif refus', `<span style="color:var(--red)">${a.rejectReason}</span>`) : ''}
+      </div>
+    </div>
+    <div>
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem">Documents</div>
+      <div class="modal-docs">${docsHtml}</div>
+    </div>
+    ${a.status === 'rejected' ? `
+    <div style="padding:.9rem 1rem;background:var(--red-l);border-radius:var(--r-md)">
+      <div style="font-size:.75rem;font-weight:700;color:var(--red);margin-bottom:.3rem">Motif de refus envoyé à l'artisan</div>
+      <p style="font-size:.8rem;color:#991B1B">${a.rejectReason || 'Non précisé'}</p>
+    </div>` : ''}
+  `;
+
+  // Boutons modal
+  document.getElementById('modal-btn-approve').style.display = a.status !== 'approved' ? 'block' : 'none';
+  document.getElementById('modal-btn-reject').style.display  = a.status !== 'rejected' ? 'block' : 'none';
+  document.getElementById('modal-btn-approve').onclick = () => { changeStatus(id, 'approved'); closeModal(); };
+  document.getElementById('modal-btn-reject').onclick  = () => {
+    const reason = prompt('Motif du refus (sera envoyé par email à l\'artisan) :');
+    if (reason !== null) { changeStatus(id, 'rejected', reason); closeModal(); }
+  };
+
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('modal').focus();
+}
+
+function closeModal() {
+  document.getElementById('modal').classList.remove('open');
+  currentArtisanId = null;
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function field(label, val) {
+  return `<div class="modal-field"><span>${label} :</span><strong>${val}</strong></div>`;
+}
+
+// ══════════════════════════════════════════════════════════════
+// ACTIONS — VALIDER / REFUSER
+// ══════════════════════════════════════════════════════════════
+function changeStatus(id, newStatus, reason) {
+  const idx = artisans.findIndex(a => a.id === id);
+  if (idx < 0) return;
+  artisans[idx].status = newStatus;
+  if (reason) artisans[idx].rejectReason = reason;
+
+  // ── En PRODUCTION : appel API ici ──
+  // await fetch('https://api.airtable.com/v0/BASE_ID/Artisans/' + id, {
+  //   method: 'PATCH',
+  //   headers: { Authorization: 'Bearer YOUR_TOKEN', 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ fields: { Statut: newStatus } })
+  // });
+  // Make.com détecte le changement → envoie l'email automatiquement
+
+  const msgs = {
+    approved: `✅ ${artisans[idx].prenom} ${artisans[idx].nom} validé — email de confirmation envoyé.`,
+    rejected: `❌ ${artisans[idx].prenom} ${artisans[idx].nom} refusé — email de notification envoyé.`,
+  };
+  showToast(msgs[newStatus], newStatus === 'approved' ? 'success' : 'error');
+  renderAll();
+}
+
+// ══════════════════════════════════════════════════════════════
+// FILTRES + RECHERCHE
+// ══════════════════════════════════════════════════════════════
+function applyFilter(filter, btn) {
+  currentFilter = filter;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderList();
+}
+function applySearch(q) {
+  currentSearch = q;
+  renderList();
+}
+
+// ══════════════════════════════════════════════════════════════
+// TOAST
+// ══════════════════════════════════════════════════════════════
+let toastTimer;
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className   = `toast ${type} show`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 3500);
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rejoindre le réseau — TravauxParfait Artisans</title>
+<meta name="description" content="Inscrivez-vous au réseau TravauxParfait et recevez des demandes qualifiées de particuliers en Île-de-France.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root{
+  --navy:#0B1F3A; --blue:#1A56DB; --blue-h:#1446BB; --blue-l:#EBF2FF;
+  --green:#15803D; --green-l:#DCFCE7; --green-d:#166534;
+  --orange:#E8580C; --org-l:#FEF0E7;
+  --amber:#D97706; --amber-l:#FEF3C7;
+  --red:#DC2626; --red-l:#FEF2F2;
+  --cream:#F8F6F1; --light:#FAFAF8; --mid:#5A6478; --border:#E4E4E0; --white:#FFFFFF;
+  --ff-serif:'Playfair Display',Georgia,serif;
+  --ff-sans:'DM Sans',system-ui,sans-serif;
+  --nav-h:64px; --gutter:5%; --max-w:720px;
+  --r:6px; --r-md:12px; --r-lg:18px; --r-xl:24px; --r-full:100px;
+  --sh-sm:0 1px 6px rgba(11,31,58,.06); --sh-md:0 4px 20px rgba(11,31,58,.10);
+  --sh-lg:0 10px 40px rgba(11,31,58,.14);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--ff-sans);background:var(--cream);color:var(--navy);-webkit-font-smoothing:antialiased;padding-top:var(--nav-h)}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--gutter);background:rgba(250,250,248,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);box-shadow:var(--sh-sm)}
+.nav__logo{display:flex;align-items:center;gap:.55rem;font-family:var(--ff-serif);font-size:1.2rem;font-weight:700;color:var(--navy);margin-right:auto}
+.nav__logo-text em{font-style:normal;color:var(--blue)}
+.nav__back{font-size:.82rem;color:var(--mid);display:flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s}
+.nav__back:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── LAYOUT ── */
+.page{max-width:var(--max-w);margin:0 auto;padding:3rem var(--gutter) 5rem}
+
+/* ── HERO PAGE ── */
+.page-hero{margin-bottom:2.5rem}
+.page-hero__kicker{display:inline-flex;align-items:center;gap:.4rem;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green);background:var(--green-l);border:1px solid rgba(21,128,61,.2);padding:.28rem .8rem;border-radius:var(--r-full);margin-bottom:1rem}
+.page-hero h1{font-family:var(--ff-serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;line-height:1.1;letter-spacing:-.025em;margin-bottom:.8rem}
+.page-hero h1 em{font-style:italic;color:var(--blue)}
+.page-hero p{font-size:.95rem;color:var(--mid);line-height:1.7;max-width:52ch}
+
+/* ── STEPS INDICATEUR ── */
+.steps-bar{display:flex;align-items:center;gap:0;margin-bottom:2.5rem}
+.step-item{display:flex;align-items:center;gap:.5rem;flex:1}
+.step-item:last-child{flex:none}
+.step-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0;transition:all .3s}
+.step-num.done{background:var(--green);color:var(--white)}
+.step-num.active{background:var(--navy);color:var(--white)}
+.step-num.pending{background:var(--border);color:var(--mid)}
+.step-label{font-size:.72rem;font-weight:500;color:var(--mid);white-space:nowrap;display:none}
+.step-line{flex:1;height:2px;background:var(--border);margin:0 .5rem;transition:background .3s}
+.step-line.done{background:var(--green)}
+
+/* ── CARD FORMULAIRE ── */
+.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--sh-md);overflow:hidden}
+.form-card__header{padding:1.3rem 1.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.form-card__header h2{font-family:var(--ff-serif);font-size:1.1rem;font-weight:700;color:var(--navy)}
+.form-card__header span{font-size:.75rem;color:var(--mid);font-weight:500}
+.form-card__body{padding:1.6rem}
+.form-card__footer{padding:1rem 1.6rem;background:var(--cream);border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+
+/* ── CHAMPS ── */
+.field{display:flex;flex-direction:column;gap:.3rem;margin-bottom:1.1rem}
+.field:last-of-type{margin-bottom:0}
+.field-label{font-size:.78rem;font-weight:600;color:var(--navy)}
+.field-label .req{color:var(--orange)}
+.field-hint{font-size:.7rem;color:var(--mid);line-height:1.4;margin-top:.15rem}
+.fi{padding:.68rem .95rem;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--ff-sans);font-size:.9rem;color:var(--navy);background:var(--white);outline:none;width:100%;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none}
+.fi:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+.fi.error{border-color:var(--red);box-shadow:0 0 0 3px rgba(220,38,38,.08)}
+select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A6478' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.4rem;cursor:pointer}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.field-error{font-size:.7rem;color:var(--red);margin-top:.25rem;display:none}
+.field-error.visible{display:block}
+
+/* ── CHECKBOX ── */
+.check-group{display:flex;align-items:flex-start;gap:.55rem}
+.check-group input[type=checkbox]{margin-top:.2rem;flex-shrink:0;accent-color:var(--blue);width:16px;height:16px;cursor:pointer}
+.check-group label{font-size:.8rem;color:var(--mid);line-height:1.55;cursor:pointer}
+.check-group label a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+
+/* ── UPLOAD ZONE ── */
+.upload-zone{border:2px dashed var(--border);border-radius:var(--r-md);padding:1.4rem;text-align:center;cursor:pointer;transition:all .2s;background:var(--light);position:relative}
+.upload-zone:hover,.upload-zone.dragover{border-color:var(--blue);background:var(--blue-l)}
+.upload-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%}
+.upload-zone__icon{font-size:1.8rem;margin-bottom:.5rem;display:block}
+.upload-zone__text{font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.upload-zone__hint{font-size:.72rem;color:var(--mid)}
+.upload-preview{margin-top:.6rem;display:flex;flex-direction:column;gap:.35rem}
+.upload-file{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;background:var(--green-l);border:1px solid rgba(21,128,61,.2);border-radius:var(--r)}
+.upload-file__icon{font-size:.9rem}
+.upload-file__name{font-size:.75rem;font-weight:500;color:var(--green-d);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.upload-file__rm{font-size:.75rem;color:var(--mid);cursor:pointer;padding:2px 6px;border-radius:4px;transition:background .15s;flex-shrink:0}
+.upload-file__rm:hover{background:var(--border)}
+
+/* ── ZONE ÉTAPES ── */
+.form-step{display:none;flex-direction:column;gap:0}
+.form-step.active{display:flex}
+
+/* ── BOUTONS ── */
+.btn-primary{background:var(--blue);color:var(--white);padding:.78rem 1.8rem;border-radius:var(--r);font-size:.92rem;font-weight:600;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:all .18s}
+.btn-primary:hover{background:var(--blue-h);transform:translateY(-1px);box-shadow:0 4px 16px rgba(26,86,219,.25)}
+.btn-primary:disabled{background:var(--mid);transform:none;cursor:not-allowed}
+.btn-secondary{background:transparent;color:var(--mid);padding:.78rem 1.4rem;border-radius:var(--r);font-size:.92rem;font-weight:500;border:1.5px solid var(--border);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem;transition:all .18s}
+.btn-secondary:hover{border-color:var(--navy);color:var(--navy)}
+
+/* ── SECTION TITLE ── */
+.section-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:.8rem;margin-top:1.4rem;padding-bottom:.4rem;border-bottom:1px solid var(--border)}
+.section-label:first-child{margin-top:0}
+
+/* ── AVANTAGES (sidebar) ── */
+.perks{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem;padding:1.2rem;background:var(--blue-l);border:1px solid rgba(26,86,219,.15);border-radius:var(--r-lg)}
+.perk{display:flex;align-items:flex-start;gap:.65rem}
+.perk-icon{font-size:1rem;flex-shrink:0;margin-top:.05rem}
+.perk-text strong{display:block;font-size:.85rem;font-weight:600;color:var(--navy);margin-bottom:.1rem}
+.perk-text span{font-size:.76rem;color:var(--mid)}
+
+/* ── STATES ── */
+.form-loading{display:none;flex-direction:column;align-items:center;gap:1rem;padding:3rem;text-align:center}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:36px;height:36px;border-radius:50%;border:3px solid var(--blue-l);border-top-color:var(--blue);animation:spin .7s linear infinite}
+.form-success{display:none;flex-direction:column;align-items:center;gap:1rem;padding:2.5rem;text-align:center}
+.form-success h3{font-family:var(--ff-serif);font-size:1.4rem;color:var(--green)}
+.form-success p{font-size:.9rem;color:var(--mid);line-height:1.65;max-width:42ch}
+.success-steps{display:flex;flex-direction:column;gap:.5rem;margin-top:.5rem;text-align:left;background:var(--green-l);border-radius:var(--r-md);padding:1rem 1.2rem}
+.success-step{display:flex;align-items:center;gap:.6rem;font-size:.82rem;color:var(--green-d)}
+.success-step::before{content:'✓';font-weight:700;color:var(--green);flex-shrink:0}
+
+/* ── BADGE CONDITIONS ── */
+.conditions-card{background:var(--amber-l);border:1px solid rgba(217,119,6,.25);border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1.5rem}
+.conditions-card h3{font-size:.82rem;font-weight:700;color:var(--amber);margin-bottom:.5rem}
+.conditions-card ul{display:flex;flex-direction:column;gap:.35rem}
+.conditions-card li{font-size:.78rem;color:#92400E;display:flex;align-items:center;gap:.5rem}
+.conditions-card li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+
+/* ── RESPONSIVE ── */
+@media(min-width:600px){
+  .step-label{display:block}
+  .field-row{gap:1rem}
+}
+@media(min-width:768px){
+  .page{padding:3.5rem var(--gutter) 5rem}
+}
+</style>
+</head>
+<body>
+
+<form name="tp-inscription-artisan" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="tp-inscription-artisan">
+  <input name="bot-field">
+  <input name="prenom"><input name="nom"><input name="entreprise">
+  <input name="siret"><input name="tel"><input name="email">
+  <input name="metier"><input name="zones"><input name="experience">
+</form>
+
+
+<!-- NAV -->
+<nav class="nav" role="navigation" aria-label="Navigation">
+  <a href="/index.html" class="nav__logo">
+    <svg width="30" height="30" viewBox="0 0 34 34" fill="none" aria-hidden="true" style="flex-shrink:0">
+      <rect width="34" height="34" rx="7" fill="#0B1F3A"/>
+      <path d="M17 8L7 16h3v9h6v-5h2v5h6v-9h3L17 8z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="none" opacity=".7"/>
+      <circle cx="24" cy="24" r="6" fill="#15803D"/>
+      <path d="M21.5 24l1.8 1.8 3.2-3.2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav__logo-text">Travaux<em>Parfait</em></span>
+  </a>
+  <a href="/index.html" class="nav__back" aria-label="Retour à l'accueil">← Accueil</a>
+</nav>
+
+<main class="page" id="main">
+
+  <!-- En-tête -->
+  <div class="page-hero">
+    <div class="page-hero__kicker">🔧 Espace Artisans RGE</div>
+    <h1>Rejoignez le réseau<br><em>TravauxParfait</em></h1>
+    <p>Recevez des demandes qualifiées de particuliers en Île-de-France. Sans prospection, sans concurrence directe. Un dossier à remplir, on s'occupe du reste.</p>
+  </div>
+
+  <!-- Avantages -->
+  <div class="perks" role="list" aria-label="Avantages du réseau">
+    <div class="perk" role="listitem">
+      <span class="perk-icon" aria-hidden="true">📍</span>
+      <div class="perk-text">
+        <strong>Leads géolocalisés dans votre zone</strong>
+        <span>Vous choisissez vos départements d'intervention</span>
+      </div>
+    </div>
+    <div class="perk" role="listitem">
+      <span class="perk-icon" aria-hidden="true">🎯</span>
+      <div class="perk-text">
+        <strong>1 seul artisan par demande</strong>
+        <span>Pas de guerre des prix avec 10 concurrents sur le même lead</span>
+      </div>
+    </div>
+    <div class="perk" role="listitem">
+      <span class="perk-icon" aria-hidden="true">🚀</span>
+      <div class="perk-text">
+        <strong>Réseau en démarrage — conditions préférentielles</strong>
+        <span>Les premiers partenaires bénéficient des meilleurs tarifs</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Conditions requises -->
+  <div class="conditions-card" role="note">
+    <h3>⚠️ Conditions requises pour intégrer le réseau</h3>
+    <ul>
+      <li>Certification RGE en cours de validité (selon spécialité)</li>
+      <li>Assurance décennale + RC Pro — attestation < 12 mois</li>
+      <li>SIRET actif — extrait Kbis de moins de 3 mois</li>
+      <li>Zone d'intervention en Île-de-France (75, 77, 78, 91, 92, 93, 94, 95)</li>
+    </ul>
+  </div>
+
+  <!-- Indicateur d'étapes -->
+  <div class="steps-bar" role="list" aria-label="Étapes d'inscription">
+    <div class="step-item" role="listitem">
+      <div class="step-num active" id="snum1" aria-current="step">1</div>
+      <span class="step-label" id="slabel1">Informations</span>
+    </div>
+    <div class="step-line" id="sline1" aria-hidden="true"></div>
+    <div class="step-item" role="listitem">
+      <div class="step-num pending" id="snum2">2</div>
+      <span class="step-label" id="slabel2">Documents</span>
+    </div>
+    <div class="step-line" id="sline2" aria-hidden="true"></div>
+    <div class="step-item" role="listitem">
+      <div class="step-num pending" id="snum3">3</div>
+      <span class="step-label" id="slabel3">Confirmation</span>
+    </div>
+  </div>
+
+  <!-- CARTE FORMULAIRE -->
+  <div class="form-card" id="form-card">
+
+    <!-- ÉTAPE 1 — Informations -->
+    <div class="form-card__header" id="step-header">
+      <h2 id="step-title">Vos informations</h2>
+      <span id="step-count">Étape 1 sur 3</span>
+    </div>
+    <div class="form-card__body">
+
+      <!-- Chargement -->
+      <div class="form-loading" id="form-loading" aria-hidden="true">
+        <div class="spinner" aria-hidden="true"></div>
+        <p style="font-size:.88rem;color:var(--mid)">Envoi de votre dossier en cours…</p>
+      </div>
+
+      <!-- Succès -->
+      <div class="form-success" id="form-success" role="status" aria-live="assertive">
+        <div style="font-size:3rem" aria-hidden="true">✅</div>
+        <h3>Dossier reçu !</h3>
+        <p>Votre candidature est entre nos mains. Nous vérifions vos documents et vous répondons sous <strong>48h ouvrées</strong>.</p>
+        <div class="success-steps" role="list">
+          <div class="success-step" role="listitem">Dossier reçu et horodaté</div>
+          <div class="success-step" role="listitem">Vérification RGE + Décennale par notre équipe</div>
+          <div class="success-step" role="listitem">Email de validation (ou de complément demandé)</div>
+          <div class="success-step" role="listitem">Accès aux leads de votre zone activé</div>
+        </div>
+        <a href="/index.html" style="margin-top:1rem;font-size:.85rem;color:var(--blue);text-decoration:underline">← Retour à l'accueil</a>
+      </div>
+
+      <!-- ÉTAPE 1 -->
+      <div class="form-step active" id="step1">
+        <p class="section-label">Identité professionnelle</p>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="prenom">Prénom <span class="req">*</span></label>
+            <input class="fi" type="text" id="prenom" name="prenom" placeholder="Jean" required autocomplete="given-name">
+            <span class="field-error" id="err-prenom">Prénom requis</span>
+          </div>
+          <div class="field">
+            <label class="field-label" for="nom">Nom <span class="req">*</span></label>
+            <input class="fi" type="text" id="nom" name="nom" placeholder="Dupont" required autocomplete="family-name">
+            <span class="field-error" id="err-nom">Nom requis</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="entreprise">Nom de l'entreprise <span class="req">*</span></label>
+          <input class="fi" type="text" id="entreprise" name="entreprise" placeholder="Dupont Électricité SARL" required>
+          <span class="field-error" id="err-entreprise">Nom d'entreprise requis</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="siret">Numéro SIRET <span class="req">*</span></label>
+          <input class="fi" type="text" id="siret" name="siret" placeholder="123 456 789 00012" required maxlength="17" inputmode="numeric">
+          <span class="field-hint">14 chiffres — visible sur votre Kbis</span>
+          <span class="field-error" id="err-siret">SIRET invalide (14 chiffres requis)</span>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label class="field-label" for="tel">Téléphone <span class="req">*</span></label>
+            <input class="fi" type="tel" id="tel" name="tel" placeholder="06 12 34 56 78" required autocomplete="tel">
+            <span class="field-error" id="err-tel">Numéro invalide</span>
+          </div>
+          <div class="field">
+            <label class="field-label" for="email">Email professionnel <span class="req">*</span></label>
+            <input class="fi" type="email" id="email" name="email" placeholder="jean@dupont-elec.fr" required autocomplete="email">
+            <span class="field-error" id="err-email">Email invalide</span>
+          </div>
+        </div>
+
+        <p class="section-label" style="margin-top:1.4rem">Spécialité & zone</p>
+
+        <div class="field">
+          <label class="field-label" for="metier">Votre spécialité principale <span class="req">*</span></label>
+          <select class="fi" id="metier" name="metier" required>
+            <option value="">— Sélectionnez —</option>
+            <option value="electricien">Électricien</option>
+            <option value="plombier">Plombier</option>
+            <option value="chauffagiste">Chauffagiste / PAC</option>
+            <option value="climatisation">Climatisation</option>
+            <option value="vmc">VMC / Ventilation</option>
+            <option value="isolation">Isolation</option>
+            <option value="multi">Plusieurs spécialités</option>
+          </select>
+          <span class="field-error" id="err-metier">Sélectionnez une spécialité</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label">Zones d'intervention <span class="req">*</span></label>
+          <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin-top:.3rem" role="group" aria-label="Départements IDF">
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="75" class="zone-check" style="accent-color:var(--blue)"> 75 — Paris
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="92" class="zone-check" style="accent-color:var(--blue)"> 92 — Hauts-de-Seine
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="78" class="zone-check" style="accent-color:var(--blue)"> 78 — Yvelines
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="77" class="zone-check" style="accent-color:var(--blue)"> 77 — Seine-et-Marne
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="91" class="zone-check" style="accent-color:var(--blue)"> 91 — Essonne
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="93" class="zone-check" style="accent-color:var(--blue)"> 93 — Seine-Saint-Denis
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="94" class="zone-check" style="accent-color:var(--blue)"> 94 — Val-de-Marne
+            </label>
+            <label style="display:flex;align-items:center;gap:.5rem;font-size:.82rem;color:var(--navy);cursor:pointer;padding:.45rem .6rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s" class="zone-label">
+              <input type="checkbox" name="zones" value="95" class="zone-check" style="accent-color:var(--blue)"> 95 — Val-d'Oise
+            </label>
+          </div>
+          <span class="field-error" id="err-zones">Sélectionnez au moins un département</span>
+        </div>
+
+        <div class="field">
+          <label class="field-label" for="experience">Années d'expérience <span class="req">*</span></label>
+          <select class="fi" id="experience" name="experience" required>
+            <option value="">— Sélectionnez —</option>
+            <option value="1-3">1 à 3 ans</option>
+            <option value="3-5">3 à 5 ans</option>
+            <option value="5-10">5 à 10 ans</option>
+            <option value="10+">Plus de 10 ans</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 2 — Documents -->
+      <div class="form-step" id="step2">
+        <p class="section-label">Documents obligatoires</p>
+        <p style="font-size:.82rem;color:var(--mid);line-height:1.6;margin-bottom:1.2rem">Ces documents sont nécessaires pour valider votre profil. Formats acceptés : PDF, JPG, PNG. Taille max : 5 Mo par fichier.</p>
+
+        <!-- RGE -->
+        <div class="field">
+          <label class="field-label">Certificat RGE <span class="req">*</span>
+            <span style="font-size:.68rem;font-weight:400;color:var(--mid)">— Registre ADEME, en cours de validité</span>
+          </label>
+          <div class="upload-zone" id="zone-rge" ondragover="dragOver(event,'zone-rge')" ondragleave="dragLeave('zone-rge')" ondrop="dropFile(event,'rge','zone-rge')">
+            <input type="file" id="file-rge" name="rge" accept=".pdf,.jpg,.jpeg,.png" onchange="fileSelected(this,'rge','zone-rge')">
+            <span class="upload-zone__icon" aria-hidden="true">🏆</span>
+            <div class="upload-zone__text">Cliquez ou glissez votre certificat RGE</div>
+            <div class="upload-zone__hint">PDF, JPG, PNG — max 5 Mo</div>
+          </div>
+          <div class="upload-preview" id="preview-rge"></div>
+          <span class="field-error" id="err-rge">Certificat RGE requis</span>
+        </div>
+
+        <!-- Décennale -->
+        <div class="field">
+          <label class="field-label">Attestation assurance décennale <span class="req">*</span>
+            <span style="font-size:.68rem;font-weight:400;color:var(--mid)">— Moins de 12 mois</span>
+          </label>
+          <div class="upload-zone" id="zone-decennale" ondragover="dragOver(event,'zone-decennale')" ondragleave="dragLeave('zone-decennale')" ondrop="dropFile(event,'decennale','zone-decennale')">
+            <input type="file" id="file-decennale" name="decennale" accept=".pdf,.jpg,.jpeg,.png" onchange="fileSelected(this,'decennale','zone-decennale')">
+            <span class="upload-zone__icon" aria-hidden="true">🛡️</span>
+            <div class="upload-zone__text">Cliquez ou glissez votre attestation décennale</div>
+            <div class="upload-zone__hint">PDF, JPG, PNG — max 5 Mo</div>
+          </div>
+          <div class="upload-preview" id="preview-decennale"></div>
+          <span class="field-error" id="err-decennale">Attestation décennale requise</span>
+        </div>
+
+        <!-- Kbis -->
+        <div class="field">
+          <label class="field-label">Extrait Kbis <span class="req">*</span>
+            <span style="font-size:.68rem;font-weight:400;color:var(--mid)">— Moins de 3 mois</span>
+          </label>
+          <div class="upload-zone" id="zone-kbis" ondragover="dragOver(event,'zone-kbis')" ondragleave="dragLeave('zone-kbis')" ondrop="dropFile(event,'kbis','zone-kbis')">
+            <input type="file" id="file-kbis" name="kbis" accept=".pdf,.jpg,.jpeg,.png" onchange="fileSelected(this,'kbis','zone-kbis')">
+            <span class="upload-zone__icon" aria-hidden="true">📄</span>
+            <div class="upload-zone__text">Cliquez ou glissez votre extrait Kbis</div>
+            <div class="upload-zone__hint">PDF, JPG, PNG — max 5 Mo</div>
+          </div>
+          <div class="upload-preview" id="preview-kbis"></div>
+          <span class="field-error" id="err-kbis">Kbis requis</span>
+        </div>
+
+        <p class="section-label" style="margin-top:1.4rem">Document optionnel</p>
+
+        <!-- RC Pro -->
+        <div class="field">
+          <label class="field-label">RC Pro
+            <span style="font-size:.68rem;font-weight:400;color:var(--mid)">— Recommandée</span>
+          </label>
+          <div class="upload-zone" id="zone-rcpro" ondragover="dragOver(event,'zone-rcpro')" ondragleave="dragLeave('zone-rcpro')" ondrop="dropFile(event,'rcpro','zone-rcpro')">
+            <input type="file" id="file-rcpro" name="rcpro" accept=".pdf,.jpg,.jpeg,.png" onchange="fileSelected(this,'rcpro','zone-rcpro')">
+            <span class="upload-zone__icon" aria-hidden="true">📋</span>
+            <div class="upload-zone__text">Cliquez ou glissez votre RC Pro</div>
+            <div class="upload-zone__hint">PDF, JPG, PNG — max 5 Mo — Optionnel</div>
+          </div>
+          <div class="upload-preview" id="preview-rcpro"></div>
+        </div>
+
+        <div style="margin-top:1.4rem;padding:1rem;background:var(--cream);border-radius:var(--r-md)">
+          <p style="font-size:.75rem;color:var(--mid);line-height:1.6">🔒 Vos documents sont chiffrés et transmis de manière sécurisée. Ils ne sont accessibles qu'à l'équipe TravauxParfait dans le cadre de la vérification de votre dossier. Ils ne sont jamais partagés avec des tiers.</p>
+        </div>
+      </div>
+
+      <!-- ÉTAPE 3 — Confirmation -->
+      <div class="form-step" id="step3">
+        <p class="section-label">Récapitulatif de votre dossier</p>
+
+        <div id="recap-infos" style="background:var(--light);border:1px solid var(--border);border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1.2rem;display:flex;flex-direction:column;gap:.4rem">
+          <!-- Rempli par JS -->
+        </div>
+
+        <div id="recap-docs" style="background:var(--green-l);border:1px solid rgba(21,128,61,.2);border-radius:var(--r-md);padding:1rem 1.2rem;margin-bottom:1.2rem;display:flex;flex-direction:column;gap:.35rem">
+          <!-- Rempli par JS -->
+        </div>
+
+        <p class="section-label">Conditions d'utilisation</p>
+
+        <div style="display:flex;flex-direction:column;gap:.75rem;margin-bottom:1rem">
+          <div class="check-group">
+            <input type="checkbox" id="cgu" required>
+            <label for="cgu">J'accepte les <a href="/mentions-legales.html" target="_blank">Conditions Générales d'Utilisation</a> et la <a href="/confidentialite.html" target="_blank">Politique de confidentialité</a> de TravauxParfait.</label>
+          </div>
+          <div class="check-group">
+            <input type="checkbox" id="certif" required>
+            <label for="certif">Je certifie que les documents fournis sont authentiques, en cours de validité, et correspondent à mon activité professionnelle.</label>
+          </div>
+          <div class="check-group">
+            <input type="checkbox" id="comm">
+            <label for="comm">J'accepte de recevoir des informations sur le réseau TravauxParfait (nouvelles demandes, actualités). Désinscription possible à tout moment.</label>
+          </div>
+        </div>
+
+        <span class="field-error" id="err-checks">Veuillez accepter les conditions obligatoires</span>
+      </div>
+
+    </div><!-- /.form-card__body -->
+
+    <div class="form-card__footer" id="form-footer">
+      <button type="button" class="btn-secondary" id="btn-prev" onclick="prevStep()" style="display:none">← Retour</button>
+      <div style="flex:1"></div>
+      <button type="button" class="btn-primary" id="btn-next" onclick="nextStep()">
+        Continuer → <span id="btn-next-label"></span>
+      </button>
+    </div>
+
+  </div><!-- /.form-card -->
+
+</main>
+
+<script>
+'use strict';
+
+// ── État ──────────────────────────────────────────────────
+let currentStep = 1;
+const totalSteps = 3;
+const uploadedFiles = { rge: null, decennale: null, kbis: null, rcpro: null };
+
+// ── Navigation étapes ──────────────────────────────────────
+function updateStepUI() {
+  // Steps bar
+  for (let i = 1; i <= totalSteps; i++) {
+    const num  = document.getElementById('snum' + i);
+    const line = document.getElementById('sline' + i);
+    if (i < currentStep) {
+      num.className = 'step-num done';
+      num.textContent = '✓';
+      if (line) line.className = 'step-line done';
+    } else if (i === currentStep) {
+      num.className = 'step-num active';
+      num.textContent = i;
+      num.setAttribute('aria-current', 'step');
+    } else {
+      num.className = 'step-num pending';
+      num.textContent = i;
+      num.removeAttribute('aria-current');
+    }
+  }
+  // Header
+  const titles = ['Vos informations', 'Vos documents', 'Confirmation'];
+  document.getElementById('step-title').textContent = titles[currentStep - 1];
+  document.getElementById('step-count').textContent = `Étape ${currentStep} sur ${totalSteps}`;
+  // Boutons
+  document.getElementById('btn-prev').style.display = currentStep > 1 ? 'inline-flex' : 'none';
+  const btnNext = document.getElementById('btn-next');
+  if (currentStep === totalSteps) {
+    btnNext.textContent = 'Envoyer mon dossier ✓';
+  } else {
+    btnNext.innerHTML = 'Continuer <span style="opacity:.7">→</span>';
+  }
+  // Afficher la bonne step
+  for (let i = 1; i <= totalSteps; i++) {
+    const el = document.getElementById('step' + i);
+    if (el) { el.classList.toggle('active', i === currentStep); }
+  }
+  // Scroll haut
+  document.getElementById('form-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function nextStep() {
+  if (!validateStep(currentStep)) return;
+  if (currentStep === totalSteps) { submitForm(); return; }
+  if (currentStep === 2) buildRecap();
+  currentStep++;
+  updateStepUI();
+}
+function prevStep() {
+  if (currentStep > 1) { currentStep--; updateStepUI(); }
+}
+
+// ── Validation ────────────────────────────────────────────
+function showErr(id, show) {
+  const el = document.getElementById('err-' + id);
+  if (el) el.classList.toggle('visible', show);
+}
+function setFieldErr(id, hasErr) {
+  const fi = document.getElementById(id);
+  if (fi) fi.classList.toggle('error', hasErr);
+  showErr(id, hasErr);
+}
+function validTel(v) { return /^(\+33|0033|0)[1-9](\s?\d{2}){4}$/.test(v.replace(/\s/g,'')); }
+function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+function validSiret(v) { return /^\d{14}$/.test(v.replace(/[\s.]/g,'')); }
+
+function validateStep(step) {
+  let ok = true;
+  if (step === 1) {
+    const fields = ['prenom','nom','entreprise','siret','tel','email','metier'];
+    const validators = {
+      prenom: v => v.trim().length >= 2,
+      nom:    v => v.trim().length >= 2,
+      entreprise: v => v.trim().length >= 2,
+      siret:  v => validSiret(v),
+      tel:    v => validTel(v),
+      email:  v => validEmail(v),
+      metier: v => v !== '',
+    };
+    fields.forEach(id => {
+      const fi = document.getElementById(id);
+      const valid = fi && validators[id](fi.value);
+      setFieldErr(id, !valid);
+      if (!valid) ok = false;
+    });
+    const zones = document.querySelectorAll('.zone-check:checked');
+    showErr('zones', zones.length === 0);
+    if (zones.length === 0) ok = false;
+    // Style des zones cochées
+    document.querySelectorAll('.zone-label').forEach(lbl => {
+      const cb = lbl.querySelector('input');
+      lbl.style.borderColor = cb.checked ? 'var(--blue)' : 'var(--border)';
+      lbl.style.background  = cb.checked ? 'var(--blue-l)' : '';
+    });
+  }
+  if (step === 2) {
+    ['rge','decennale','kbis'].forEach(doc => {
+      const missing = !uploadedFiles[doc];
+      showErr(doc, missing);
+      if (missing) ok = false;
+    });
+  }
+  if (step === 3) {
+    const cgu   = document.getElementById('cgu').checked;
+    const certif = document.getElementById('certif').checked;
+    showErr('checks', !cgu || !certif);
+    if (!cgu || !certif) ok = false;
+  }
+  return ok;
+}
+
+// ── Upload fichiers ────────────────────────────────────────
+function fileSelected(input, docKey, zoneId) {
+  if (!input.files.length) return;
+  const file = input.files[0];
+  if (file.size > 5 * 1024 * 1024) {
+    alert(`Le fichier "${file.name}" dépasse 5 Mo. Compressez-le avant de l'envoyer.`);
+    input.value = ''; return;
+  }
+  uploadedFiles[docKey] = file;
+  renderPreview(docKey, file.name);
+  showErr(docKey, false);
+}
+function dropFile(e, docKey, zoneId) {
+  e.preventDefault();
+  dragLeave(zoneId);
+  const file = e.dataTransfer.files[0];
+  if (!file) return;
+  uploadedFiles[docKey] = file;
+  renderPreview(docKey, file.name);
+  showErr(docKey, false);
+}
+function dragOver(e, zoneId) {
+  e.preventDefault();
+  document.getElementById(zoneId).classList.add('dragover');
+}
+function dragLeave(zoneId) {
+  document.getElementById(zoneId).classList.remove('dragover');
+}
+function renderPreview(docKey, name) {
+  const prev = document.getElementById('preview-' + docKey);
+  prev.innerHTML = `
+    <div class="upload-file">
+      <span class="upload-file__icon" aria-hidden="true">📎</span>
+      <span class="upload-file__name">${name}</span>
+      <button type="button" class="upload-file__rm" onclick="removeFile('${docKey}')" aria-label="Supprimer ${name}">✕</button>
+    </div>`;
+}
+function removeFile(docKey) {
+  uploadedFiles[docKey] = null;
+  document.getElementById('preview-' + docKey).innerHTML = '';
+  document.getElementById('file-' + docKey).value = '';
+}
+
+// ── Récapitulatif ──────────────────────────────────────────
+function buildRecap() {
+  const get = id => document.getElementById(id)?.value || '—';
+  const zones = [...document.querySelectorAll('.zone-check:checked')].map(c => c.value).join(', ');
+  const metierLabels = {
+    electricien:'Électricien', plombier:'Plombier', chauffagiste:'Chauffagiste / PAC',
+    climatisation:'Climatisation', vmc:'VMC / Ventilation', isolation:'Isolation', multi:'Plusieurs spécialités'
+  };
+
+  document.getElementById('recap-infos').innerHTML = `
+    <div style="font-size:.8rem;font-weight:700;color:var(--mid);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.2rem">Informations</div>
+    ${row('Nom', get('prenom') + ' ' + get('nom'))}
+    ${row('Entreprise', get('entreprise'))}
+    ${row('SIRET', get('siret'))}
+    ${row('Téléphone', get('tel'))}
+    ${row('Email', get('email'))}
+    ${row('Spécialité', metierLabels[get('metier')] || get('metier'))}
+    ${row('Zones IDF', zones || '—')}
+    ${row('Expérience', get('experience'))}`;
+
+  const docNames = { rge: 'Certificat RGE', decennale: 'Attestation décennale', kbis: 'Extrait Kbis', rcpro: 'RC Pro' };
+  const docHTML = Object.entries(uploadedFiles)
+    .filter(([, f]) => f)
+    .map(([k, f]) => `<div style="display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--green-d)">✓ <strong>${docNames[k]}</strong> — ${f.name}</div>`)
+    .join('');
+  document.getElementById('recap-docs').innerHTML = `
+    <div style="font-size:.8rem;font-weight:700;color:var(--green-d);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.4rem">Documents joints (${Object.values(uploadedFiles).filter(Boolean).length})</div>
+    ${docHTML}`;
+}
+function row(label, val) {
+  return `<div style="display:flex;gap:.5rem;font-size:.82rem"><span style="color:var(--mid);min-width:90px">${label} :</span><strong>${val}</strong></div>`;
+}
+
+// ── Envoi du formulaire ────────────────────────────────────
+async function submitForm() {
+  // Masquer footer et afficher loading
+  document.getElementById('form-footer').style.display = 'none';
+  document.getElementById('step-header').style.display = 'none';
+  document.getElementById('step3').style.display = 'none';
+  document.getElementById('form-loading').style.display = 'flex';
+
+  // Construire FormData
+  const data = new FormData();
+  data.append('prenom',     document.getElementById('prenom').value);
+  data.append('nom',        document.getElementById('nom').value);
+  data.append('entreprise', document.getElementById('entreprise').value);
+  data.append('siret',      document.getElementById('siret').value);
+  data.append('tel',        document.getElementById('tel').value);
+  data.append('email',      document.getElementById('email').value);
+  data.append('metier',     document.getElementById('metier').value);
+  data.append('experience', document.getElementById('experience').value);
+  data.append('comm',       document.getElementById('comm').checked ? 'oui' : 'non');
+  const zones = [...document.querySelectorAll('.zone-check:checked')].map(c => c.value);
+  data.append('zones', zones.join(', '));
+  Object.entries(uploadedFiles).forEach(([k, f]) => { if (f) data.append(k, f, f.name); });
+
+  try {
+    // Netlify Forms — dossier artisan complet
+    data.append('form-name','tp-inscription-artisan');
+    const res=await fetch('/',{method:'POST',body:data});
+    if(!res.ok) throw new Error('network');
+
+    document.getElementById('form-loading').style.display = 'none';
+    document.getElementById('form-success').style.display = 'flex';
+    document.getElementById('form-success').focus();
+
+  } catch {
+    document.getElementById('form-loading').style.display = 'none';
+    document.getElementById('step3').style.display = 'flex';
+    document.getElementById('step-header').style.display = 'flex';
+    document.getElementById('form-footer').style.display = 'flex';
+    alert('Une erreur est survenue. Réessayez ou contactez-nous sur WhatsApp.');
+  }
+}
+
+// ── SIRET : formater à la frappe ──────────────────────────
+document.getElementById('siret').addEventListener('input', function() {
+  this.value = this.value.replace(/\D/g,'').slice(0,14);
+});
+
+// ── Zones : style au clic ──────────────────────────────────
+document.querySelectorAll('.zone-check').forEach(cb => {
+  cb.addEventListener('change', () => {
+    const lbl = cb.closest('.zone-label') || cb.parentElement;
+    lbl.style.borderColor = cb.checked ? 'var(--blue)' : 'var(--border)';
+    lbl.style.background  = cb.checked ? 'var(--blue-l)' : '';
+  });
+});
+
+// ── Init ──────────────────────────────────────────────────
+updateStepUI();
+</script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions Légales — TravauxParfait</title>
+<meta name="description" content="Mentions légales de TravauxParfait — Plateforme de mise en relation entre particuliers et artisans en Île-de-France.">
+<meta name="robots" content="noindex, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B1F3A;--blue:#1A56DB;--blue-l:#EBF2FF;
+  --green:#15803D;--green-l:#DCFCE7;
+  --cream:#F8F6F1;--light:#FAFAF8;--mid:#5A6478;--border:#E4E4E0;--white:#FFFFFF;
+  --ff-serif:'Playfair Display',Georgia,serif;
+  --ff-sans:'DM Sans',system-ui,sans-serif;
+  --nav-h:64px;--gutter:5%;--max-w:800px;
+  --r:6px;--r-md:12px;--r-lg:18px;--r-full:100px;
+  --sh-sm:0 1px 6px rgba(11,31,58,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:var(--ff-sans);background:var(--light);color:var(--navy);-webkit-font-smoothing:antialiased;padding-top:var(--nav-h)}
+a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+a:hover{color:#1446BB}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--gutter);background:rgba(250,250,248,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);box-shadow:var(--sh-sm)}
+.nav__logo{display:flex;align-items:center;gap:.55rem;font-family:var(--ff-serif);font-size:1.2rem;font-weight:700;color:var(--navy);text-decoration:none;margin-right:auto}
+.nav__logo-text em{font-style:normal;color:var(--blue)}
+.nav__back{font-size:.85rem;color:var(--mid);text-decoration:none;display:flex;align-items:center;gap:.35rem;padding:.5rem 1rem;border:1.5px solid var(--border);border-radius:var(--r);transition:all .15s}
+.nav__back:hover{border-color:var(--navy);color:var(--navy)}
+.nav__back::before{content:'←'}
+
+/* ── LAYOUT ── */
+.page{max-width:var(--max-w);margin:0 auto;padding:3.5rem var(--gutter) 5rem}
+
+/* ── EN-TÊTE PAGE ── */
+.page-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:2px solid var(--navy)}
+.page-header__kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:.7rem}
+.page-header h1{font-family:var(--ff-serif);font-size:clamp(1.8rem,4vw,2.6rem);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:.8rem}
+.page-header__meta{font-size:.8rem;color:var(--mid);line-height:1.6}
+.page-header__meta strong{color:var(--navy)}
+
+/* ── ALERTE MISE EN RELATION ── */
+.alert-mr{background:var(--blue-l);border:1.5px solid rgba(26,86,219,.25);border-radius:var(--r-lg);padding:1.2rem 1.4rem;margin-bottom:2.5rem;display:flex;align-items:flex-start;gap:.85rem}
+.alert-mr__icon{font-size:1.3rem;flex-shrink:0;margin-top:.05rem}
+.alert-mr h2{font-size:.92rem;font-weight:700;color:var(--navy);margin-bottom:.35rem}
+.alert-mr p{font-size:.82rem;color:var(--mid);line-height:1.6}
+
+/* ── SECTIONS ── */
+.ml-section{margin-bottom:2.8rem}
+.ml-section h2{font-family:var(--ff-serif);font-size:1.15rem;font-weight:700;color:var(--navy);margin-bottom:.9rem;padding-bottom:.5rem;border-bottom:1px solid var(--border)}
+.ml-section h3{font-size:.95rem;font-weight:600;color:var(--navy);margin:1.2rem 0 .5rem}
+.ml-section p{font-size:.88rem;color:var(--mid);line-height:1.75;margin-bottom:.7rem}
+.ml-section p:last-child{margin-bottom:0}
+.ml-section strong{color:var(--navy);font-weight:600}
+.ml-section ul{margin:.5rem 0 .8rem 1.2rem;display:flex;flex-direction:column;gap:.4rem}
+.ml-section li{font-size:.88rem;color:var(--mid);line-height:1.65}
+.ml-section li::marker{color:var(--blue)}
+
+/* ── BLOC RESPONSABILITÉ (highlight) ── */
+.resp-block{background:var(--green-l);border:1.5px solid rgba(21,128,61,.25);border-radius:var(--r-lg);padding:1.3rem 1.5rem;margin:1.2rem 0}
+.resp-block h3{font-size:.9rem;font-weight:700;color:var(--green);margin-bottom:.5rem}
+.resp-block p,.resp-block li{font-size:.84rem;color:#166534;line-height:1.65}
+.resp-block ul{margin:.4rem 0 0 1.1rem;display:flex;flex-direction:column;gap:.3rem}
+
+/* ── BLOC AVERTISSEMENT ── */
+.warn-block{background:#FEF3C7;border:1px solid rgba(217,119,6,.3);border-radius:var(--r-md);padding:1rem 1.2rem;margin:1rem 0}
+.warn-block p{font-size:.82rem;color:#92400E;line-height:1.6;margin:0}
+
+/* ── TABLE DES MATIÈRES ── */
+.toc{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.2rem 1.5rem;margin-bottom:2.5rem}
+.toc h2{font-size:.78rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:.8rem}
+.toc ol{margin-left:1.1rem;display:flex;flex-direction:column;gap:.3rem;counter-reset:toc}
+.toc li{font-size:.84rem}
+.toc a{color:var(--navy);text-decoration:none;font-weight:500}
+.toc a:hover{color:var(--blue);text-decoration:underline}
+
+/* ── FOOTER PAGE ── */
+.page-footer{margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--border);display:flex;flex-wrap:wrap;gap:.8rem;justify-content:space-between;align-items:center}
+.page-footer p{font-size:.75rem;color:var(--mid)}
+.page-footer__links{display:flex;gap:1rem;flex-wrap:wrap}
+.page-footer__links a{font-size:.75rem;color:var(--mid)}
+.page-footer__links a:hover{color:var(--navy)}
+
+/* ── NAV LOGO SVG ── */
+.nav__logo-svg{flex-shrink:0}
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Navigation">
+  <a href="/index.html" class="nav__logo" aria-label="TravauxParfait — Accueil">
+    <svg class="nav__logo-svg" width="30" height="30" viewBox="0 0 34 34" fill="none" aria-hidden="true">
+      <rect width="34" height="34" rx="7" fill="#0B1F3A"/>
+      <path d="M17 8L7 16h3v9h6v-5h2v5h6v-9h3L17 8z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="none" opacity=".7"/>
+      <circle cx="24" cy="24" r="6" fill="#15803D"/>
+      <path d="M21.5 24l1.8 1.8 3.2-3.2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav__logo-text">Travaux<em>Parfait</em></span>
+  </a>
+  <a href="/index.html" class="nav__back" aria-label="Retour à l'accueil">Retour à l'accueil</a>
+</nav>
+
+<main class="page" id="main">
+
+  <!-- En-tête -->
+  <header class="page-header">
+    <p class="page-header__kicker">Informations légales</p>
+    <h1>Mentions Légales</h1>
+    <p class="page-header__meta">
+      <strong>Dernière mise à jour :</strong> janvier 2025 ·
+      <strong>Version :</strong> 1.0 ·
+      Document opposable à toute utilisation du site travauxparfait.fr
+    </p>
+  </header>
+
+  <!-- Alerte statut plateforme -->
+  <div class="alert-mr" role="note" aria-label="Statut de la plateforme">
+    <span class="alert-mr__icon" aria-hidden="true">ℹ️</span>
+    <div>
+      <h2>TravauxParfait est une plateforme de mise en relation</h2>
+      <p>TravauxParfait n'est pas une entreprise de travaux et n'intervient à aucun titre dans la réalisation des prestations. Nous mettons en relation des particuliers avec des artisans indépendants. Toute relation contractuelle s'établit exclusivement entre le particulier et l'artisan.</p>
+    </div>
+  </div>
+
+  <!-- Table des matières -->
+  <nav class="toc" aria-label="Table des matières">
+    <h2>Sommaire</h2>
+    <ol>
+      <li><a href="#editeur">Éditeur du site</a></li>
+      <li><a href="#hebergeur">Hébergeur</a></li>
+      <li><a href="#nature">Nature du service — Mise en relation</a></li>
+      <li><a href="#responsabilite">Limitation de responsabilité</a></li>
+      <li><a href="#artisans">Statut des artisans partenaires</a></li>
+      <li><a href="#propriete">Propriété intellectuelle</a></li>
+      <li><a href="#donnees">Données personnelles</a></li>
+      <li><a href="#cookies">Cookies</a></li>
+      <li><a href="#droit">Droit applicable et litiges</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+  <!-- 1. Éditeur -->
+  <section class="ml-section" id="editeur" aria-labelledby="editeur-h2">
+    <h2 id="editeur-h2">1. Éditeur du site</h2>
+    <p>Le site <strong>travauxparfait.fr</strong> est édité par :</p>
+    <ul>
+      <li><strong>Dénomination sociale :</strong> TravauxParfait <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ Forme juridique à compléter</mark></li>
+      <li><strong>Siège social :</strong> <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ Adresse à compléter</mark>, Île-de-France</li>
+      <li><strong>SIRET :</strong> <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ SIRET à compléter</mark></li>
+      <li><strong>RCS :</strong> <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ RCS à compléter</mark></li>
+      <li><strong>Capital social :</strong> <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ Capital à compléter</mark> €</li>
+      <li><strong>Directeur de la publication :</strong> <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ Nom du dirigeant</mark></li>
+      <li><strong>Email :</strong> <a href="/contact.html">Formulaire de contact →</a></li>
+    </ul>
+    <div class="warn-block">
+      <p>⚠️ <strong>À compléter avant mise en ligne :</strong> les informations entre crochets ci-dessus sont obligatoires en application de l'article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l'économie numérique (LCEN). Leur absence expose l'éditeur à des sanctions pénales.</p>
+    </div>
+  </section>
+
+  <!-- 2. Hébergeur -->
+  <section class="ml-section" id="hebergeur" aria-labelledby="hebergeur-h2">
+    <h2 id="hebergeur-h2">2. Hébergeur</h2>
+    <p>Le site travauxparfait.fr est hébergé par :</p>
+    <ul>
+      <li><strong>Société :</strong> Netlify, Inc.</li>
+      <li><strong>Adresse :</strong> 512 2nd Street, Suite 200, San Francisco, CA 94107, États-Unis</li>
+      <li><strong>Site web :</strong> <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">www.netlify.com</a></li>
+    </ul>
+  </section>
+
+  <!-- 3. Nature du service -->
+  <section class="ml-section" id="nature" aria-labelledby="nature-h2">
+    <h2 id="nature-h2">3. Nature du service — Plateforme de mise en relation</h2>
+
+    <h3>3.1 Définition</h3>
+    <p>TravauxParfait est une <strong>plateforme numérique de mise en relation</strong> permettant à des particuliers (ci-après « l'Utilisateur ») de soumettre des demandes de travaux ou d'intervention, et à des artisans indépendants partenaires (ci-après « l'Artisan ») de les contacter directement.</p>
+
+    <div class="resp-block">
+      <h3>✓ Ce que fait TravauxParfait</h3>
+      <ul>
+        <li>Collecter les demandes des particuliers via un formulaire en ligne</li>
+        <li>Identifier parmi son réseau d'artisans partenaires un ou plusieurs profils susceptibles de correspondre à la demande</li>
+        <li>Transmettre les coordonnées du particulier à l'artisan sélectionné pour qu'il prenne contact</li>
+        <li>Vérifier, à titre indicatif et au moment de l'adhésion de l'artisan, certains documents (assurance, SIRET, certification RGE le cas échéant)</li>
+      </ul>
+    </div>
+
+    <h3>3.2 Ce que ne fait pas TravauxParfait</h3>
+    <p>TravauxParfait <strong>n'est pas</strong> :</p>
+    <ul>
+      <li>Une entreprise de travaux, de bâtiment ou d'artisanat</li>
+      <li>Un mandataire ou représentant légal des artisans partenaires</li>
+      <li>Une partie à quelque contrat de prestation que ce soit entre l'Utilisateur et l'Artisan</li>
+      <li>Un garant de la bonne exécution des travaux, du respect des délais ou du prix convenu</li>
+      <li>Un intermédiaire financier encaissant des paiements au titre des prestations réalisées</li>
+    </ul>
+
+    <h3>3.3 Gratuité du service pour les particuliers</h3>
+    <p>La soumission d'une demande via la plateforme est <strong>entièrement gratuite</strong> pour les particuliers. TravauxParfait se rémunère auprès des artisans partenaires par un abonnement d'accès au réseau, indépendant du résultat de la mise en relation.</p>
+  </section>
+
+  <!-- 4. Limitation de responsabilité -->
+  <section class="ml-section" id="responsabilite" aria-labelledby="resp-h2">
+    <h2 id="resp-h2">4. Limitation de responsabilité</h2>
+
+    <h3>4.1 Absence de responsabilité sur les prestations</h3>
+    <div class="resp-block">
+      <h3>Dégagement de responsabilité — Prestations de travaux</h3>
+      <p>TravauxParfait intervient exclusivement en qualité d'intermédiaire de mise en relation. En conséquence, <strong>TravauxParfait ne peut être tenu responsable</strong>, à quelque titre que ce soit, des éléments suivants :</p>
+      <ul>
+        <li>La qualité, la conformité, la sécurité ou l'achèvement des travaux réalisés par un Artisan</li>
+        <li>Les dommages matériels, corporels ou immatériels causés lors de l'exécution des prestations</li>
+        <li>Le non-respect par l'Artisan de ses obligations contractuelles, légales ou réglementaires</li>
+        <li>Les retards, abandons de chantier ou malfaçons imputables à l'Artisan</li>
+        <li>Les litiges financiers entre l'Utilisateur et l'Artisan (prix, facture, paiement)</li>
+        <li>Les préjudices découlant d'une incompréhension ou d'un désaccord entre l'Utilisateur et l'Artisan sur le périmètre des travaux</li>
+      </ul>
+    </div>
+
+    <h3>4.2 Absence de responsabilité sur la vérification des artisans</h3>
+    <p>Bien que TravauxParfait s'efforce de vérifier, au moment de l'intégration de l'Artisan dans son réseau, certains éléments tels que l'existence d'une assurance décennale, d'un SIRET actif ou d'une certification RGE, ces vérifications sont réalisées <strong>à titre indicatif et ponctuellement</strong>.</p>
+    <p>TravauxParfait <strong>ne garantit pas</strong> :</p>
+    <ul>
+      <li>La validité permanente et continue des documents présentés par l'Artisan</li>
+      <li>L'exactitude, la complétude ou la mise à jour des informations transmises par l'Artisan</li>
+      <li>Le maintien en vigueur des certifications, assurances ou agréments de l'Artisan au moment de l'intervention</li>
+      <li>La qualification professionnelle de l'Artisan pour un type spécifique de travaux</li>
+    </ul>
+    <p>Il appartient à l'Utilisateur de <strong>vérifier lui-même</strong>, avant tout engagement, les certifications, assurances et habilitations de l'Artisan auprès des organismes compétents (ADEME, QUALIBAT, assureur, etc.).</p>
+
+    <h3>4.3 Absence de responsabilité sur la disponibilité</h3>
+    <p>TravauxParfait ne garantit pas qu'un Artisan sera disponible pour chaque demande soumise, ni dans le délai indiqué à titre indicatif. L'absence de mise en relation ne saurait engager la responsabilité de la plateforme.</p>
+
+    <h3>4.4 Responsabilité en matière de contenu</h3>
+    <p>TravauxParfait s'efforce d'assurer l'exactitude des informations publiées sur le site. Toutefois, le site peut contenir des inexactitudes ou des informations non mises à jour. TravauxParfait ne peut être tenu responsable des dommages directs ou indirects résultant de l'utilisation de ces informations.</p>
+
+    <h3>4.5 Liens hypertextes</h3>
+    <p>Le site travauxparfait.fr peut contenir des liens vers des sites tiers. TravauxParfait n'exerce aucun contrôle sur ces sites et décline toute responsabilité quant à leur contenu ou leur politique de confidentialité.</p>
+  </section>
+
+  <!-- 5. Statut des artisans -->
+  <section class="ml-section" id="artisans" aria-labelledby="artisans-h2">
+    <h2 id="artisans-h2">5. Statut des artisans partenaires</h2>
+
+    <h3>5.1 Indépendance des artisans</h3>
+    <p>Les artisans référencés sur TravauxParfait sont des <strong>professionnels indépendants</strong>, exerçant leur activité à titre personnel et sous leur propre responsabilité. Ils ne sont ni employés, ni salariés, ni mandataires, ni sous-traitants de TravauxParfait.</p>
+    <p>Les artisans partenaires agissent en leur nom propre et sont seuls responsables :</p>
+    <ul>
+      <li>De la bonne exécution des prestations acceptées</li>
+      <li>Du respect des règles de l'art et des normes applicables</li>
+      <li>De la facturation et de l'encaissement des sommes dues par le client</li>
+      <li>Du respect de leurs obligations fiscales, sociales et réglementaires</li>
+      <li>Du maintien à jour de leurs assurances et certifications</li>
+    </ul>
+
+    <h3>5.2 Relation contractuelle directe</h3>
+    <p>Tout contrat de prestation de services, tout devis, toute facture et tout paiement s'établissent <strong>directement et exclusivement</strong> entre l'Utilisateur et l'Artisan, sans que TravauxParfait soit partie à cet accord. TravauxParfait n'est en aucun cas intermédiaire de paiement.</p>
+
+    <h3>5.3 Réclamations</h3>
+    <p>En cas de litige relatif à des travaux réalisés par un artisan, l'Utilisateur doit s'adresser directement à l'Artisan concerné, et si nécessaire à son assureur décennale ou à un médiateur de la consommation. TravauxParfait peut, à titre de courtoisie et sans y être légalement tenu, faciliter la communication entre les parties, sans que cette démarche ne constitue une reconnaissance de responsabilité.</p>
+  </section>
+
+  <!-- 6. Propriété intellectuelle -->
+  <section class="ml-section" id="propriete" aria-labelledby="pi-h2">
+    <h2 id="pi-h2">6. Propriété intellectuelle</h2>
+    <p>L'ensemble des éléments constitutifs du site travauxparfait.fr — textes, graphismes, logo, structure, code source — est la propriété exclusive de TravauxParfait ou de ses concédants, et est protégé par le droit d'auteur et les lois sur la propriété intellectuelle.</p>
+    <p>Toute reproduction, représentation, modification, publication ou transmission, totale ou partielle, du site ou de son contenu, par quelque moyen que ce soit, est <strong>interdite sans autorisation écrite préalable</strong> de TravauxParfait.</p>
+    <p>La marque « TravauxParfait » et le logo associé sont des marques appartenant à TravauxParfait. Toute utilisation non autorisée constitue une contrefaçon sanctionnable.</p>
+  </section>
+
+  <!-- 7. Données personnelles -->
+  <section class="ml-section" id="donnees" aria-labelledby="rgpd-h2">
+    <h2 id="rgpd-h2">7. Données personnelles</h2>
+
+    <h3>7.1 Responsable de traitement</h3>
+    <p>TravauxParfait est responsable du traitement des données personnelles collectées via le site, au sens du Règlement (UE) 2016/679 (RGPD) et de la loi n° 78-17 du 6 janvier 1978 relative à l'informatique, aux fichiers et aux libertés.</p>
+
+    <h3>7.2 Données collectées et finalités</h3>
+    <p>Les données collectées via le formulaire de demande (prénom, numéro de téléphone, description du projet, département) sont utilisées aux fins suivantes :</p>
+    <ul>
+      <li>Identifier et contacter un ou plusieurs artisans partenaires susceptibles de répondre à la demande</li>
+      <li>Transmettre les coordonnées de l'Utilisateur à l'Artisan sélectionné, sur la base du consentement explicite de l'Utilisateur</li>
+      <li>Améliorer la qualité du service de mise en relation</li>
+    </ul>
+
+    <div class="resp-block">
+      <h3>✓ Engagement de confidentialité</h3>
+      <p>Les données personnelles des Utilisateurs ne sont <strong>jamais revendues à des tiers</strong>, jamais diffusées à des fins commerciales non consenties, et transmises uniquement aux artisans sélectionnés dans le cadre de la demande expresse de l'Utilisateur.</p>
+    </div>
+
+    <h3>7.3 Base légale</h3>
+    <p>Le traitement est fondé sur le <strong>consentement de l'Utilisateur</strong> (article 6.1.a du RGPD), recueilli via la case à cocher obligatoire du formulaire. Le consentement peut être retiré à tout moment.</p>
+
+    <h3>7.4 Durée de conservation</h3>
+    <p>Les données sont conservées pendant une durée maximale de <strong>12 mois</strong> à compter de la soumission de la demande, puis supprimées, sauf obligation légale de conservation plus longue.</p>
+
+    <h3>7.5 Droits des personnes</h3>
+    <p>Conformément au RGPD et à la loi Informatique et Libertés, vous disposez des droits suivants sur vos données :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> — obtenir une copie des données vous concernant</li>
+      <li><strong>Droit de rectification</strong> — corriger des données inexactes</li>
+      <li><strong>Droit à l'effacement</strong> — demander la suppression de vos données</li>
+      <li><strong>Droit d'opposition</strong> — vous opposer au traitement de vos données</li>
+      <li><strong>Droit à la portabilité</strong> — recevoir vos données dans un format structuré</li>
+      <li><strong>Droit au retrait du consentement</strong> — à tout moment, sans affecter la licéité des traitements antérieurs</li>
+    </ul>
+    <p>Pour exercer ces droits, contactez-nous via notre <a href="/contact.html">formulaire de contact</a>. Vous disposez également du droit d'introduire une réclamation auprès de la <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a> (www.cnil.fr).</p>
+
+    <h3>7.6 Sous-traitants</h3>
+    <p>TravauxParfait peut faire appel à des prestataires techniques (hébergement, formulaires, emails) agissant en qualité de sous-traitants au sens du RGPD. Ces prestataires sont soumis aux mêmes obligations de protection des données et n'utilisent pas les données à des fins propres.</p>
+  </section>
+
+  <!-- 8. Cookies -->
+  <section class="ml-section" id="cookies" aria-labelledby="cookies-h2">
+    <h2 id="cookies-h2">8. Cookies</h2>
+    <p>Le site travauxparfait.fr peut utiliser des cookies techniques nécessaires au bon fonctionnement du site (navigation, préférences de session). Ces cookies ne nécessitent pas de consentement préalable.</p>
+    <p>Aucun cookie publicitaire ou de traçage commercial n'est déposé sans le consentement explicite de l'Utilisateur. Vous pouvez configurer votre navigateur pour refuser les cookies, ce qui peut altérer le fonctionnement du site.</p>
+  </section>
+
+  <!-- 9. Droit applicable -->
+  <section class="ml-section" id="droit" aria-labelledby="droit-h2">
+    <h2 id="droit-h2">9. Droit applicable et litiges</h2>
+    <p>Les présentes mentions légales sont soumises au <strong>droit français</strong>. En cas de litige relatif à l'interprétation ou à l'exécution des présentes, les parties s'engagent à rechercher une solution amiable avant tout recours judiciaire.</p>
+    <p>À défaut d'accord amiable, tout litige sera soumis à la compétence exclusive des <strong>tribunaux compétents du ressort de Paris</strong>, sauf disposition légale impérative contraire applicable au consommateur.</p>
+
+    <h3>Médiation de la consommation</h3>
+    <p>Conformément aux articles L.611-1 et suivants du Code de la consommation, l'Utilisateur peut recourir gratuitement à un médiateur de la consommation en vue de la résolution amiable d'un litige. <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ Médiateur à désigner</mark>.</p>
+  </section>
+
+  <!-- 10. Contact -->
+  <section class="ml-section" id="contact" aria-labelledby="contact-h2">
+    <h2 id="contact-h2">10. Contact</h2>
+    <p>Pour toute question relative aux présentes mentions légales, à la politique de confidentialité ou à l'exercice de vos droits :</p>
+    <ul>
+      <li><strong>Email :</strong> <a href="/contact.html">Formulaire de contact →</a></li>
+      <li><strong>Adresse postale :</strong> <mark style="background:#FEF3C7;padding:0 4px;border-radius:3px">⚠ Adresse à compléter</mark>, Île-de-France</li>
+    </ul>
+    <p>Nous nous engageons à répondre à toute demande dans un délai de <strong>30 jours ouvrés</strong> à compter
+
+    </p>
+  </section>
+
+  <footer class="page-footer" role="contentinfo">
+    <p>© 2025 TravauxParfait · Tous droits réservés</p>
+    <nav class="page-footer__links" aria-label="Autres pages légales">
+      <a href="/index.html">Accueil</a>
+      <a href="/mentions-legales.html#donnees">Confidentialité</a>
+    </nav>
+  </footer>
+
+</main>
+</body>
+</html>

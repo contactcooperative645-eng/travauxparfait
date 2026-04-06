@@ -547,7 +547,7 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
   "@type": "LocalBusiness",
   "name": "TravauxParfait",
   "description": "Plateforme de mise en relation entre particuliers et artisans qualifiés (plombier, électricien, chauffagiste, isolation) en Île-de-France. Devis gratuit sous 48h.",
-  "url": "https://travauxparfait.fr",
+  "url": "https://travauxparfait.netlify.app",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Paris",
@@ -570,6 +570,18 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
 </script>
 </head>
 <body>
+
+<!-- Formulaires Netlify (détection statique obligatoire) -->
+<form name="tp-leads" netlify netlify-honeypot="bot-field" hidden>
+  <input type="hidden" name="form-name" value="tp-leads">
+  <input name="bot-field" type="text">
+  <input type="text" name="type_travaux">
+  <input type="text" name="departement">
+  <input type="text" name="prenom">
+  <input type="tel" name="tel">
+  <textarea name="description"></textarea>
+</form>
+
 
 <!-- ═══════════════════════════════════════════
      NAV
@@ -626,9 +638,9 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
         -->
         <div class="hero__kicker">Île-de-France · Gratuit · Sans engagement</div>
         <h1 id="hero-h1">
-          Recevez jusqu'à 3 devis qualifiés<br>
-          en IDF — <em>sans appeler</em><br>
-          <span class="no">10 entreprises</span>
+          Fini les galères pour<br>
+          trouver <em>un bon artisan</em><br>
+          <span class="no">en IDF</span>
         </h1>
         <p class="hero__sub">
           Vous décrivez votre besoin en 1 minute.
@@ -727,7 +739,7 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
                 </div>
                 <div class="rgpd-row">
                   <input type="checkbox" id="rgpd" name="rgpd" required>
-                  <label for="rgpd">J'accepte que mon prénom et mon téléphone soient transmis à maximum 3 artisans vérifiés pour qu'ils me contactent. <a href="/confidentialite.html">Confidentialité</a></label>
+                  <label for="rgpd">J'accepte que mon prénom et mon téléphone soient transmis à maximum 3 artisans vérifiés pour qu'ils me contactent. <a href="/mentions-legales.html#donnees">Confidentialité</a></label>
                 </div>
                 <div class="anti-spam">Votre numéro n'est jamais envoyé à plusieurs entreprises</div>
                 <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--mid);margin-top:-.2rem">
@@ -771,7 +783,7 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
               <div class="form-success" id="form-success" role="status" aria-live="assertive">
                 <div style="font-size:2.5rem" aria-hidden="true">✅</div>
                 <h3>Demande bien reçue !</h3>
-                <p>Un conseiller TravauxParfait vérifie actuellement la disponibilité des meilleurs artisans dans le <strong id="success-dept">votre département</strong>. Vous recevrez un premier appel ou SMS sous <strong>24h</strong> pour confirmer votre rendez-vous.</p>
+                <p>Un conseiller TravauxParfait vérifie actuellement la disponibilité des meilleurs artisans dans votre département (<strong id="success-dept">bientôt confirmé</strong>). Vous recevrez un premier appel ou SMS sous <strong>24h</strong> pour confirmer votre rendez-vous.</p>
               </div>
 
               <!-- Badge Expertise IDF Validée -->
@@ -1465,7 +1477,7 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
         <h4>Légal</h4>
         <ul>
           <li><a href="/mentions-legales.html">Mentions légales</a></li>
-          <li><a href="/confidentialite.html">Confidentialité</a></li>
+          <li><a href="/mentions-legales.html#donnees">Confidentialité</a></li>
           <li><a href="/cgu.html">CGU</a></li>
         </ul>
       </div>
@@ -1475,7 +1487,7 @@ details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
       <p style="font-size:.65rem;color:rgba(255,255,255,.18);margin-top:.3rem">Expertise locale reconnue pour vos projets de rénovation à Paris (75), Boulogne-Billancourt (92), Versailles (78) et dans toute l'Île-de-France.</p>
       <nav class="footer__legal" aria-label="Liens légaux">
         <a href="/mentions-legales.html">Mentions légales</a>
-        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="/mentions-legales.html#donnees">Confidentialité</a>
         <a href="/cgu.html">CGU</a>
       </nav>
     </div>
@@ -1564,8 +1576,16 @@ tpForm.addEventListener('submit',async e=>{
   document.getElementById('step2').style.display='none';
   formLoad.style.display='flex';
   try{
-    // PRODUCTION: await fetch('https://formspree.io/f/YOUR_ID',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:selectedType,dept:selectedDept,prenom:p.value,tel:t.value,description:document.getElementById('desc').value})});
-    await new Promise(r=>setTimeout(r,1200));
+    // Netlify Forms — envoi réel
+    const fd=new FormData();
+    fd.append('form-name','tp-leads');
+    fd.append('type_travaux',selectedType);
+    fd.append('departement',selectedDept);
+    fd.append('prenom',p.value);
+    fd.append('tel',t.value);
+    fd.append('description',document.getElementById('desc')?.value||'');
+    const r1=await fetch('/',{method:'POST',body:fd});
+    if(!r1.ok) throw new Error('network');
     formLoad.style.display='none';formOk.style.display='flex';
     formOk.setAttribute('tabindex','-1');
     // Injecter le département dans le success state
@@ -1605,8 +1625,16 @@ artForm.addEventListener('submit',async e=>{
   if(!ok)return;
   artBtn.disabled=true;artBtn.textContent='Envoi en cours…';
   try{
-    // PRODUCTION: await fetch('https://formspree.io/f/YOUR_ID',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nom:n.value,tel:t.value,metier:m.value,dept:d.value,source:'artisan'})});
-    await new Promise(r=>setTimeout(r,1000));
+    // Netlify Forms — candidature artisan
+    const fa=new FormData();
+    fa.append('form-name','tp-artisan-quick');
+    fa.append('nom',n.value);
+    fa.append('tel',t.value);
+    fa.append('metier',m.value);
+    fa.append('dept',d.value);
+    fa.append('source','artisan-homepage');
+    const r2=await fetch('/',{method:'POST',body:fa});
+    if(!r2.ok) throw new Error('network');
     artForm.style.display='none';artOk.style.display='block';artForm.reset();
   }catch{artBtn.disabled=false;artBtn.textContent='⚠ Réessayer'}
 });
