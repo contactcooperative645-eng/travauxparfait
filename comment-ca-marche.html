@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comment ça marche — TravauxParfait</title>
+<meta name="description" content="Décrivez votre projet en 90 secondes. Un artisan RGE certifié IDF vous rappelle sous 48h. Gratuit, sans inscription. Comment ça marche.">
+<meta property="og:title" content="Comment ça marche — TravauxParfait">
+<meta property="og:description" content="Décrivez votre projet en 90 secondes. Un artisan RGE certifié vous rappelle sous 48h. Gratuit, sans engagement.">
+<meta property="og:image" content="https://travauxparfait.fr/og-ccm.jpg">
+<meta property="og:url" content="https://travauxparfait.fr/comment-ca-marche.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Schema.org FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "C'est vraiment gratuit pour moi ?",
+      "acceptedAnswer": {"@type": "Answer","text": "Oui, totalement. Les artisans partenaires paient pour accéder à des demandes qualifiées. Vous, vous ne payez rien."}
+    },
+    {
+      "@type": "Question",
+      "name": "Combien d'artisans vont me contacter ?",
+      "acceptedAnswer": {"@type": "Answer","text": "Un seul. Nous sélectionnons l'artisan le plus adapté à votre projet et votre zone. Il vous rappelle directement."}
+    },
+    {
+      "@type": "Question",
+      "name": "Mon numéro de téléphone est-il partagé à tout le monde ?",
+      "acceptedAnswer": {"@type": "Answer","text": "Non. Votre numéro est transmis à un seul artisan RGE vérifié, sélectionné pour votre projet spécifique. Jamais à une liste, jamais revendu."}
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce que la certification RGE ?",
+      "acceptedAnswer": {"@type": "Answer","text": "RGE signifie Reconnu Garant de l'Environnement. C'est la certification officielle qui vous ouvre droit à MaPrimeRénov' et aux CEE. Sans artisan RGE, aucune aide n'est possible."}
+    },
+    {
+      "@type": "Question",
+      "name": "Que se passe-t-il si je ne veux plus être contacté ?",
+      "acceptedAnswer": {"@type": "Answer","text": "Contactez-nous par email ou WhatsApp. Nous informons immédiatement l'artisan et supprimons votre demande."}
+    },
+    {
+      "@type": "Question",
+      "name": "Puis-je bénéficier de MaPrimeRénov' avec vos artisans ?",
+      "acceptedAnswer": {"@type": "Answer","text": "Oui. Tous nos artisans sont certifiés RGE — condition obligatoire pour MaPrimeRénov', les CEE et l'éco-PTZ. Ils vous accompagnent dans les démarches."}
+    }
+  ]
+}
+</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   DESIGN TOKENS — identiques à toutes les pages
+═══════════════════════════════════════════════════════ */
+:root {
+  /* Couleurs */
+  --tp-navy:        #0D1B2A;
+  --tp-navy2:       #162030;
+  --tp-rust:        #C4542A;
+  --tp-rust-h:      #A8441E;
+  --tp-rust-l:      #F6EDE8;
+  --tp-gold:        #C49A28;
+  --tp-gold-l:      #FBF6E6;
+  --tp-sage:        #3A6644;
+  --tp-sage-l:      #EAF2EC;
+  --tp-cream:       #F4EFE6;
+  --tp-light:       #FAF8F4;
+  --tp-mid:         #64748B;
+  --tp-border:      #E3DDD5;
+  --tp-white:       #FFFFFF;
+
+  /* Typographie */
+  --tp-ff-serif:    'Playfair Display', Georgia, serif;
+  --tp-ff-sans:     'Outfit', system-ui, sans-serif;
+
+  /* Layout */
+  --tp-nav-h:       72px;
+  --tp-max-w:       1160px;
+  --tp-gutter:      5%;
+
+  /* Rayons */
+  --tp-r-sm:        8px;
+  --tp-r-md:        14px;
+  --tp-r-lg:        20px;
+  --tp-r-full:      100px;
+
+  /* Ombres */
+  --tp-shadow-sm:   0 2px 12px rgba(13,27,42,.07);
+  --tp-shadow-md:   0 6px 32px rgba(13,27,42,.11);
+  --tp-shadow-lg:   0 16px 56px rgba(13,27,42,.16);
+  --tp-shadow-rust: 0 8px 28px rgba(196,84,42,.28);
+
+  /* Transitions */
+  --tp-ease:        cubic-bezier(.4,0,.2,1);
+  --tp-dur:         .22s;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET & BASE — mobile-first
+═══════════════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--tp-ff-sans);
+  background: var(--tp-light);
+  color: var(--tp-navy);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  /* Espace pour nav fixe */
+  padding-top: var(--tp-nav-h);
+}
+img  { display: block; max-width: 100%; }
+a    { text-decoration: none; color: inherit; }
+ul   { list-style: none; }
+button { cursor: pointer; font-family: var(--tp-ff-sans); border: none; background: none; }
+:focus-visible { outline: 2px solid var(--tp-rust); outline-offset: 3px; border-radius: 3px; }
+
+/* ═══════════════════════════════════════════════════════
+   UTILITAIRES
+═══════════════════════════════════════════════════════ */
+.container {
+  width: 100%;
+  max-width: var(--tp-max-w);
+  margin: 0 auto;
+  padding: 0 var(--tp-gutter);
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+/* Label de section */
+.section-tag {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--tp-rust);
+  margin-bottom: .9rem;
+}
+
+/* Boutons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  background: var(--tp-rust);
+  color: var(--tp-white);
+  padding: .9rem 1.8rem;
+  border-radius: var(--tp-r-sm);
+  font-size: .95rem;
+  font-weight: 500;
+  transition: background var(--tp-dur) var(--tp-ease),
+              transform var(--tp-dur) var(--tp-ease),
+              box-shadow var(--tp-dur) var(--tp-ease);
+  border: none;
+}
+.btn-primary:hover {
+  background: var(--tp-rust-h);
+  transform: translateY(-2px);
+  box-shadow: var(--tp-shadow-rust);
+}
+.btn-primary:active { transform: translateY(0); }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .6s var(--tp-ease), transform .6s var(--tp-ease);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: .08s; }
+.reveal-d2 { transition-delay: .16s; }
+.reveal-d3 { transition-delay: .24s; }
+.reveal-d4 { transition-delay: .32s; }
+.reveal-d5 { transition-delay: .40s; }
+
+/* ═══════════════════════════════════════════════════════
+   NAV — identique à toutes les pages
+═══════════════════════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  height: var(--tp-nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--tp-gutter);
+  background: rgba(244,239,230,.93);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s, box-shadow .3s;
+}
+.nav.scrolled {
+  border-color: var(--tp-border);
+  box-shadow: var(--tp-shadow-sm);
+}
+.nav__logo {
+  font-family: var(--tp-ff-serif);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--tp-navy);
+  white-space: nowrap;
+  margin-right: auto;
+}
+.nav__logo span { color: var(--tp-rust); }
+.nav__badge {
+  font-size: .68rem;
+  font-weight: 500;
+  letter-spacing: .05em;
+  background: var(--tp-sage-l);
+  color: var(--tp-sage);
+  padding: .3rem .8rem;
+  border-radius: var(--tp-r-full);
+  border: 1px solid rgba(58,102,68,.2);
+  margin-right: 2rem;
+}
+.nav__links {
+  display: none; /* mobile: masqué */
+  align-items: center;
+  gap: 1.8rem;
+  margin-right: 2rem;
+}
+.nav__links a {
+  font-size: .88rem;
+  font-weight: 400;
+  color: var(--tp-mid);
+  transition: color .2s;
+}
+.nav__links a:hover { color: var(--tp-navy); font-weight: 500; }
+.nav__links a.active {
+  color: var(--tp-navy);
+  font-weight: 500;
+  border-bottom: 2px solid var(--tp-rust);
+  padding-bottom: 1px;
+}
+.nav__cta {
+  background: var(--tp-rust);
+  color: var(--tp-white);
+  padding: .6rem 1.2rem;
+  border-radius: var(--tp-r-sm);
+  font-size: .85rem;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: background .2s, transform .15s;
+}
+.nav__cta:hover { background: var(--tp-rust-h); transform: translateY(-1px); }
+.nav__burger {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  margin-left: 1rem;
+}
+.nav__burger span {
+  display: block;
+  width: 22px; height: 2px;
+  background: var(--tp-navy);
+  border-radius: 2px;
+  transition: all .3s;
+}
+.nav__burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav__burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav__burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Drawer mobile */
+.nav__drawer {
+  position: fixed;
+  top: var(--tp-nav-h); left: 0; right: 0; bottom: 0;
+  background: var(--tp-cream);
+  z-index: 199;
+  transform: translateX(-100%);
+  transition: transform .3s var(--tp-ease);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem var(--tp-gutter);
+  border-top: 1px solid var(--tp-border);
+}
+.nav__drawer.open { transform: translateX(0); }
+.nav__drawer a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--tp-navy);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--tp-border);
+}
+.nav__drawer .nav__cta {
+  margin-top: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+/* ═══════════════════════════════════════════════════════
+   S1 — HERO PAGE
+═══════════════════════════════════════════════════════ */
+.page-hero {
+  background: var(--tp-cream);
+  border-bottom: 1px solid var(--tp-border);
+  padding: 3.5rem 0 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -12%;
+  width: 50vw; height: 120%;
+  background: radial-gradient(ellipse, rgba(196,84,42,.05), transparent 65%);
+  pointer-events: none;
+}
+
+.page-hero__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.page-hero h1 {
+  font-family: var(--tp-ff-serif);
+  font-size: clamp(1.9rem, 5vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin-bottom: .8rem;
+}
+.page-hero h1 em { font-style: italic; color: var(--tp-rust); }
+
+.page-hero p {
+  font-size: 1rem;
+  color: var(--tp-mid);
+  line-height: 1.7;
+  max-width: 52ch;
+  margin-bottom: 1.4rem;
+}
+
+.hero-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .75rem;
+  font-weight: 500;
+  padding: .32rem .85rem;
+  border-radius: var(--tp-r-full);
+  background: var(--tp-white);
+  border: 1px solid var(--tp-border);
+  color: var(--tp-navy);
+  box-shadow: var(--tp-shadow-sm);
+}
+.hero-badge::before { content: '✓'; color: var(--tp-sage); font-weight: 700; }
+
+/* Miniature timeline héro */
+.hero-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: .75rem;
+  background: var(--tp-white);
+  border: 1px solid var(--tp-border);
+  border-radius: var(--tp-r-md);
+  padding: 1.4rem;
+  box-shadow: var(--tp-shadow-sm);
+}
+.hero-step {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.hero-step__num {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--tp-navy);
+  color: var(--tp-white);
+  font-family: var(--tp-ff-serif);
+  font-size: .85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hero-step__text strong {
+  display: block;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--tp-navy);
+}
+.hero-step__text span {
+  font-size: .75rem;
+  color: var(--tp-mid);
+}
+.hero-step__arrow {
+  font-size: .7rem;
+  color: var(--tp-border);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.hero-connector {
+  width: 2px;
+  height: 14px;
+  background: var(--tp-border);
+  margin-left: 15px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   S2 — ÉTAPES EN DÉTAIL
+═══════════════════════════════════════════════════════ */
+.steps-section {
+  padding: 4rem 0;
+}
+
+.steps-section__head {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.steps-section__head h2 {
+  font-family: var(--tp-ff-serif);
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.025em;
+  margin-bottom: .6rem;
+}
+.steps-section__head h2 em { font-style: italic; color: var(--tp-rust); }
+.steps-section__head p {
+  font-size: .95rem;
+  color: var(--tp-mid);
+  max-width: 50ch;
+  margin: 0 auto;
+  line-height: 1.65;
+}
+
+/* Cards étapes */
+.steps-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.step-card {
+  background: var(--tp-white);
+  border: 1.5px solid var(--tp-border);
+  border-radius: var(--tp-r-md);
+  overflow: hidden;
+  transition: border-color var(--tp-dur) var(--tp-ease),
+              box-shadow var(--tp-dur) var(--tp-ease);
+}
+.step-card:hover {
+  border-color: var(--tp-rust);
+  box-shadow: var(--tp-shadow-md);
+}
+
+/* Header de chaque card étape */
+.step-card__header {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.step-card__num {
+  font-family: var(--tp-ff-serif);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--tp-rust);
+  opacity: .18;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 2.8rem;
+  text-align: right;
+}
+.step-card__icon {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+.step-card__meta { flex: 1; min-width: 0; }
+.step-card__title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--tp-navy);
+  margin-bottom: .2rem;
+}
+.step-card__timing {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  font-size: .73rem;
+  font-weight: 600;
+  color: var(--tp-sage);
+  background: var(--tp-sage-l);
+  padding: .22rem .65rem;
+  border-radius: var(--tp-r-full);
+  border: 1px solid rgba(58,102,68,.2);
+}
+.step-card__chevron {
+  flex-shrink: 0;
+  font-size: .8rem;
+  color: var(--tp-mid);
+  transition: transform .3s var(--tp-ease);
+}
+.step-card[aria-expanded="true"] .step-card__chevron { transform: rotate(180deg); }
+.step-card[aria-expanded="true"] { border-color: var(--tp-rust); }
+
+/* Corps de la card */
+.step-card__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .35s var(--tp-ease);
+}
+.step-card[aria-expanded="true"] .step-card__body {
+  grid-template-rows: 1fr;
+}
+.step-card__body-inner {
+  overflow: hidden;
+}
+.step-card__content {
+  padding: 0 1.5rem 1.5rem;
+  padding-left: calc(1.5rem + 2.8rem + 1.2rem + 1.6rem + 1.2rem);
+  border-top: 1px solid var(--tp-border);
+  padding-top: 1.2rem;
+}
+.step-card__content p {
+  font-size: .92rem;
+  color: var(--tp-mid);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.step-card__content p:last-child { margin-bottom: 0; }
+.step-card__detail {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  margin-top: .8rem;
+}
+.step-card__detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  font-size: .85rem;
+  color: var(--tp-mid);
+}
+.step-card__detail-item::before {
+  content: '✓';
+  color: var(--tp-sage);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: .05rem;
+}
+
+/* Connecteur entre steps */
+.step-connector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .4rem 0;
+  color: var(--tp-mid);
+  font-size: .75rem;
+}
+.step-connector::before,
+.step-connector::after {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: var(--tp-border);
+}
+
+/* ═══════════════════════════════════════════════════════
+   S3 — GARANTIES
+═══════════════════════════════════════════════════════ */
+.garanties {
+  background: var(--tp-cream);
+  border-top: 1px solid var(--tp-border);
+  border-bottom: 1px solid var(--tp-border);
+  padding: 4rem 0;
+}
+
+.garanties__head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.garanties__head h2 {
+  font-family: var(--tp-ff-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: .5rem;
+}
+.garanties__head h2 em { font-style: italic; color: var(--tp-rust); }
+
+.garanties-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.garantie-card {
+  background: var(--tp-white);
+  border: 1px solid var(--tp-border);
+  border-radius: var(--tp-r-md);
+  padding: 1.4rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: box-shadow var(--tp-dur) var(--tp-ease);
+}
+.garantie-card:hover { box-shadow: var(--tp-shadow-sm); }
+
+.garantie-card__icon {
+  width: 44px; height: 44px;
+  border-radius: var(--tp-r-sm);
+  background: var(--tp-rust-l);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.garantie-card h3 {
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--tp-navy);
+  margin-bottom: .35rem;
+}
+.garantie-card p {
+  font-size: .82rem;
+  color: var(--tp-mid);
+  line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════
+   S4 — FAQ ACCORDÉON (HTML natif, zéro JS)
+═══════════════════════════════════════════════════════ */
+.faq {
+  padding: 4rem 0;
+}
+
+.faq__head {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+.faq__head h2 {
+  font-family: var(--tp-ff-serif);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  letter-spacing: -.02em;
+  margin-bottom: .5rem;
+}
+.faq__head h2 em { font-style: italic; color: var(--tp-rust); }
+.faq__head p {
+  font-size: .9rem;
+  color: var(--tp-mid);
+  line-height: 1.65;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+/* <details> natif — pas de JS requis */
+details.faq-item {
+  background: var(--tp-white);
+  border: 1.5px solid var(--tp-border);
+  border-radius: var(--tp-r-md);
+  overflow: hidden;
+  transition: border-color .2s;
+}
+details.faq-item[open] { border-color: var(--tp-rust); }
+
+details.faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: .95rem;
+  font-weight: 600;
+  color: var(--tp-navy);
+  user-select: none;
+  -webkit-user-select: none;
+}
+details.faq-item summary::-webkit-details-marker { display: none; }
+details.faq-item summary::after {
+  content: '+';
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: var(--tp-mid);
+  flex-shrink: 0;
+  transition: transform .3s var(--tp-ease), color .2s;
+  line-height: 1;
+}
+details.faq-item[open] summary::after {
+  transform: rotate(45deg);
+  color: var(--tp-rust);
+}
+details.faq-item summary:focus-visible {
+  outline: 2px solid var(--tp-rust);
+  outline-offset: -2px;
+}
+
+.faq-item__body {
+  padding: 0 1.3rem 1.2rem;
+  border-top: 1px solid var(--tp-border);
+  padding-top: 1rem;
+}
+.faq-item__body p {
+  font-size: .9rem;
+  color: var(--tp-mid);
+  line-height: 1.7;
+}
+.faq-item__body strong { color: var(--tp-navy); font-weight: 600; }
+.faq-item__body a {
+  color: var(--tp-rust);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   S5 — CTA FINAL
+═══════════════════════════════════════════════════════ */
+.cta-final {
+  background: var(--tp-navy);
+  padding: 5rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-final::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; height: 80vw;
+  max-width: 600px; max-height: 600px;
+  background: radial-gradient(ellipse, rgba(196,84,42,.1), transparent 60%);
+  pointer-events: none;
+}
+.cta-final__inner { position: relative; }
+.cta-final h2 {
+  font-family: var(--tp-ff-serif);
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--tp-cream);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin-bottom: .9rem;
+}
+.cta-final h2 em { font-style: italic; color: var(--tp-gold); }
+.cta-final__sub {
+  font-size: .95rem;
+  color: rgba(244,239,230,.6);
+  margin-bottom: 2rem;
+}
+.cta-final__micro {
+  margin-top: .9rem;
+  font-size: .73rem;
+  color: rgba(244,239,230,.35);
+}
+
+/* ═══════════════════════════════════════════════════════
+   FOOTER — identique à toutes les pages
+═══════════════════════════════════════════════════════ */
+.footer {
+  background: var(--tp-navy);
+  border-top: 1px solid rgba(244,239,230,.08);
+  padding: 4rem 0 2rem;
+}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+.footer__brand .logo {
+  font-family: var(--tp-ff-serif);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--tp-cream);
+  margin-bottom: .5rem;
+}
+.footer__brand .logo span { color: var(--tp-rust); }
+.footer__brand p {
+  font-size: .78rem;
+  color: rgba(244,239,230,.4);
+  line-height: 1.6;
+  margin-bottom: .9rem;
+}
+.footer__brand .sage-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .68rem;
+  font-weight: 600;
+  color: var(--tp-sage);
+  background: rgba(58,102,68,.12);
+  border: 1px solid rgba(58,102,68,.2);
+  padding: .28rem .7rem;
+  border-radius: var(--tp-r-full);
+}
+.footer__col h4 {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,.4);
+  margin-bottom: .9rem;
+}
+.footer__col ul { display: flex; flex-direction: column; gap: .5rem; }
+.footer__col a {
+  font-size: .8rem;
+  color: rgba(244,239,230,.55);
+  transition: color .2s;
+}
+.footer__col a:hover { color: var(--tp-cream); }
+.footer__col .whatsapp-btn {
+  color: #25D366;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  font-size: .8rem;
+}
+.footer__bottom {
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(244,239,230,.08);
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+.footer__bottom p { font-size: .7rem; color: rgba(244,239,230,.3); }
+.footer__legal { display: flex; flex-wrap: wrap; gap: 1rem; }
+.footer__legal a { font-size: .7rem; color: rgba(244,239,230,.3); transition: color .2s; }
+.footer__legal a:hover { color: rgba(244,239,230,.6); }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — 768px
+═══════════════════════════════════════════════════════ */
+@media (min-width: 768px) {
+
+  /* Nav */
+  .nav__badge { display: inline-flex; }
+  .nav__links { display: flex; }
+  .nav__burger { display: none; }
+
+  /* Hero */
+  .page-hero__inner {
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
+  .page-hero__left { flex: 1; }
+  .page-hero__right { flex: 0 0 300px; }
+
+  /* Steps */
+  .steps-cards { gap: 1rem; }
+  .step-card__content {
+    padding-left: calc(1.5rem + 2.8rem + 1.2rem + 1.6rem + 1.2rem);
+  }
+
+  /* Garanties */
+  .garanties-grid { grid-template-columns: 1fr 1fr; }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr; }
+  .footer__bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — 1200px
+═══════════════════════════════════════════════════════ */
+@media (min-width: 1200px) {
+
+  /* Hero plus d'espace */
+  .page-hero { padding: 4.5rem 0 4rem; }
+  .page-hero__right { flex: 0 0 340px; }
+
+  /* Steps : 2 colonnes imbriquées */
+  .steps-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+    align-items: start;
+  }
+  /* Le 3e step prend toute la largeur */
+  .steps-cards .step-card:last-child {
+    grid-column: 1 / -1;
+  }
+  /* Connecteurs masqués en desktop */
+  .step-connector { display: none; }
+
+  /* Garanties */
+  .garanties-grid { grid-template-columns: repeat(4, 1fr); }
+
+  /* Footer */
+  .footer__grid { grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAV — Navigation principale fixe
+═══════════════════════════════════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <a href="/index.html" class="nav__logo">travaux<span>parfait</span>.fr</a>
+  <span class="nav__badge" aria-hidden="true">Île-de-France · RGE certifié</span>
+  <ul class="nav__links" role="list">
+    <li><a href="/index.html">Accueil</a></li>
+    <li><a href="/nos-artisans.html">Nos Artisans</a></li>
+    <li><a href="/comment-ca-marche.html" class="active" aria-current="page">Comment ça marche</a></li>
+    <li><a href="/realisations.html">Réalisations</a></li>
+    <li><a href="/contact.html">Contact</a></li>
+  </ul>
+  <a href="/index.html#formulaire" class="nav__cta">Être rappelé →</a>
+  <button
+    type="button"
+    class="nav__burger"
+    id="burger"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+    aria-controls="drawer"
+  ><span></span><span></span><span></span></button>
+</nav>
+
+<!-- Drawer mobile -->
+<div class="nav__drawer" id="drawer" role="dialog" aria-label="Menu mobile">
+  <a href="/index.html"               onclick="closeDrawer()">Accueil</a>
+  <a href="/nos-artisans.html"        onclick="closeDrawer()">Nos Artisans</a>
+  <a href="/comment-ca-marche.html"   onclick="closeDrawer()">Comment ça marche</a>
+  <a href="/realisations.html"        onclick="closeDrawer()">Réalisations</a>
+  <a href="/contact.html"             onclick="closeDrawer()">Contact</a>
+  <a href="/index.html#formulaire" class="nav__cta" onclick="closeDrawer()">Être rappelé →</a>
+</div>
+
+
+<main id="main-content">
+
+<!-- ═══════════════════════════════════════════════════════
+     S1 — HERO : accroche + mini-timeline
+═══════════════════════════════════════════════════════ -->
+<section class="page-hero" aria-labelledby="hero-h1">
+  <div class="container">
+    <div class="page-hero__inner">
+
+      <!-- Texte gauche -->
+      <div class="page-hero__left reveal">
+        <span class="section-tag">Le processus</span>
+        <h1 id="hero-h1">
+          Vous décrivez.<br>
+          Un artisan vous <em>rappelle</em>.<br>
+          C'est tout.
+        </h1>
+        <p>
+          Pas d'appels à passer. Pas de comparaison fastidieuse.
+          Juste un formulaire en 90 secondes et le rappel d'un artisan
+          RGE vérifié — directement sur votre téléphone.
+        </p>
+        <div class="hero-badge-row" role="list" aria-label="Garanties">
+          <span class="hero-badge" role="listitem">Aucune inscription</span>
+          <span class="hero-badge" role="listitem">Gratuit pour les particuliers</span>
+          <span class="hero-badge" role="listitem">100% Île-de-France</span>
+        </div>
+      </div>
+
+      <!-- Mini-timeline droite -->
+      <aside class="page-hero__right reveal reveal-d2" aria-label="Résumé en 3 étapes">
+        <div class="hero-timeline" role="list">
+
+          <div class="hero-step" role="listitem">
+            <div class="hero-step__num" aria-hidden="true">1</div>
+            <div class="hero-step__text">
+              <strong>Vous décrivez votre projet</strong>
+              <span>⏱ 90 secondes</span>
+            </div>
+            <span class="hero-step__arrow" aria-hidden="true">✓</span>
+          </div>
+
+          <div class="hero-connector" aria-hidden="true"></div>
+
+          <div class="hero-step" role="listitem">
+            <div class="hero-step__num" aria-hidden="true">2</div>
+            <div class="hero-step__text">
+              <strong>On sélectionne votre artisan</strong>
+              <span>⏱ Quelques heures</span>
+            </div>
+            <span class="hero-step__arrow" aria-hidden="true">✓</span>
+          </div>
+
+          <div class="hero-connector" aria-hidden="true"></div>
+
+          <div class="hero-step" role="listitem">
+            <div class="hero-step__num" aria-hidden="true">3</div>
+            <div class="hero-step__text">
+              <strong>L'artisan vous appelle</strong>
+              <span>⏱ Sous 48h garanties</span>
+            </div>
+            <span class="hero-step__arrow" aria-hidden="true">✓</span>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     S2 — LES 3 ÉTAPES EN DÉTAIL (accordéon interactif)
+═══════════════════════════════════════════════════════ -->
+<section class="steps-section" id="etapes" aria-labelledby="steps-title">
+  <div class="container">
+
+    <header class="steps-section__head reveal">
+      <span class="section-tag">En détail</span>
+      <h2 id="steps-title">
+        Trois étapes,<br><em>zéro effort</em> de votre côté
+      </h2>
+      <p>Cliquez sur chaque étape pour en savoir plus.</p>
+    </header>
+
+    <div class="steps-cards">
+
+      <!-- Étape 1 -->
+      <article
+        class="step-card reveal"
+        id="step-1"
+        aria-expanded="true"
+        role="region"
+        aria-labelledby="step-1-title"
+      >
+        <div class="step-card__header" onclick="toggleStep('step-1')" role="button" tabindex="0" aria-controls="step-1-body" onkeydown="handleKeyStep(event,'step-1')">
+          <div class="step-card__num" aria-hidden="true">01</div>
+          <div class="step-card__icon" aria-hidden="true">📝</div>
+          <div class="step-card__meta">
+            <div class="step-card__title" id="step-1-title">Vous décrivez votre besoin</div>
+            <span class="step-card__timing">⏱ 90 secondes</span>
+          </div>
+          <span class="step-card__chevron" aria-hidden="true">▼</span>
+        </div>
+        <div class="step-card__body" id="step-1-body" role="region" aria-labelledby="step-1-title">
+          <div class="step-card__body-inner">
+            <div class="step-card__content">
+              <p>
+                Un formulaire simple : type de travaux, département, délai souhaité, et votre numéro de téléphone.
+                Pas d'inscription. Pas de mot de passe. Pas de CB.
+              </p>
+              <div class="step-card__detail" role="list">
+                <div class="step-card__detail-item" role="listitem">Type de travaux (électricité, plomberie, chauffage…)</div>
+                <div class="step-card__detail-item" role="listitem">Département IDF (75 à 95)</div>
+                <div class="step-card__detail-item" role="listitem">Délai souhaité (urgent à flexible)</div>
+                <div class="step-card__detail-item" role="listitem">Votre prénom et numéro de téléphone</div>
+                <div class="step-card__detail-item" role="listitem">Consentement explicite à être contacté par l'artisan</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="step-connector" aria-hidden="true">↓</div>
+
+      <!-- Étape 2 -->
+      <article
+        class="step-card reveal reveal-d1"
+        id="step-2"
+        aria-expanded="false"
+        role="region"
+        aria-labelledby="step-2-title"
+      >
+        <div class="step-card__header" onclick="toggleStep('step-2')" role="button" tabindex="0" aria-controls="step-2-body" onkeydown="handleKeyStep(event,'step-2')">
+          <div class="step-card__num" aria-hidden="true">02</div>
+          <div class="step-card__icon" aria-hidden="true">🔍</div>
+          <div class="step-card__meta">
+            <div class="step-card__title" id="step-2-title">Nous sélectionnons l'artisan qui vous correspond</div>
+            <span class="step-card__timing">⏱ Quelques heures</span>
+          </div>
+          <span class="step-card__chevron" aria-hidden="true">▼</span>
+        </div>
+        <div class="step-card__body" id="step-2-body" role="region" aria-labelledby="step-2-title">
+          <div class="step-card__body-inner">
+            <div class="step-card__content">
+              <p>
+                Notre équipe identifie l'artisan RGE disponible dans votre zone,
+                spécialisé dans vos travaux et disponible dans votre zone.
+                <strong>Un seul artisan par demande</strong> — pas une liste, pas une mise en concurrence.
+              </p>
+              <div class="step-card__detail" role="list">
+                <div class="step-card__detail-item" role="listitem">Correspondance géographique — votre département IDF</div>
+                <div class="step-card__detail-item" role="listitem">Spécialité adaptée à vos travaux</div>
+                <div class="step-card__detail-item" role="listitem">Disponibilité confirmée dans votre délai</div>
+                <div class="step-card__detail-item" role="listitem">Références et qualité de travail vérifiées</div>
+                <div class="step-card__detail-item" role="listitem">Certification RGE en cours de validité</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="step-connector" aria-hidden="true">↓</div>
+
+      <!-- Étape 3 -->
+      <article
+        class="step-card reveal reveal-d2"
+        id="step-3"
+        aria-expanded="false"
+        role="region"
+        aria-labelledby="step-3-title"
+      >
+        <div class="step-card__header" onclick="toggleStep('step-3')" role="button" tabindex="0" aria-controls="step-3-body" onkeydown="handleKeyStep(event,'step-3')">
+          <div class="step-card__num" aria-hidden="true">03</div>
+          <div class="step-card__icon" aria-hidden="true">📞</div>
+          <div class="step-card__meta">
+            <div class="step-card__title" id="step-3-title">L'artisan vous appelle</div>
+            <span class="step-card__timing">⏱ Sous 48h garanties</span>
+          </div>
+          <span class="step-card__chevron" aria-hidden="true">▼</span>
+        </div>
+        <div class="step-card__body" id="step-3-body" role="region" aria-labelledby="step-3-title">
+          <div class="step-card__body-inner">
+            <div class="step-card__content">
+              <p>
+                L'artisan vous contacte directement sur votre numéro de téléphone
+                pour convenir d'un rendez-vous, estimer votre projet et vous proposer un devis.
+                <strong>Vous n'avez rien à faire de plus.</strong>
+              </p>
+              <div class="step-card__detail" role="list">
+                <div class="step-card__detail-item" role="listitem">Rappel sur votre numéro sous 48h ouvrées</div>
+                <div class="step-card__detail-item" role="listitem">Prise de rendez-vous à votre convenance</div>
+                <div class="step-card__detail-item" role="listitem">Devis gratuit lors du premier passage</div>
+                <div class="step-card__detail-item" role="listitem">Accompagnement dossier MaPrimeRénov' si éligible</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- /.steps-cards -->
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     S3 — GARANTIES (4 cards)
+═══════════════════════════════════════════════════════ -->
+<section class="garanties" aria-labelledby="garanties-title">
+  <div class="container">
+
+    <header class="garanties__head reveal">
+      <span class="section-tag">Nos engagements</span>
+      <h2 id="garanties-title">Ce que nous <em>garantissons</em></h2>
+    </header>
+
+    <div class="garanties-grid">
+
+      <div class="garantie-card reveal">
+        <div class="garantie-card__icon" aria-hidden="true">🏆</div>
+        <div>
+          <h3>Certification RGE garantie</h3>
+          <p>Vérifiée chaque mois sur le registre officiel ADEME. Certification expirée = suspension immédiate de l'artisan.</p>
+        </div>
+      </div>
+
+      <div class="garantie-card reveal reveal-d1">
+        <div class="garantie-card__icon" aria-hidden="true">🛡️</div>
+        <div>
+          <h3>Assurance décennale vérifiée</h3>
+          <p>RC Pro et assurance décennale — attestation de moins de 12 mois obligatoire avant référencement.</p>
+        </div>
+      </div>
+
+      <div class="garantie-card reveal reveal-d2">
+        <div class="garantie-card__icon" aria-hidden="true">🔒</div>
+        <div>
+          <h3>Un seul artisan reçoit vos coordonnées</h3>
+          <p>Votre numéro est transmis à un seul artisan RGE sélectionné pour votre projet. Jamais à une liste. Jamais revendu.</p>
+        </div>
+      </div>
+
+      <div class="garantie-card reveal reveal-d3">
+        <div class="garantie-card__icon" aria-hidden="true">⭐</div>
+        <div>
+          <h3>Avis vérifiés et traçables</h3>
+          <p>Chaque note est liée à un chantier réel confirmé. Aucun avis non vérifié n'est accepté sur notre réseau.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     S4 — FAQ (accordéon HTML natif <details>)
+═══════════════════════════════════════════════════════ -->
+<section class="faq" aria-labelledby="faq-title">
+  <div class="container">
+
+    <header class="faq__head reveal">
+      <span class="section-tag">Vos questions</span>
+      <h2 id="faq-title">Vos questions,<br><em>nos réponses</em></h2>
+      <p>Tout ce que vous avez besoin de savoir avant de soumettre votre projet.</p>
+    </header>
+
+    <div class="faq-list" role="list">
+
+      <details class="faq-item reveal" open>
+        <summary>C'est vraiment gratuit pour moi ?</summary>
+        <div class="faq-item__body">
+          <p>
+            Oui, totalement. Les artisans partenaires paient un abonnement mensuel
+            pour accéder à des demandes qualifiées. Vous, vous ne payez rien — ni maintenant,
+            ni après, ni sur les travaux. Aucune commission n'est prélevée.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal reveal-d1">
+        <summary>Combien d'artisans vont me contacter ?</summary>
+        <div class="faq-item__body">
+          <p>
+            <strong>Un seul.</strong> Nous sélectionnons l'artisan le plus adapté à votre projet
+            et à votre zone. Il vous rappelle directement. Pas de vague d'appels,
+            pas de concurrence entre artisans sur votre dos.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal reveal-d2">
+        <summary>Mon numéro de téléphone est-il partagé à tout le monde ?</summary>
+        <div class="faq-item__body">
+          <p>
+            Non. Votre numéro est transmis à <strong>un seul artisan RGE vérifié</strong>,
+            sélectionné spécifiquement pour votre projet.
+            Jamais à une liste de démarcheurs, jamais revendu à des tiers.
+            Si vous souhaitez annuler, contactez-nous et nous supprimons votre demande immédiatement.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal reveal-d3">
+        <summary>Qu'est-ce que la certification RGE ?</summary>
+        <div class="faq-item__body">
+          <p>
+            RGE signifie <strong>Reconnu Garant de l'Environnement</strong>.
+            C'est la certification officielle de l'État qui vous ouvre droit aux aides financières :
+            MaPrimeRénov', Certificats d'Économies d'Énergie (CEE) et éco-PTZ.
+            Sans artisan RGE, aucune aide n'est possible. Tous nos artisans l'ont.
+            Vous pouvez vérifier sur <a href="https://www.faire.gouv.fr/trouvez-un-professionnel-rge" target="_blank" rel="noopener noreferrer">faire.gouv.fr</a>.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal reveal-d4">
+        <summary>Puis-je bénéficier de MaPrimeRénov' avec vos artisans ?</summary>
+        <div class="faq-item__body">
+          <p>
+            Oui. Tous nos artisans sont certifiés RGE — condition obligatoire pour
+            <strong>MaPrimeRénov'</strong>, les CEE et l'éco-PTZ (prêt à taux zéro jusqu'à 50 000 €).
+            L'artisan qui vous rappelle vous accompagne dans les démarches administratives.
+          </p>
+        </div>
+      </details>
+
+      <details class="faq-item reveal reveal-d5">
+        <summary>Que se passe-t-il si je ne veux plus être contacté ?</summary>
+        <div class="faq-item__body">
+          <p>
+            Contactez-nous par
+            <a href="/contact.html">Formulaire de contact →</a> ou
+            .
+            Nous informons immédiatement l'artisan et supprimons votre demande de notre système.
+            Conformément au RGPD, vous pouvez exercer vos droits d'accès, de rectification
+            et de suppression à tout moment.
+          </p>
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     S5 — CTA FINAL
+═══════════════════════════════════════════════════════ -->
+<section class="cta-final" aria-labelledby="cta-title">
+  <div class="container cta-final__inner">
+    <h2 id="cta-title">
+      Prêt ? Un artisan <em>RGE</em> vous rappelle<br>
+      en moins de 48h.
+    </h2>
+    <p class="cta-final__sub">Gratuit · Sans engagement · Rappel sous 48h</p>
+    <a href="/index.html#formulaire" class="btn-primary">
+      Je veux être rappelé →
+    </a>
+    <p class="cta-final__micro">Artisans RGE vérifiés · 1 seul vous contacte · IDF uniquement</p>
+  </div>
+</section>
+
+</main><!-- /#main-content -->
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+
+      <div class="footer__brand">
+        <div class="logo">travaux<span>parfait</span>.fr</div>
+        <p>L'artisan RGE vous rappelle. Vous, vous attendez.</p>
+        <span class="sage-badge">✓ Réseau 100% RGE certifié</span>
+      </div>
+
+      <nav class="footer__col" aria-label="Navigation pied de page">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="/index.html">Accueil</a></li>
+          <li><a href="/nos-artisans.html">Nos Artisans</a></li>
+          <li><a href="/comment-ca-marche.html">Comment ça marche</a></li>
+          <li><a href="/realisations.html">Réalisations</a></li>
+          <li><a href="/prix.html">Prix &amp; Modèle</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="/contact.html">Formulaire de contact →</a></li>
+          
+          <li><a href="/contact.html">Formulaire contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Certifications</h4>
+        <ul>
+          <li><a href="https://www.faire.gouv.fr/trouvez-un-professionnel-rge" target="_blank" rel="noopener noreferrer">✓ RGE officiel</a></li>
+          <li><a href="#">✓ Qualibat</a></li>
+          <li><a href="#">✓ QualiPAC</a></li>
+          <li><a href="#">✓ QualiSol</a></li>
+        </ul>
+      </div>
+
+    </div><!-- /.footer__grid -->
+
+    <div class="footer__bottom">
+      <p>© 2025 TravauxParfait · Tous droits réservés · IDF</p>
+      <nav class="footer__legal" aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="/cgu.html">CGU</a>
+        <a href="/sitemap.xml">Plan du site</a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT — Nav, Accordéon étapes, Scroll reveal
+═══════════════════════════════════════════════════════ */
+<script>
+'use strict';
+
+/* ── NAV scroll shadow ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+/* ── Hamburger / Drawer mobile ── */
+const burger = document.getElementById('burger');
+const drawer = document.getElementById('drawer');
+
+burger.addEventListener('click', () => {
+  const isOpen = drawer.classList.toggle('open');
+  burger.classList.toggle('open', isOpen);
+  burger.setAttribute('aria-expanded', String(isOpen));
+  document.body.style.overflow = isOpen ? 'hidden' : '';
+});
+
+function closeDrawer() {
+  drawer.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+});
+
+/* ── Smooth scroll toutes les ancres ── */
+document.querySelectorAll('a[href^="#"], a[href*="#formulaire"]').forEach(link => {
+  link.addEventListener('click', e => {
+    const href = link.getAttribute('href');
+    const hashIndex = href.indexOf('#');
+    if (hashIndex === -1) return;
+    const id = href.slice(hashIndex + 1);
+    // Si l'ancre est sur la même page
+    const target = document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    closeDrawer();
+    const navH = parseInt(
+      getComputedStyle(document.documentElement).getPropertyValue('--tp-nav-h') || '72', 10
+    );
+    const top = target.getBoundingClientRect().top + window.scrollY - navH - 8;
+    window.scrollTo({ top, behavior: 'smooth' });
+  });
+});
+
+/* ── Accordéon étapes (step cards) ── */
+function toggleStep(id) {
+  const card = document.getElementById(id);
+  if (!card) return;
+  const isOpen = card.getAttribute('aria-expanded') === 'true';
+  card.setAttribute('aria-expanded', String(!isOpen));
+}
+
+function handleKeyStep(event, id) {
+  if (event.key === 'Enter' || event.key === ' ') {
+    event.preventDefault();
+    toggleStep(id);
+  }
+}
+
+/* ── Scroll reveal (IntersectionObserver) ── */
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px'
+rve(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+}
+</script>
+</body>
+</html>

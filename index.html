@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plombier, Électricien, Chauffagiste Paris (75, 92, 78) — Devis Gratuit Sous 48h | TravauxParfait</title>
+<meta name="description" content="Trouvez un plombier, électricien ou chauffagiste honnête à Paris (75), 92, 78. Jusqu'à 3 devis gratuits sous 48h. Artisans vérifiés RGE, assurance décennale. Gratuit et sans engagement.">
+<meta property="og:title" content="TravauxParfait — Jusqu'à 3 artisans vérifiés vous contactent sous 24-48h">
+<meta property="og:description" content="Vous décrivez votre besoin. Jusqu'à 3 artisans vérifiés vous contactent sous 24-48h. Gratuit, sans engagement, IDF uniquement.">
+<meta property="og:url" content="https://travauxparfait.fr/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS
+═══════════════════════════════════════════ */
+:root{
+  --navy:#0B1F3A; --navy2:#0E2848;
+  --blue:#1A56DB; --blue-h:#1446BB; --blue-l:#EBF2FF; --blue-ll:#F5F9FF;
+  --green:#15803D; --green-l:#DCFCE7;
+  --orange:#E8580C; --org-l:#FEF0E7;
+  --amber:#D97706; --amber-l:#FEF3C7;
+  --red:#DC2626; --red-l:#FEF2F2;
+  --cream:#F8F6F1; --light:#FAFAF8; --mid:#5A6478; --border:#E4E4E0; --white:#FFFFFF;
+  --ff-serif:'Playfair Display',Georgia,serif;
+  --ff-sans:'DM Sans',system-ui,sans-serif;
+  --nav-h:64px; --gutter:5%; --max-w:1160px;
+  --r:6px; --r-md:12px; --r-lg:18px; --r-xl:24px; --r-full:100px;
+  --sh-sm:0 1px 6px rgba(11,31,58,.06); --sh-md:0 4px 20px rgba(11,31,58,.10);
+  --sh-lg:0 10px 40px rgba(11,31,58,.14); --sh-blue:0 4px 20px rgba(26,86,219,.28);
+  --ease:cubic-bezier(.4,0,.2,1);
+}
+/* ═══════════════════════════════════════════
+   RESET
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--ff-sans);background:var(--light);color:var(--navy);overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-top:var(--nav-h)}
+a{text-decoration:none;color:inherit}ul{list-style:none}
+button{cursor:pointer;font-family:var(--ff-sans);border:none;background:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:3px}
+/* ═══════════════════════════════════════════
+   UTILS
+═══════════════════════════════════════════ */
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+.d4{transition-delay:.28s}.d5{transition-delay:.35s}
+/* ═══════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════ */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:var(--nav-h);display:flex;align-items:center;padding:0 var(--gutter);background:rgba(250,250,248,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:border-color .25s,box-shadow .25s}
+.nav.scrolled{border-color:var(--border);box-shadow:var(--sh-sm)}
+.nav__logo{display:flex;align-items:center;gap:.55rem;font-family:var(--ff-serif);font-size:1.2rem;font-weight:700;color:var(--navy);text-decoration:none;flex-shrink:0;margin-right:auto}
+.nav__logo-svg{flex-shrink:0}
+.nav__logo-text{font-family:var(--ff-serif);font-weight:700;font-size:1.2rem;color:var(--navy)}
+.nav__logo-text em{font-style:normal;color:var(--blue)}
+.nav__links{display:none;align-items:center;gap:1.6rem;list-style:none;margin:0 auto 0 2rem;padding:0}
+.nav__links a{font-size:.86rem;color:var(--mid);text-decoration:none;font-weight:500;transition:color .15s;white-space:nowrap}
+.nav__links a:hover{color:var(--navy)}
+.nav__actions{display:flex;align-items:center;gap:.6rem;flex-shrink:0}
+.nav__artisan-link{display:none;font-size:.8rem;color:var(--mid);text-decoration:none;font-weight:500;padding:.45rem .9rem;border:1.5px solid var(--border);border-radius:var(--r);white-space:nowrap;transition:all .15s}
+.nav__artisan-link:hover{border-color:var(--navy);color:var(--navy)}
+.nav__cta{background:var(--blue);color:var(--white);padding:.52rem 1.1rem;border-radius:var(--r);font-size:.85rem;font-weight:600;text-decoration:none;white-space:nowrap;transition:background .15s,transform .15s}
+.nav__cta:hover{background:var(--blue-h);transform:translateY(-1px)}
+@media(min-width:640px){.nav__artisan-link{display:inline-flex}}
+@media(min-width:768px){.nav__links{display:flex}}
+@media(min-width:1200px){.nav__links{gap:2.2rem}.nav__links a{font-size:.9rem}}
+.hero{padding:3.5rem 0 0;background:var(--white);border-bottom:1px solid var(--border);overflow:hidden;position:relative}
+/* Fond quadrillé subtil */
+.hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:48px 48px;opacity:.28;pointer-events:none}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 75% 35%,rgba(26,86,219,.04),transparent);pointer-events:none}
+.hero__inner{display:flex;flex-direction:column;gap:2.5rem;position:relative;z-index:1;padding-bottom:3.5rem}
+/* Texte */
+.hero__kicker{display:inline-flex;align-items:center;gap:.45rem;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);background:var(--blue-l);border:1px solid rgba(26,86,219,.2);padding:.28rem .85rem;border-radius:var(--r-full);margin-bottom:1.3rem}
+.hero__kicker::before{content:'📍';font-size:.8rem}
+.hero h1{font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3.4rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+.hero h1 em{font-style:italic;color:var(--blue)}
+.hero h1 .no{color:var(--orange);font-style:normal}
+.hero__sub{font-size:1rem;color:var(--mid);line-height:1.7;max-width:50ch;margin-bottom:1.6rem}
+.hero__lots{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.8rem}
+.hero__lot{font-size:.75rem;color:var(--mid);background:var(--cream);border:1px solid var(--border);padding:.28rem .7rem;border-radius:var(--r-full)}
+/* Formulaire 2 étapes */
+.form-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--sh-lg);overflow:hidden;width:100%}
+.form-card__head{background:var(--navy);padding:1rem 1.4rem;display:flex;align-items:center;justify-content:space-between}
+.form-card__head h2{font-family:var(--ff-serif);font-size:.95rem;font-weight:700;color:var(--white)}
+.form-card__step-indicator{display:flex;align-items:center;gap:.4rem}
+.step-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);transition:background .3s}
+.step-dot.active{background:var(--white)}
+.form-card__body{padding:1.4rem}
+/* Étape 1 */
+#step1{display:flex;flex-direction:column;gap:.9rem}
+#step1 h3{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem}
+.type-btn{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.75rem .9rem;border-radius:var(--r-md);
+  border:1.5px solid var(--border);background:var(--white);
+  font-size:.85rem;font-weight:500;color:var(--mid);
+  transition:all .18s var(--ease);text-align:left;cursor:pointer;
+}
+.type-btn:hover{border-color:var(--blue);color:var(--navy);background:var(--blue-ll)}
+.type-btn.selected{border-color:var(--blue);background:var(--blue-l);color:var(--blue);font-weight:600}
+.type-btn__icon{font-size:1.2rem;flex-shrink:0}
+.dept-select-wrap{display:none;flex-direction:column;gap:.45rem}
+.dept-select-wrap.visible{display:flex}
+.fl{font-size:.75rem;font-weight:600;color:var(--navy);letter-spacing:.02em}
+.fl .req{color:var(--orange)}
+.fi{padding:.65rem .9rem;border:1.5px solid var(--border);border-radius:var(--r);font-family:var(--ff-sans);font-size:.88rem;color:var(--navy);background:var(--white);outline:none;width:100%;-webkit-appearance:none;transition:border-color .15s,box-shadow .15s}
+.fi:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(26,86,219,.1)}
+select.fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235A6478' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;padding-right:2.2rem;cursor:pointer}
+.step1-cta{width:100%;padding:.9rem;background:var(--blue);color:var(--white);border-radius:var(--r);font-size:.95rem;font-weight:600;transition:all .18s;display:none;align-items:center;justify-content:center;gap:.4rem}
+.step1-cta:hover{background:var(--blue-h);transform:translateY(-1px);box-shadow:var(--sh-blue)}
+.step1-cta.visible{display:flex}
+/* Étape 2 */
+#step2{display:none;flex-direction:column;gap:.85rem}
+.step2-bonne-nouvelle{background:var(--green-l);border:1px solid rgba(21,128,61,.2);border-radius:var(--r-md);padding:.85rem 1rem;display:flex;align-items:flex-start;gap:.6rem}
+.step2-bonne-nouvelle__icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem}
+.step2-bonne-nouvelle h3{font-size:.9rem;font-weight:700;color:var(--green);margin-bottom:.15rem}
+.step2-bonne-nouvelle p{font-size:.78rem;color:#166534;line-height:1.45}
+.step2-recapitulatif{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:var(--mid);background:var(--cream);padding:.55rem .8rem;border-radius:var(--r)}
+.step2-recapitulatif button{font-size:.72rem;color:var(--blue);font-weight:500;text-decoration:underline;text-underline-offset:2px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.fi-group{display:flex;flex-direction:column;gap:.3rem}
+.rgpd-row{display:flex;align-items:flex-start;gap:.45rem}
+.rgpd-row input[type=checkbox]{margin-top:.15rem;flex-shrink:0;accent-color:var(--blue)}
+.rgpd-row label{font-size:.68rem;color:var(--mid);line-height:1.5;cursor:pointer}
+.anti-spam{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--mid);background:var(--amber-l);border:1px solid rgba(217,119,6,.2);border-radius:var(--r);padding:.5rem .75rem}
+.anti-spam::before{content:'🔒';font-size:.85rem;flex-shrink:0}
+.submit-btn{width:100%;padding:.9rem;background:var(--blue);color:var(--white);border-radius:var(--r);font-size:.95rem;font-weight:700;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:.4rem}
+.submit-btn:hover{background:var(--blue-h);transform:translateY(-1px);box-shadow:var(--sh-blue)}
+.submit-btn:disabled{background:var(--mid);transform:none;cursor:not-allowed}
+/* États formulaire */
+@keyframes spin{to{transform:rotate(360deg)}}
+.form-loading{display:none;flex-direction:column;align-items:center;gap:1rem;padding:2rem;text-align:center}
+.spinner{width:32px;height:32px;border-radius:50%;border:3px solid var(--blue-l);border-top-color:var(--blue);animation:spin .7s linear infinite}
+.form-success{display:none;flex-direction:column;align-items:center;gap:.7rem;padding:2rem;text-align:center}
+.form-success h3{font-family:var(--ff-serif);font-size:1.2rem;color:var(--green)}
+.form-success p{font-size:.85rem;color:var(--mid);line-height:1.6}
+/* Ce que vous recevez */
+.you-get{margin-top:.9rem;padding:.9rem;background:var(--cream);border-radius:var(--r-md)}
+.you-get p{font-size:.72rem;font-weight:600;color:var(--mid);letter-spacing:.06em;text-transform:uppercase;margin-bottom:.5rem}
+.you-get ul{display:flex;flex-direction:column;gap:.35rem}
+.you-get li{display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:var(--navy)}
+.you-get li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0}
+/* ═══════════════════════════════════════════
+   RÉASSURANCE IMMÉDIATE (sous hero)
+═══════════════════════════════════════════ */
+.reassurance{background:var(--navy);padding:1.2rem 0}
+.reassurance__inner{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem}
+.ritem{display:flex;align-items:center;gap:.45rem;font-size:.78rem;color:rgba(255,255,255,.7)}
+.ritem strong{color:var(--white);font-weight:600}
+.ritem::before{font-size:.9rem}
+.ritem--lock::before{content:'🔒'}
+.ritem--check::before{content:'✓';color:#4ade80;font-weight:700;font-size:.9rem}
+.ritem--clock::before{content:'⏱'}
+.ritem--free::before{content:'€';font-family:var(--ff-serif);font-weight:700;color:#4ade80}
+/* ═══════════════════════════════════════════
+   LOTS TECHNIQUES
+═══════════════════════════════════════════ */
+.lots{padding:4rem 0;background:var(--cream);border-bottom:1px solid var(--border)}
+.lots__head{margin-bottom:2.5rem}
+.lots__head h2{font-family:var(--ff-serif);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;line-height:1.15;letter-spacing:-.025em;margin-bottom:.5rem}
+.lots__head h2 em{font-style:italic;color:var(--blue)}
+.lots__head p{font-size:.9rem;color:var(--mid);max-width:55ch;line-height:1.65;margin-bottom:.6rem}
+.lots__note{display:inline-flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--mid);background:var(--white);border:1px solid var(--border);padding:.3rem .8rem;border-radius:var(--r-full)}
+.lots__note::before{content:'ℹ';color:var(--blue);font-weight:700}
+.lots__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.lot-card{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1.2rem;display:flex;align-items:flex-start;gap:.85rem;cursor:pointer;transition:all .18s var(--ease)}
+.lot-card:hover{border-color:var(--blue);box-shadow:0 3px 16px rgba(26,86,219,.08);transform:translateY(-2px)}
+.lot-card__icon{width:44px;height:44px;background:var(--blue-l);border-radius:var(--r-md);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.lot-card h3{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.lot-card p{font-size:.75rem;color:var(--mid);line-height:1.5}
+.lot-card__arr{margin-left:auto;color:var(--border);font-size:.75rem;align-self:center;flex-shrink:0;transition:color .15s,transform .15s}
+.lot-card:hover .lot-card__arr{color:var(--blue);transform:translateX(3px)}
+/* ═══════════════════════════════════════════
+   CAS D'USAGE CONCRETS
+═══════════════════════════════════════════ */
+.usecases{padding:3.5rem 0;background:var(--white);border-bottom:1px solid var(--border)}
+.usecases__head{margin-bottom:1.8rem}
+.usecases__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.usecases__head h2 em{font-style:italic;color:var(--blue)}
+.usecases__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.55rem}
+.uc{display:flex;align-items:center;gap:.65rem;padding:.75rem .9rem;background:var(--cream);border:1px solid var(--border);border-radius:var(--r-md);font-size:.83rem;color:var(--navy);cursor:pointer;transition:all .15s}
+.uc:hover{border-color:var(--blue);background:var(--blue-ll);color:var(--blue)}
+.uc__icon{font-size:1rem;flex-shrink:0;width:28px;text-align:center}
+.uc__arr{margin-left:auto;color:var(--border);font-size:.72rem;transition:color .15s,transform .15s}
+.uc:hover .uc__arr{color:var(--blue);transform:translateX(2px)}
+/* ═══════════════════════════════════════════
+   COMMENT ÇA MARCHE
+═══════════════════════════════════════════ */
+.how{padding:4rem 0;background:var(--cream);border-bottom:1px solid var(--border)}
+.how__head{text-align:center;margin-bottom:2.8rem}
+.how__head h2{font-family:var(--ff-serif);font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.how__head h2 em{font-style:italic;color:var(--blue)}
+.how__steps{display:flex;flex-direction:column;gap:0}
+.how-step{display:flex;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid var(--border)}
+.how-step:last-child{border-bottom:none}
+.how-step__num{width:42px;height:42px;border-radius:50%;background:var(--navy);color:var(--white);font-family:var(--ff-serif);font-size:1rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.how-step__icon{font-size:1.4rem;margin-bottom:.5rem;display:block}
+.how-step h3{font-size:.95rem;font-weight:600;color:var(--navy);margin-bottom:.3rem}
+.how-step p{font-size:.85rem;color:var(--mid);line-height:1.65}
+.how-step__tag{display:inline-flex;align-items:center;gap:.3rem;font-size:.7rem;font-weight:600;color:var(--green);background:var(--green-l);padding:.2rem .6rem;border-radius:var(--r-full);margin-top:.5rem}
+/* ═══════════════════════════════════════════
+   PREUVES SOCIALES
+═══════════════════════════════════════════ */
+.social{padding:4rem 0;background:var(--white)}
+.social__head{margin-bottom:.8rem}
+.social__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.social__head h2 em{font-style:italic;color:var(--blue)}
+/* Stats modestes */
+.stats-row{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.2rem;padding:1.2rem;background:var(--blue-l);border-radius:var(--r-lg)}
+.stat{display:flex;flex-direction:column;gap:.15rem;flex:1;min-width:120px}
+.stat__num{font-family:var(--ff-serif);font-size:1.6rem;font-weight:700;color:var(--navy);line-height:1}
+.stat__label{font-size:.72rem;color:var(--mid);line-height:1.3}
+.stat__sep{width:1px;background:rgba(26,86,219,.15);align-self:stretch}
+/* Avis */
+.avis-grid{display:flex;flex-direction:column;gap:.7rem}
+.avis{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-lg);padding:1.2rem}
+.avis__stars{color:#F59E0B;font-size:.85rem;margin-bottom:.55rem;letter-spacing:.05em}
+.avis__text{font-family:var(--ff-serif);font-size:.93rem;font-style:italic;color:var(--navy);line-height:1.5;margin-bottom:.75rem}
+.avis__author{display:flex;align-items:center;gap:.65rem}
+.avis__avatar{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--ff-serif);font-size:.85rem;font-weight:700;color:var(--white);flex-shrink:0}
+.avis__name{font-size:.82rem;font-weight:600;color:var(--navy)}
+.avis__meta{font-size:.72rem;color:var(--mid)}
+.social__note{margin-top:1rem;font-size:.72rem;color:var(--mid);display:flex;align-items:center;gap:.35rem}
+.social__note::before{content:'🔒'}
+/* ═══════════════════════════════════════════
+   GARANTIES
+═══════════════════════════════════════════ */
+.garanties{padding:3.5rem 0;background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.garanties__head{text-align:center;margin-bottom:2rem}
+.garanties__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.3rem}
+.garanties__head h2 em{font-style:italic;color:var(--blue)}
+.garanties__grid{display:grid;grid-template-columns:1fr;gap:.75rem}
+.g{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.1rem 1.2rem;display:flex;align-items:flex-start;gap:.8rem}
+.g__icon{width:38px;height:38px;border-radius:var(--r);background:var(--blue-l);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.g h3{font-size:.88rem;font-weight:600;color:var(--navy);margin-bottom:.2rem}
+.g p{font-size:.76rem;color:var(--mid);line-height:1.55}
+/* ═══════════════════════════════════════════
+   ARTISANS
+═══════════════════════════════════════════ */
+.artisans{padding:4rem 0;background:var(--navy);position:relative;overflow:hidden}
+.artisans::before{content:'';position:absolute;top:-40%;right:-20%;width:60vw;height:130%;background:radial-gradient(ellipse,rgba(26,86,219,.12),transparent 65%);pointer-events:none}
+.artisans__inner{display:flex;flex-direction:column;gap:2.5rem;position:relative;z-index:1}
+.artisans__kicker{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:.7rem}
+.artisans h2{font-family:var(--ff-serif);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:700;line-height:1.15;letter-spacing:-.025em;color:var(--white);margin-bottom:.7rem}
+.artisans h2 em{font-style:italic;color:#60A5FA}
+.artisans__sub{font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.7;max-width:48ch;margin-bottom:1.4rem}
+.art-perks{display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.6rem}
+.art-perk{display:flex;align-items:flex-start;gap:.75rem}
+.art-perk-icon{width:30px;height:30px;border-radius:var(--r);background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.art-perk strong{display:block;font-size:.85rem;font-weight:600;color:var(--white);margin-bottom:.05rem}
+.art-perk span{font-size:.75rem;color:rgba(255,255,255,.48)}
+.art-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-xl);padding:1.6rem}
+.art-card h3{font-family:var(--ff-serif);font-size:1.05rem;color:var(--white);margin-bottom:.4rem}
+.art-card p{font-size:.8rem;color:rgba(255,255,255,.52);line-height:1.6;margin-bottom:1.1rem}
+.art-form{display:flex;flex-direction:column;gap:.55rem}
+.afi{padding:.68rem .9rem;border:1.5px solid rgba(255,255,255,.15);border-radius:var(--r);font-family:var(--ff-sans);font-size:.88rem;color:var(--white);background:rgba(255,255,255,.08);outline:none;width:100%;transition:border-color .15s}
+.afi::placeholder{color:rgba(255,255,255,.3)}
+.afi:focus{border-color:rgba(255,255,255,.4)}
+select.afi{color:rgba(255,255,255,.7);background:rgba(11,31,58,.85);-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.4)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .85rem center;padding-right:2.2rem;cursor:pointer}
+.art-submit{width:100%;padding:.82rem;background:#60A5FA;color:var(--navy);border-radius:var(--r);font-size:.95rem;font-weight:700;transition:all .18s}
+.art-submit:hover{background:#93C5FD;transform:translateY(-1px)}
+.art-submit:disabled{background:var(--mid);cursor:not-allowed;transform:none}
+.art-note{font-size:.68rem;color:rgba(255,255,255,.3);text-align:center}
+.art-success{display:none;text-align:center;padding:1rem 0}
+/* ═══════════════════════════════════════════
+   FAQ
+═══════════════════════════════════════════ */
+.faq{padding:4rem 0;background:var(--white);border-top:1px solid var(--border)}
+.faq__head{margin-bottom:2rem}
+.faq__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.faq__head h2 em{font-style:italic;color:var(--blue)}
+.faq__head p{font-size:.9rem;color:var(--mid);max-width:52ch}
+.faq-list{display:flex;flex-direction:column;gap:.5rem;max-width:680px}
+details.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:var(--r-md);overflow:hidden;transition:border-color .2s}
+details.faq-item[open]{border-color:var(--blue)}
+details.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.2rem;cursor:pointer;list-style:none;font-size:.92rem;font-weight:600;color:var(--navy)}
+details.faq-item summary::-webkit-details-marker{display:none}
+details.faq-item summary::after{content:'+';font-size:1.2rem;font-weight:300;color:var(--mid);flex-shrink:0;transition:transform .25s,color .2s;line-height:1}
+details.faq-item[open] summary::after{transform:rotate(45deg);color:var(--blue)}
+.faq-body{padding:0 1.2rem 1rem;border-top:1px solid var(--border);padding-top:.9rem}
+.faq-body p{font-size:.88rem;color:var(--mid);line-height:1.7}
+.faq-body strong{color:var(--navy);font-weight:600}
+.faq-body a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+/* ═══════════════════════════════════════════
+   CTA FINAL
+═══════════════════════════════════════════ */
+.cta-final{padding:4.5rem 0;background:var(--blue);text-align:center;position:relative;overflow:hidden}
+.cta-final::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.cta-final__inner{position:relative;z-index:1}
+.cta-final h2{font-family:var(--ff-serif);font-size:clamp(1.7rem,4vw,2.6rem);font-weight:700;color:var(--white);line-height:1.1;letter-spacing:-.025em;margin-bottom:.7rem}
+.cta-final h2 em{font-style:italic;color:#FCD34D}
+.cta-final p{font-size:.95rem;color:rgba(255,255,255,.75);margin-bottom:2rem}
+.cta-final__btns{display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.btn-white{background:var(--white);color:var(--blue);padding:1rem 2.2rem;border-radius:var(--r);font-size:1.05rem;font-weight:700;transition:all .18s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-white:hover{background:var(--blue-l);transform:translateY(-2px)}
+.btn-ghost-white{background:transparent;color:rgba(255,255,255,.75);border:1.5px solid rgba(255,255,255,.3);padding:.9rem 2rem;border-radius:var(--r);font-size:.95rem;font-weight:500;transition:all .18s;display:inline-flex;align-items:center;gap:.4rem}
+.btn-ghost-white:hover{border-color:rgba(255,255,255,.7);color:var(--white)}
+.cta-final__micro{margin-top:1.2rem;font-size:.72rem;color:rgba(255,255,255,.45)}
+/* ═══════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════ */
+.footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.06);padding:3.5rem 0 2rem}
+.footer__grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+.footer__brand-logo{font-family:var(--ff-serif);font-size:1.15rem;font-weight:700;color:var(--white);margin-bottom:.5rem;display:flex;align-items:center;gap:.45rem}
+.footer__brand-logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue);display:inline-block}
+.footer__brand p{font-size:.76rem;color:rgba(255,255,255,.38);line-height:1.6;max-width:22ch;margin-bottom:.8rem}
+.footer__brand-badge{font-size:.67rem;font-weight:600;color:#60A5FA;background:rgba(96,165,250,.12);border:1px solid rgba(96,165,250,.2);padding:.24rem .7rem;border-radius:var(--r-full);display:inline-flex}
+.footer__col h4{font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:.85rem}
+.footer__col ul{display:flex;flex-direction:column;gap:.5rem}
+.footer__col a{font-size:.78rem;color:rgba(255,255,255,.48);transition:color .15s}
+.footer__col a:hover{color:var(--white)}
+.footer__col .wa{color:#25D366;font-weight:500}
+.footer__bottom{padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-direction:column;gap:.55rem}
+.footer__bottom p{font-size:.68rem;color:rgba(255,255,255,.22)}
+.footer__legal{display:flex;flex-wrap:wrap;gap:.8rem}
+.footer__legal a{font-size:.68rem;color:rgba(255,255,255,.22);transition:color .15s}
+.footer__legal a:hover{color:rgba(255,255,255,.5)}
+
+
+
+
+
+
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE 640px
+═══════════════════════════════════════════ */
+@media(min-width:640px){
+  .cta-final__btns{flex-direction:row;justify-content:center}
+  .footer__bottom{flex-direction:row;justify-content:space-between;align-items:center}
+}
+/* ═══════════════════════════════════════════
+   RESPONSIVE 768px
+═══════════════════════════════════════════ */
+@media(min-width:768px){
+  .nav__links,.nav__cta{display:flex}
+  
+  body{padding-bottom:0}/* sticky hidden on desktop */
+  
+  .hero__inner{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:4rem;padding-bottom:4rem}
+  .lots__grid{grid-template-columns:repeat(3,1fr)}
+  .usecases__grid{grid-template-columns:repeat(2,1fr)}
+  .how__steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+  .how-step{flex-direction:column;gap:.7rem;padding:0;border-bottom:none;border-right:1px solid var(--border);padding-right:2.5rem}
+  .how-step:last-child{border-right:none}
+  .avis-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .garanties__grid{grid-template-columns:repeat(2,1fr)}
+  .artisans__inner{display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:4rem}
+  .faq-list{max-width:100%}
+  .footer__grid{grid-template-columns:2fr 1fr 1fr}
+}
+/* ═══════════════════════════════════════════
+   RESPONSIVE 1200px
+═══════════════════════════════════════════ */
+@media(min-width:1200px){
+  .lots__grid{grid-template-columns:repeat(3,1fr)}
+  .garanties__grid{grid-template-columns:repeat(4,1fr)}
+  .footer__grid{grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem}
+}
+
+/* ── SEO LOCAL ─────────────────────────────── */
+.seo-local{padding:3rem 0 2.5rem;background:var(--cream);border-top:1px solid var(--border)}
+.seo-local__title{font-family:var(--ff-serif);font-size:clamp(1.3rem,2.5vw,1.8rem);font-weight:700;color:var(--navy);margin-bottom:1.8rem;letter-spacing:-.02em}
+.seo-local__grid{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:1.5rem}
+.seo-local__item h3{font-size:1rem;font-weight:600;color:var(--navy);margin-bottom:.6rem}
+.seo-local__item p{font-size:.88rem;color:var(--mid);line-height:1.7}
+.seo-local__note{font-size:.78rem;color:var(--mid);line-height:1.6;padding:1rem;background:var(--white);border-radius:var(--r-md);border:1px solid var(--border)}
+@media(min-width:768px){.seo-local__grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ═══════════════════════════════════════════
+   TRUST MICROCOPY
+═══════════════════════════════════════════ */
+.trust-microcopy{margin-top:.9rem;text-align:center}
+.trust-microcopy p{display:flex;flex-direction:column;gap:.35rem}
+.trust-microcopy span{font-size:.75rem;color:var(--mid);line-height:1.45}
+.trust-green{color:var(--green);font-weight:600}
+.trust-badges{display:flex;justify-content:center;gap:1rem;margin-top:.75rem;padding-top:.75rem;border-top:1px solid var(--border)}
+.trust-badge{display:flex;flex-direction:column;align-items:center;gap:.25rem;opacity:.75}
+.trust-badge span{font-size:.62rem;color:var(--mid);font-weight:500;text-align:center;max-width:60px;line-height:1.2}
+/* ═══════════════════════════════════════════
+   SEO LOCAL SECTION
+═══════════════════════════════════════════ */
+.seo-local{padding:3.5rem 0;background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.seo-local__title{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.3rem;text-align:center}
+.seo-local__title em{font-style:italic;color:var(--blue)}
+.seo-grid{display:grid;grid-template-columns:1fr;gap:1.2rem;margin-top:2rem}
+.seo-card{background:var(--white);padding:1.4rem;border-radius:var(--r-lg);border:1px solid var(--border)}
+.seo-card h3{font-family:var(--ff-serif);font-size:1rem;font-weight:700;margin-bottom:.6rem;color:var(--navy)}
+.seo-card p{font-size:.82rem;color:var(--mid);line-height:1.65}
+.seo-local__note{margin-top:1.8rem;text-align:center;font-size:.78rem;color:var(--mid)}
+.seo-local__note a{color:var(--blue);text-decoration:underline;text-underline-offset:2px}
+@media(min-width:768px){.seo-grid{grid-template-columns:repeat(3,1fr)}}
+
+/* ═══════════════════════════════════════════
+   BADGE EXPERTISE IDF
+═══════════════════════════════════════════ */
+.expertise-badge{display:flex;align-items:flex-start;gap:.75rem;background:var(--green-l);border:1px solid rgba(21,128,61,.25);border-radius:var(--r-md);padding:.9rem 1rem;margin-top:.85rem}
+.expertise-badge__icon{flex-shrink:0;margin-top:.05rem}
+.expertise-badge strong{display:block;font-size:.82rem;font-weight:700;color:#166534;margin-bottom:.2rem}
+.expertise-badge p{font-size:.72rem;color:#15803D;line-height:1.5;margin:0}
+/* ═══════════════════════════════════════════
+   SECTION AVANT / APRÈS
+═══════════════════════════════════════════ */
+.avantapres{padding:3.5rem 0;background:var(--white);border-bottom:1px solid var(--border)}
+.avantapres__head{margin-bottom:2rem}
+.avantapres__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.avantapres__head h2 em{font-style:italic;color:var(--blue)}
+.avantapres__head p{font-size:.88rem;color:var(--mid);max-width:52ch;line-height:1.6}
+.aa-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+.aa-card{background:var(--cream);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.aa-duo{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:.5rem;padding:1rem 1rem .75rem}
+.aa-img{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;background:var(--border)}
+.aa-img--before{background:#F3F4F6}
+.aa-img--after{background:#F0FDF4}
+.aa-img img{width:100%;height:100%;object-fit:cover}
+.aa-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;height:100%;color:var(--mid);font-size:.7rem;font-weight:500;padding:.5rem}
+.aa-placeholder--after{color:var(--green)}
+.aa-label{position:absolute;top:.4rem;left:.4rem;font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.18rem .55rem;border-radius:var(--r-full)}
+.aa-label--before{background:rgba(0,0,0,.55);color:white}
+.aa-label--after{background:var(--green);color:white}
+.aa-arrow{color:var(--mid);font-size:1rem;flex-shrink:0}
+.aa-meta{padding:.75rem 1rem 1rem;border-top:1px solid var(--border)}
+.aa-metier{font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:.3rem}
+.aa-meta p{font-size:.78rem;color:var(--mid);line-height:1.5}
+.aa-note{margin-top:1.5rem;font-size:.75rem;color:var(--mid);text-align:center;padding:.7rem;background:var(--amber-l);border:1px solid rgba(217,119,6,.2);border-radius:var(--r-md)}
+@media(min-width:768px){
+  .aa-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* ─── Galerie proximité ─────────────────── */
+.aa-proximity{background:var(--blue-ll);border:1px solid rgba(26,86,219,.15);border-radius:var(--r-lg);padding:1.4rem 1.6rem;margin-bottom:2rem;text-align:center}
+.aa-proximity p{font-size:.88rem;color:var(--mid);line-height:1.65;margin-bottom:1rem;max-width:65ch;margin-left:auto;margin-right:auto}
+.aa-proximity strong{color:var(--navy)}
+.aa-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem}
+.aa-pill{font-size:.72rem;color:var(--blue);background:var(--white);padding:.3rem .8rem;border-radius:var(--r);border:1px solid rgba(26,86,219,.25);font-weight:500}
+/* ─── Cards galerie ─────────────────────── */
+.aa-img-wrap{position:relative;overflow:hidden}
+.aa-dept-badge{position:absolute;top:10px;left:10px;color:#fff;padding:3px 10px;border-radius:var(--r-full);font-size:.68rem;font-weight:700;letter-spacing:.04em}
+/* override old aa-grid for photo cards */
+.aa-card{background:var(--white)}
+.aa-meta h3{font-size:1rem;font-weight:600;color:var(--navy);margin:.3rem 0 .4rem}
+
+
+/* ── Emplacements photo ── */
+.photo-placeholder{
+  height:200px;
+  background:var(--cream);
+  border:2px dashed var(--border);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:.4rem;padding:1rem;
+}
+.photo-placeholder__icon{font-size:1.8rem;opacity:.5}
+.photo-placeholder__label{font-size:.78rem;font-weight:600;color:var(--mid);text-align:center}
+.photo-placeholder__hint{font-size:.65rem;color:var(--border);background:var(--amber-l);padding:.2rem .6rem;border-radius:var(--r-full);color:#92400E}
+
+/* ── Lot-card avec photo ── */
+.lot-card--photo{padding:0;overflow:hidden;flex-direction:column;gap:0}
+.lot-card__img{width:100%;height:140px;overflow:hidden;flex-shrink:0}
+.lot-card__img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.lot-card--photo:hover .lot-card__img img{transform:scale(1.05)}
+.lot-card__body{padding:1rem;display:flex;align-items:flex-start;gap:.85rem;flex:1}
+
+/* ── Artisans photo ── */
+.artisans__photo{position:relative;flex-shrink:0}
+.artisans__photo-badge{
+  position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:white;
+  font-size:.7rem;font-weight:700;white-space:nowrap;
+  padding:.45rem 1.1rem;border-radius:var(--r-full);
+  box-shadow:0 4px 16px rgba(21,128,61,.35);
+}
+@media(min-width:768px){
+  .artisans__inner--withphoto{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+}
+
+/* ═══════════════════════════════════════════
+   VS GOOGLE MAPS
+═══════════════════════════════════════════ */
+.vs-section{padding:3.5rem 0;background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.vs__head{text-align:center;margin-bottom:2rem}
+.vs__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.4rem}
+.vs__head h2 em{font-style:italic;color:var(--blue)}
+.vs__head p{font-size:.9rem;color:var(--mid)}
+.vs-grid{display:grid;grid-template-columns:1fr;gap:1rem;max-width:820px;margin:0 auto}
+@media(min-width:640px){.vs-grid{grid-template-columns:1fr 1fr}}
+.vs-col{border-radius:var(--r-lg);padding:1.4rem 1.6rem}
+.vs-col--bad{background:var(--light);border:1.5px solid var(--border)}
+.vs-col--good{background:var(--green-l);border:1.5px solid rgba(21,128,61,.25)}
+.vs-col__label{font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.9rem}
+.vs-col--bad .vs-col__label{color:var(--mid)}
+.vs-col--good .vs-col__label{color:var(--green)}
+.vs-col ul{display:flex;flex-direction:column;gap:.55rem;list-style:none}
+.vs-col li{font-size:.84rem;color:var(--mid);line-height:1.5}
+.vs-col--good li{color:var(--green-d)}
+/* ═══════════════════════════════════════════
+   SECTION CONFIANCE
+═══════════════════════════════════════════ */
+.confiance{padding:3.5rem 0;background:var(--white);border-top:1px solid var(--border)}
+.confiance__head{text-align:center;margin-bottom:2rem}
+.confiance__head h2{font-family:var(--ff-serif);font-size:clamp(1.5rem,2.8vw,2.1rem);font-weight:700;letter-spacing:-.02em;margin-bottom:.3rem}
+.confiance__head h2 em{font-style:italic;color:var(--blue)}
+.confiance-grid{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:768px){.confiance-grid{grid-template-columns:repeat(3,1fr)}}
+.confiance-card{background:var(--light);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.4rem;text-align:center}
+.confiance-card__icon{font-size:2rem;margin-bottom:.8rem;display:block}
+.confiance-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.confiance-card p{font-size:.82rem;color:var(--mid);line-height:1.65}
+
+/* ── Duo avant/après côte à côte ── */
+.aa-duo-img{display:grid;grid-template-columns:1fr 1fr;height:200px;overflow:hidden}
+.aa-side{position:relative;overflow:hidden}
+.aa-side img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.aa-card:hover .aa-side img{transform:scale(1.04)}
+/* Surcharge aa-grid pour 4 cards en 2 cols desktop */
+.aa-grid{display:grid;grid-template-columns:1fr;gap:1.2rem}
+@media(min-width:640px){.aa-grid{grid-template-columns:repeat(2,1fr)}}
+/* Badges certif */
+.aa-badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.75rem}
+.aa-badges span{font-size:.68rem;font-weight:600;color:var(--green-d);background:var(--green-l);border:1px solid rgba(21,128,61,.18);padding:.18rem .6rem;border-radius:var(--r-full)}
+.aa-meta h3{font-size:.95rem;font-weight:600;color:var(--navy);margin:.3rem 0 .4rem}
+.aa-meta p{font-size:.8rem;color:var(--mid);line-height:1.6}
+
+/* ── SEO métiers ── */
+.seo-metiers{display:grid;grid-template-columns:1fr;gap:1rem;margin-bottom:2rem}
+@media(min-width:768px){.seo-metiers{grid-template-columns:repeat(3,1fr)}}
+.seo-metier-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.3rem}
+.seo-metier-card h3{font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:.5rem}
+.seo-metier-card p{font-size:.8rem;color:var(--mid);line-height:1.65;margin-bottom:.75rem}
+.seo-metier-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.seo-metier-tags span{font-size:.65rem;font-weight:500;color:var(--blue);background:var(--blue-l);border:1px solid rgba(26,86,219,.18);padding:.18rem .6rem;border-radius:var(--r-full)}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "TravauxParfait",
+  "description": "Plateforme de mise en relation entre particuliers et artisans qualifiés (plombier, électricien, chauffagiste, isolation) en Île-de-France. Devis gratuit sous 48h.",
+  "url": "https://travauxparfait.fr",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Paris",
+    "addressRegion": "Île-de-France",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    {"@type": "City", "name": "Paris"},
+    {"@type": "City", "name": "Boulogne-Billancourt"},
+    {"@type": "City", "name": "Nanterre"},
+    {"@type": "City", "name": "Versailles"},
+    {"@type": "City", "name": "Saint-Germain-en-Laye"},
+    {"@type": "City", "name": "Levallois-Perret"},
+    {"@type": "City", "name": "Courbevoie"},
+    {"@type": "City", "name": "Issy-les-Moulineaux"}
+  ],
+  "serviceType": ["Plomberie", "Électricité", "Chauffage", "Isolation", "Climatisation", "VMC"],
+  "priceRange": "Gratuit pour les particuliers"
+}
+</script>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Navigation principale">
+  <a href="/index.html" class="nav__logo" aria-label="TravauxParfait — Accueil">
+    <svg class="nav__logo-svg" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <rect width="34" height="34" rx="7" fill="#0B1F3A"/>
+      <path d="M17 8L7 16h3v9h6v-5h2v5h6v-9h3L17 8z" fill="white" opacity=".18"/>
+      <path d="M17 8L7 16h3v9h6v-5h2v5h6v-9h3L17 8z" stroke="white" stroke-width="1.2" stroke-linejoin="round" fill="none"/>
+      <circle cx="24" cy="24" r="6" fill="#15803D"/>
+      <path d="M21.5 24l1.8 1.8 3.2-3.2" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span class="nav__logo-text">Travaux<em>Parfait</em></span>
+  </a>
+  <ul class="nav__links" role="list">
+    <li><a href="#formulaire">Publier un projet</a></li>
+    <li><a href="#how">Comment ça marche</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <div class="nav__actions">
+    <a href="#artisans" class="nav__artisan-link">S'inscrire en tant que professionnel</a>
+    <a href="#formulaire" class="nav__cta">Déposer mon projet →</a>
+  </div>
+</nav>
+
+
+<main id="main">
+
+<!-- ═══════════════════════════════════════════
+     HERO + FORMULAIRE 2 ÉTAPES
+═══════════════════════════════════════════ -->
+<section class="hero" id="accueil" aria-labelledby="hero-h1" style="position:relative">
+  <!-- Photo de fond hero -->
+  <div class="hero__bg-photo" aria-hidden="true" style="
+    position:absolute;inset:0;z-index:0;
+    background-image:url('https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200&h=700&fit=crop&auto=format&q=80');
+    background-size:cover;background-position:center 30%;
+    opacity:.08;
+  "></div>
+  <div class="container">
+    <div class="hero__inner">
+
+      <!-- Texte -->
+      <div class="reveal">
+        <!-- 📷 PHOTO TYPE A — Validation humaine
+             Ajouter ici une photo de vous ou conseiller analysant un devis / au téléphone.
+             Recommandation : photo carrée 400×400px, fond neutre.
+             Décommenter le bloc ci-dessous et remplacer src="..." par votre photo.
+        <div class="hero__photo-validation">
+          <img src="photo-conseiller.jpg" alt="Un conseiller TravauxParfait analyse votre demande" width="400" height="400" loading="lazy">
+          <div class="hero__photo-caption">Un conseiller vérifie chaque demande avant mise en relation</div>
+        </div>
+        -->
+        <div class="hero__kicker">Île-de-France · Gratuit · Sans engagement</div>
+        <h1 id="hero-h1">
+          Recevez jusqu'à 3 devis qualifiés<br>
+          en IDF — <em>sans appeler</em><br>
+          <span class="no">10 entreprises</span>
+        </h1>
+        <p class="hero__sub">
+          Vous décrivez votre besoin en 1 minute.
+          Jusqu'à 3 artisans vérifiés vous contactent sous 24 à 48h
+          pour votre devis ou votre intervention —
+          priorité Paris&nbsp;(75), 92 et&nbsp;78.
+        </p>
+        <div class="hero__lots" role="list" aria-label="Métiers couverts">
+          <span class="hero__lot" role="listitem">⚡ Électricité</span>
+          <span class="hero__lot" role="listitem">🔧 Plomberie</span>
+          <span class="hero__lot" role="listitem">🔥 Chauffage / PAC</span>
+          <span class="hero__lot" role="listitem">❄️ Climatisation</span>
+          <span class="hero__lot" role="listitem">🌬️ Ventilation</span>
+          <span class="hero__lot" role="listitem">🏠 Isolation</span>
+        </div>
+      </div>
+
+      <!-- Formulaire 2 étapes -->
+      <div class="reveal d2" id="formulaire">
+        <div class="form-card">
+          <div class="form-card__head">
+            <h2>Recevoir un appel gratuit</h2>
+            <div class="form-card__step-indicator" aria-label="Étape 1 sur 2">
+              <span class="step-dot active" id="dot1"></span>
+              <span class="step-dot" id="dot2"></span>
+            </div>
+          </div>
+          <div class="form-card__body">
+
+            <!-- ÉTAPE 1 -->
+            <div id="step1">
+              <h3>De quel type de travaux avez-vous besoin ?</h3>
+              <div class="type-grid" role="group" aria-label="Type de travaux">
+                <button type="button" class="type-btn" data-val="electricien" onclick="selectType(this)"><span class="type-btn__icon">⚡</span>Électricité</button>
+                <button type="button" class="type-btn" data-val="plombier"    onclick="selectType(this)"><span class="type-btn__icon">🔧</span>Plomberie</button>
+                <button type="button" class="type-btn" data-val="chauffagiste" onclick="selectType(this)"><span class="type-btn__icon">🔥</span>Chauffage / PAC</button>
+                <button type="button" class="type-btn" data-val="climatisation" onclick="selectType(this)"><span class="type-btn__icon">❄️</span>Climatisation</button>
+                <button type="button" class="type-btn" data-val="vmc"         onclick="selectType(this)"><span class="type-btn__icon">🌬️</span>VMC / Ventilation</button>
+                <button type="button" class="type-btn" data-val="isolation"   onclick="selectType(this)"><span class="type-btn__icon">🏠</span>Isolation</button>
+              </div>
+
+              <div class="dept-select-wrap" id="dept-wrap">
+                <label class="fl" for="dept-s1">Dans quel département ? <span class="req">*</span></label>
+                <select class="fi" id="dept-s1" name="dept">
+                  <option value="" disabled selected>Votre département</option>
+                  <optgroup label="Secteurs prioritaires">
+                    <option value="75">75 — Paris (tous arrondissements)</option>
+                    <option value="92">92 — Hauts-de-Seine (Boulogne, Nanterre…)</option>
+                    <option value="78">78 — Yvelines (Versailles, St-Germain…)</option>
+                  </optgroup>
+                  <optgroup label="Autres secteurs IDF">
+                    <option value="77">77 — Seine-et-Marne</option>
+                    <option value="91">91 — Essonne</option>
+                    <option value="93">93 — Seine-Saint-Denis</option>
+                    <option value="94">94 — Val-de-Marne</option>
+                    <option value="95">95 — Val-d'Oise</option>
+                  </optgroup>
+                </select>
+              </div>
+
+              <button type="button" class="step1-cta" id="step1-cta" onclick="goStep2()">
+                Publier votre projet →
+              </button>
+            </div>
+
+            <!-- ÉTAPE 2 -->
+            <div id="step2">
+              <div class="step2-bonne-nouvelle">
+                <span class="step2-bonne-nouvelle__icon" aria-hidden="true">✅</span>
+                <div>
+                  <h3>Bonne nouvelle !</h3>
+                  <p id="step2-confirm">Nous avons des artisans dans votre zone. Laissez vos coordonnées pour être rappelé.</p>
+                </div>
+              </div>
+
+              <div class="step2-recapitulatif">
+                <span id="step2-recap">⚡ Électricité · 75</span>
+                <button type="button" onclick="goBack()">Modifier</button>
+              </div>
+
+              <form id="tp-form" novalidate>
+                <input type="text" name="_honey" style="display:none" tabindex="-1" aria-hidden="true">
+                <div class="form-row">
+                  <div class="fi-group">
+                    <label class="fl" for="prenom">Prénom <span class="req">*</span></label>
+                    <input class="fi" type="text" id="prenom" name="prenom" placeholder="Marie" required autocomplete="given-name">
+                  </div>
+                  <div class="fi-group">
+                    <label class="fl" for="tel">Téléphone <span class="req">*</span></label>
+                    <input class="fi" type="tel" id="tel" name="tel" placeholder="06 12 34 56 78" required autocomplete="tel">
+                  </div>
+                </div>
+                <div class="fi-group">
+                  <label class="fl" for="desc">Description (facultatif)</label>
+                  <input class="fi" type="text" id="desc" name="desc" placeholder="Ex. : tableau à remettre aux normes, fuite sous évier…">
+                </div>
+                <div class="rgpd-row">
+                  <input type="checkbox" id="rgpd" name="rgpd" required>
+                  <label for="rgpd">J'accepte que mon prénom et mon téléphone soient transmis à maximum 3 artisans vérifiés pour qu'ils me contactent. <a href="/confidentialite.html">Confidentialité</a></label>
+                </div>
+                <div class="anti-spam">Votre numéro n'est jamais envoyé à plusieurs entreprises</div>
+                <div style="display:flex;align-items:center;gap:.4rem;font-size:.7rem;color:var(--mid);margin-top:-.2rem">
+                  <span style="color:var(--green);font-weight:700">🛡</span>
+                  Nous vérifions manuellement les assurances de chaque artisan avant de vous le présenter.
+                </div>
+                <button type="submit" class="submit-btn" id="submit-btn">
+                  <span id="submit-txt">Être rappelé gratuitement →</span>
+                  <span class="sr-only" id="submit-status" aria-live="polite"></span>
+                </button>
+              </form>
+
+              <!-- Micro-copy de réassurance sous le bouton -->
+              <div class="trust-microcopy">
+                <p>
+                  <span><strong class="trust-green">✓ Zéro harcèlement :</strong> Maximum 2 à 3 artisans locaux vous contactent.</span>
+                  <span><strong class="trust-green">✓ Qualité garantie :</strong> Spécialistes vérifiés à <strong>Paris (75), 92 et 78</strong>.</span>
+                  <span><strong class="trust-green">✓ 100 % gratuit :</strong> Aucun frais, aucune obligation de signer.</span>
+                </p>
+                <div class="trust-badges" role="list" aria-label="Certifications">
+                  <div class="trust-badge" role="listitem" title="Paiement sécurisé">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5L12 2z" fill="#15803D" opacity=".15"/><path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5L12 2z" stroke="#15803D" stroke-width="1.5" fill="none"/><path d="M9 12l2 2 4-4" stroke="#15803D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>Artisans vérifiés</span>
+                  </div>
+                  <div class="trust-badge" role="listitem" title="Assurance décennale">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2" stroke="#1A56DB" stroke-width="1.5" fill="#1A56DB" opacity=".08"/><path d="M3 10h18" stroke="#1A56DB" stroke-width="1.5"/><circle cx="7.5" cy="14.5" r="1" fill="#1A56DB"/><path d="M10 14.5h7" stroke="#1A56DB" stroke-width="1.2" stroke-linecap="round"/></svg>
+                    <span>Assurance décennale</span>
+                  </div>
+                  <div class="trust-badge" role="listitem" title="RGPD conforme">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2" stroke="#5A6478" stroke-width="1.5" fill="#5A6478" opacity=".08"/><path d="M8 11V7a4 4 0 018 0v4" stroke="#5A6478" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="16" r="1.5" fill="#5A6478"/></svg>
+                    <span>Données protégées</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- États -->
+              <div class="form-loading" id="form-loading">
+                <div class="spinner" aria-hidden="true"></div>
+                <p style="font-size:.85rem;color:var(--mid)">Vérification des artisans disponibles…</p>
+              </div>
+              <div class="form-success" id="form-success" role="status" aria-live="assertive">
+                <div style="font-size:2.5rem" aria-hidden="true">✅</div>
+                <h3>Demande bien reçue !</h3>
+                <p>Un conseiller TravauxParfait vérifie actuellement la disponibilité des meilleurs artisans dans le <strong id="success-dept">votre département</strong>. Vous recevrez un premier appel ou SMS sous <strong>24h</strong> pour confirmer votre rendez-vous.</p>
+              </div>
+
+              <!-- Badge Expertise IDF Validée -->
+              <div class="expertise-badge" role="note" aria-label="Expertise vérifiée">
+                <div class="expertise-badge__icon" aria-hidden="true">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5L12 2z" fill="#15803D" opacity=".15"/>
+                    <path d="M12 2L4 5v6c0 5.25 3.5 10.15 8 11.35C16.5 21.15 20 16.25 20 11V5L12 2z" stroke="#15803D" stroke-width="1.4" fill="none"/>
+                    <path d="M9 12l2 2 4-4" stroke="#15803D" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <div>
+                  <strong>Expertise IDF Validée</strong>
+                  <p>Nous vérifions manuellement la décennale et la certification RGE de chaque artisan sélectionné pour vous.</p>
+                </div>
+              </div>
+
+              <!-- Ce que vous recevez -->
+              <div class="you-get">
+                <p>Ce que vous recevez</p>
+                <ul>
+                  <li>Un rappel adapté à votre besoin</li>
+                  <li>Jusqu'à 3 artisans de votre zone IDF</li>
+                  <li>Un premier échange gratuit</li>
+                  <li>Un devis si votre demande est pertinente</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     RÉASSURANCE IMMÉDIATE
+═══════════════════════════════════════════ -->
+<div class="reassurance" role="list" aria-label="Garanties clés">
+  <div class="container">
+    <div class="reassurance__inner">
+      <div class="ritem ritem--lock" role="listitem"><strong>Max 3 artisans</strong> — jamais une liste spam</div>
+      <div class="ritem ritem--check" role="listitem"><strong>Artisans vérifiés</strong> — assurance + activité contrôlées</div>
+      <div class="ritem ritem--clock" role="listitem">Rappel sous <strong>24–48h</strong></div>
+      <div class="ritem ritem--free" role="listitem"><strong>Gratuit</strong> et sans engagement</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     LOTS TECHNIQUES
+═══════════════════════════════════════════ -->
+<section class="lots" id="lots" aria-labelledby="lots-title">
+  <div class="container">
+    <header class="lots__head reveal">
+      <h2 id="lots-title">Spécialiste des <em>lots techniques</em></h2>
+      <p>Nous ne couvrons pas tous les corps d'état. Nous nous concentrons sur les métiers techniques où la qualification et la réactivité comptent vraiment.</p>
+      <span class="lots__note">Couverture actuelle : Paris (75), 77, 78, 91, 92, 93, 94, 95</span>
+    </header>
+    <div class="lots__grid">
+      <div class="lot-card lot-card--photo reveal" onclick="scrollToForm('electricien')">
+          <div class="lot-card__img"><img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=140&fit=crop&auto=format&q=75" alt="Électricien professionnel IDF — mise aux normes tableau" width="400" height="140" loading="lazy"></div>
+          <div class="lot-card__body"><div class="lot-card__icon" aria-hidden="true">⚡</div><div><h3>Électricité</h3><p>Mise aux normes, tableau, domotique, VMC, bornes IRVE</p></div><span class="lot-card__arr" aria-hidden="true">›</span></div>
+        </div>
+      <div class="lot-card lot-card--photo reveal d1" onclick="scrollToForm('plombier')">
+          <div class="lot-card__img"><img src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&h=140&fit=crop&auto=format&q=75" alt="Plombier professionnel IDF — salle de bain rénovation" width="400" height="140" loading="lazy"></div>
+          <div class="lot-card__body"><div class="lot-card__icon" aria-hidden="true">🔧</div><div><h3>Plomberie</h3><p>Urgences, salle de bain, chauffe-eau, robinetterie</p></div><span class="lot-card__arr" aria-hidden="true">›</span></div>
+        </div>
+      <div class="lot-card lot-card--photo reveal d2" onclick="scrollToForm('chauffagiste')">
+        <div class="lot-card__img"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=140&fit=crop&auto=format&q=75" alt="Chauffagiste RGE IDF — installation PAC" width="400" height="140" loading="lazy"></div>
+        <div class="lot-card__body"><div class="lot-card__icon" aria-hidden="true">🔥</div><div><h3>Chauffage / PAC</h3><p>Chaudière, pompe à chaleur, plancher chauffant, entretien</p></div><span class="lot-card__arr" aria-hidden="true">›</span></div>
+      </div>
+      <div class="lot-card lot-card--photo reveal d1" onclick="scrollToForm('climatisation')">
+        <div class="lot-card__img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=140&fit=crop&auto=format&q=75" alt="Technicien climatisation IDF" width="400" height="140" loading="lazy"></div>
+        <div class="lot-card__body"><div class="lot-card__icon" aria-hidden="true">❄️</div><div><h3>Climatisation</h3><p>Installation split, multi-split, entretien</p></div><span class="lot-card__arr" aria-hidden="true">›</span></div>
+      </div>
+      <div class="lot-card lot-card--photo reveal d2" onclick="scrollToForm('vmc')">
+        <div class="lot-card__img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=140&fit=crop&auto=format&q=75" alt="Installateur VMC ventilation IDF" width="400" height="140" loading="lazy"></div>
+        <div class="lot-card__body"><div class="lot-card__icon" aria-hidden="true">🌬️</div><div><h3>VMC / Ventilation</h3><p>Simple flux, double flux, installation et remplacement</p></div><span class="lot-card__arr" aria-hidden="true">›</span></div>
+      </div>
+      <div class="lot-card lot-card--photo reveal d3" onclick="scrollToForm('isolation')">
+        <div class="lot-card__img"><img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=140&fit=crop&auto=format&q=75" alt="Isolation thermique IDF — combles laine de roche" width="400" height="140" loading="lazy"></div>
+        <div class="lot-card__body"><div class="lot-card__icon" aria-hidden="true">🏠</div><div><h3>Isolation énergétique</h3><p>Combles, murs, plancher bas — éligible MaPrimeRénov'</p></div><span class="lot-card__arr" aria-hidden="true">›</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     AVANT / APRÈS — Exemples de réalisations
+     📷 Remplacer les placeholders SVG par vos
+        vraies photos quand disponibles
+═══════════════════════════════════════════ -->
+<section class="avantapres" aria-labelledby="aa-title">
+  <div class="container">
+    <header class="avantapres__head reveal">
+      <h2 id="aa-title">Types d'interventions <em>en IDF</em></h2>
+      <p>Exemples de projets traités par des artisans qualifiés de notre réseau.</p>
+    </header>
+
+    <div class="aa-grid">
+
+      <!-- ── Card 1 : Électricité ── -->
+      <div class="aa-card reveal d1">
+        <div class="aa-duo-img">
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Installation électrique avant rénovation" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--before">Avant</span>
+          </div>
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Tableau électrique Schneider neuf aux normes NF C 15-100" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--after">Après</span>
+          </div>
+        </div>
+        <div class="aa-meta">
+          <span class="aa-metier">⚡ Électricité · Paris (75)</span>
+          <h3>Mise aux normes tableau électrique</h3>
+          <p>Remplacement d'un tableau obsolète. Installation Schneider aux normes NF C 15-100, disjoncteurs différentiels 30mA, câblage encastré.</p>
+          <div class="aa-badges">
+            <span>✓ NF C 15-100</span>
+            <span>✓ RGE certifié</span>
+            <span>✓ Assurance décennale</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 2 : Chauffage / PAC ── -->
+      <div class="aa-card reveal d2">
+        <div class="aa-duo-img">
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Ancienne chaudière gaz avant remplacement" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--before">Avant</span>
+          </div>
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Installation pompe à chaleur air/eau moderne" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--after">Après</span>
+          </div>
+        </div>
+        <div class="aa-meta">
+          <span class="aa-metier">🔥 Chauffage / PAC · 92 & 78</span>
+          <h3>Installation pompe à chaleur air/eau</h3>
+          <p>Remplacement chaudière gaz par PAC air/eau. Économies d'énergie significatives, éligible MaPrimeRénov' et CEE. Pose par chauffagiste RGE.</p>
+          <div class="aa-badges">
+            <span>✓ RGE certifié</span>
+            <span>✓ MaPrimeRénov' éligible</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 3 : Salle de bain ── -->
+      <div class="aa-card reveal d3">
+        <div class="aa-duo-img">
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Salle de bain avant rénovation" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--before">Avant</span>
+          </div>
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1564540586988-aa4e53c3d799?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Salle de bain rénovée douche italienne carrelage moderne" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--after">Après</span>
+          </div>
+        </div>
+        <div class="aa-meta">
+          <span class="aa-metier">🔧 Plomberie · IDF</span>
+          <h3>Rénovation complète salle de bain</h3>
+          <p>Transformation complète : douche à l'italienne, carrelage neuf, robinetterie moderne, VMC, électricité aux normes NF C 15-100.</p>
+          <div class="aa-badges">
+            <span>✓ Plomberie certifiée</span>
+            <span>✓ Électricité aux normes</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Card 4 : Isolation combles ── -->
+      <div class="aa-card reveal d4">
+        <div class="aa-duo-img">
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Combles non isolés avant travaux" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--before">Avant</span>
+          </div>
+          <div class="aa-side">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=200&fit=crop&auto=format&q=75"
+              alt="Isolation combles laine de roche R7 après travaux" width="400" height="200" loading="lazy">
+            <span class="aa-label aa-label--after">Après</span>
+          </div>
+        </div>
+        <div class="aa-meta">
+          <span class="aa-metier">🏠 Isolation · 75, 92, 78</span>
+          <h3>Isolation thermique des combles</h3>
+          <p>Isolation combles perdus, laine de roche R≥7, pare-vapeur. Éligible MaPrimeRénov' et CEE. Réduction notable des pertes de chaleur.</p>
+          <div class="aa-badges">
+            <span>✓ RGE certifié</span>
+            <span>✓ MaPrimeRénov' éligible</span>
+            <span>✓ R≥7</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="aa-note">
+      📷 Ces photos illustrent des types de projets similaires à ceux traités par nos artisans.
+      Vos vraies photos de chantiers nous seront transmises par nos partenaires au fil des réalisations.
+    </p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CAS D'USAGE CONCRETS
+═══════════════════════════════════════════ -->
+<section class="usecases" aria-labelledby="usecases-title">
+  <div class="container">
+    <header class="usecases__head reveal">
+      <h2 id="usecases-title">Exemples de demandes <em>prises en charge</em></h2>
+    </header>
+    <div class="usecases__grid">
+      <div class="uc reveal"    onclick="scrollToForm('electricien')"><span class="uc__icon">⚡</span>Tableau électrique à refaire<span class="uc__arr">›</span></div>
+      <div class="uc reveal d1" onclick="scrollToForm('plombier')"><span class="uc__icon">💧</span>Fuite sous évier ou WC<span class="uc__arr">›</span></div>
+      <div class="uc reveal d2" onclick="scrollToForm('plombier')"><span class="uc__icon">🚿</span>Remplacement chauffe-eau<span class="uc__arr">›</span></div>
+      <div class="uc reveal d3" onclick="scrollToForm('chauffagiste')"><span class="uc__icon">🔥</span>Entretien ou panne chaudière<span class="uc__arr">›</span></div>
+      <div class="uc reveal"    onclick="scrollToForm('climatisation')"><span class="uc__icon">❄️</span>Installation climatisation split<span class="uc__arr">›</span></div>
+      <div class="uc reveal d1" onclick="scrollToForm('chauffagiste')"><span class="uc__icon">♨️</span>Pompe à chaleur air/eau<span class="uc__arr">›</span></div>
+      <div class="uc reveal d2" onclick="scrollToForm('isolation')"><span class="uc__icon">🏠</span>Isolation des combles<span class="uc__arr">›</span></div>
+      <div class="uc reveal d3" onclick="scrollToForm('vmc')"><span class="uc__icon">🌬️</span>VMC simple ou double flux<span class="uc__arr">›</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     COMMENT ÇA MARCHE
+═══════════════════════════════════════════ -->
+<section class="how" id="how" aria-labelledby="how-title">
+  <div class="container">
+    <header class="how__head reveal">
+      <h2 id="how-title">Comment <em>ça marche</em> ?</h2>
+      <p>Simple, rapide, sans prise de tête.</p>
+    </header>
+    <div class="how__steps">
+      <div class="how-step reveal">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem">
+          <div class="how-step__num" aria-hidden="true">1</div>
+          <span class="how-step__icon" aria-hidden="true" style="margin:0">📝</span>
+        </div>
+        <h3>Vous décrivez votre besoin</h3>
+        <p>Type de travaux, votre département et un numéro où vous joindre. C'est tout — pas de compte à créer, pas de carte bancaire.</p>
+        <span class="how-step__tag">⏱ 1 minute</span>
+      </div>
+      <div class="how-step reveal d1">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem">
+          <div class="how-step__num" aria-hidden="true">2</div>
+          <span class="how-step__icon" aria-hidden="true" style="margin:0">🔍</span>
+        </div>
+        <h3>On cherche le bon profil pour vous</h3>
+        <p>On regarde dans notre réseau qui est qualifié, disponible et dans votre zone. Pas une liste de 20 inconnus — 1 à 3 artisans qui correspondent vraiment à votre besoin.</p>
+        <span class="how-step__tag">⏱ Quelques heures</span>
+      </div>
+      <div class="how-step reveal d2">
+        <div style="display:flex;align-items:center;gap:.8rem;margin-bottom:.6rem">
+          <div class="how-step__num" aria-hidden="true">3</div>
+          <span class="how-step__icon" aria-hidden="true" style="margin:0">📞</span>
+        </div>
+        <h3>L'artisan vous rappelle</h3>
+        <p>Il vous contacte directement pour convenir d'un rendez-vous et établir un devis. <strong>Vous n'avez rien à faire de plus.</strong></p>
+        <span class="how-step__tag">⏱ Sous 24–48h</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PREUVES SOCIALES
+═══════════════════════════════════════════ -->
+<section class="social" id="social" aria-labelledby="social-title">
+  <div class="container">
+    <header class="social__head reveal">
+      <h2 id="social-title">Un service conçu pour <em>vous simplifier la vie</em></h2>
+    </header>
+
+    <!-- Stats honnêtes uniquement — pas d'avis fictifs -->
+    <div class="stats-row reveal">
+      <div class="stat">
+        <span class="stat__num">8</span>
+        <span class="stat__label">départements IDF couverts</span>
+      </div>
+      <div class="stat__sep" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat__num">24–48h</span>
+        <span class="stat__label">délai de rappel</span>
+      </div>
+      <div class="stat__sep" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat__num">3 max</span>
+        <span class="stat__label">artisans vous contactent</span>
+      </div>
+      <div class="stat__sep" aria-hidden="true"></div>
+      <div class="stat">
+        <span class="stat__num">6</span>
+        <span class="stat__label">lots techniques couverts</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     GARANTIES
+═══════════════════════════════════════════ -->
+<section class="garanties" id="garanties" aria-labelledby="garanties-title">
+  <div class="container">
+    <header class="garanties__head reveal">
+      <h2 id="garanties-title">Ce qui ne <em>change jamais</em></h2>
+    </header>
+    <div class="garanties__grid">
+      <div class="g reveal"><div class="g__icon" aria-hidden="true">🔒</div><div><h3>Pas de harcèlement téléphonique</h3><p>Votre numéro n'est transmis qu'à 3 artisans maximum, choisis pour vous. On ne revend rien, on ne spamme pas.</p></div></div>
+      <div class="g reveal d1">
+        <!-- 📷 PHOTO TYPE C — Artisan en action avec EPI
+             Ajouter une photo d'artisan portant casque, gants, chaussures sécu.
+             Décommenter :
+        <div class="g__photo">
+          <img src="artisan-securite.jpg" alt="Artisan certifié TravauxParfait avec équipements de protection" width="80" height="80" loading="lazy">
+        </div>
+        -->
+        <div class="g__icon" aria-hidden="true">🛡️</div>
+        <div><h3>Artisans vérifiés</h3><p>Assurance, activité (SIRET), certifications et qualifications contrôlées selon le type de travaux.</p></div>
+      </div>
+      <div class="g reveal d2"><div class="g__icon" aria-hidden="true">🏆</div><div><h3>RGE pour les travaux éligibles</h3><p>Pour la rénovation énergétique, nous privilégions des artisans RGE — obligatoire pour MaPrimeRénov' et les CEE.</p></div></div>
+      <div class="g reveal d3"><div class="g__icon" aria-hidden="true">💶</div><div><h3>100 % gratuit pour les particuliers</h3><p>La demande est entièrement gratuite pour les particuliers. Aucune commission sur vos travaux.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     POUR LES ARTISANS
+═══════════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════
+     CONFIANCE — 3 piliers
+═══════════════════════════════════════════ -->
+<section class="confiance" aria-labelledby="confiance-title">
+  <div class="container">
+    <header class="confiance__head reveal">
+      <h2 id="confiance-title">Ce qui nous <em>différencie</em></h2>
+    </header>
+    <div class="confiance-grid">
+      <div class="confiance-card reveal">
+        <div class="confiance-card__icon" aria-hidden="true">🔍</div>
+        <h3>Vérification manuelle</h3>
+        <p>On vérifie chaque artisan à la main — certificat RGE, assurance décennale en cours, SIRET actif. Pas un algorithme. Une vraie personne.</p>
+      </div>
+      <div class="confiance-card reveal d1">
+        <div class="confiance-card__icon" aria-hidden="true">🎯</div>
+        <h3>Sélection sur mesure</h3>
+        <p>Pas une liste de 50 noms. On choisit les 2-3 artisans qui correspondent à votre besoin précis, votre zone et votre calendrier.</p>
+      </div>
+      <div class="confiance-card reveal d2">
+        <div class="confiance-card__icon" aria-hidden="true">🤝</div>
+        <h3>Zéro intermédiaire financier</h3>
+        <p>Vous payez l'artisan directement pour ses travaux. TravauxParfait ne prend aucune commission sur votre chantier. Jamais.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="artisans" id="artisans" aria-labelledby="artisans-title">
+  <div class="container">
+    <div class="artisans__inner">
+      <div class="reveal">
+        <p class="artisans__kicker">Pour les artisans RGE</p>
+        <h2 id="artisans-title">Recevez des demandes <em>qualifiées</em> dans votre zone</h2>
+        <p class="artisans__sub">Électricité · CVC · Plomberie · Chauffage · Isolation<br>On met en relation des particuliers avec des artisans qualifiés dans leur zone. Rejoignez le réseau et recevez des demandes sans prospecter.</p>
+        <div class="art-perks">
+          <div class="art-perk"><div class="art-perk-icon" aria-hidden="true">🎯</div><div><strong>Demandes exclusives — pas de concurrence sur le même lead</strong><span>Max 3 artisans par demande — pas de concurrence à 20</span></div></div>
+          <div class="art-perk"><div class="art-perk-icon" aria-hidden="true">📍</div><div><strong>Zone d'intervention maîtrisée</strong><span>Vous choisissez vos départements — on filtre en conséquence</span></div></div>
+          <div class="art-perk"><div class="art-perk-icon" aria-hidden="true">🔧</div><div><strong>Lots techniques uniquement</strong><span>Pas de bricolage, pas de peinture — vos corps de métier</span></div></div>
+          <div class="art-perk"><div class="art-perk-icon" aria-hidden="true">✅</div><div><strong>Validation avant intégration</strong><span>RGE si requis · Décennale · SIRET actif · IDF</span></div></div>
+        </div>
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r-lg);padding:1rem 1.2rem;font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.6">
+          ⚙️ <strong style="color:var(--white)">Réseau en construction.</strong> Nous intégrons progressivement les artisans par zone et par lot. Les premiers partenaires bénéficient de conditions préférentielles.
+        </div>
+      </div>
+      <div class="art-card reveal d2">
+        <h3>Demander à rejoindre le réseau</h3>
+        <p>Laissez vos coordonnées — on vous recontacte sous 48h pour valider votre profil et vous intégrer.</p>
+        <form class="art-form" id="artisan-form" novalidate>
+          <input type="text" name="_honey" style="display:none" tabindex="-1" aria-hidden="true">
+          <input class="afi" type="text" id="art-nom" name="art-nom" placeholder="Prénom et Nom" required autocomplete="name">
+          <input class="afi" type="tel" id="art-tel" name="art-tel" placeholder="Téléphone" required autocomplete="tel">
+          <select class="afi" id="art-metier" name="art-metier" required>
+            <option value="">Votre spécialité</option>
+            <option value="electricien">Électricien</option>
+            <option value="plombier">Plombier</option>
+            <option value="chauffagiste">Chauffagiste / PAC</option>
+            <option value="climatisation">Climatisation</option>
+            <option value="vmc">VMC / Ventilation</option>
+            <option value="isolation">Isolation</option>
+          </select>
+          <select class="afi" id="art-dept" name="art-dept" required>
+            <option value="">Zone principale</option>
+            <option value="75">75 — Paris</option>
+            <option value="77">77 — Seine-et-Marne</option>
+            <option value="78">78 — Yvelines</option>
+            <option value="91">91 — Essonne</option>
+            <option value="92">92 — Hauts-de-Seine</option>
+            <option value="93">93 — Seine-Saint-Denis</option>
+            <option value="94">94 — Val-de-Marne</option>
+            <option value="95">95 — Val-d'Oise</option>
+          </select>
+          <button type="submit" class="art-submit" id="art-btn">Demander à rejoindre le réseau →</button>
+          <p class="art-note">On vous recontacte sous 48h pour vérifier votre dossier RGE et décennale.</p>
+        </form>
+        <div class="art-success" id="art-success">
+          <div style="font-size:2rem;margin-bottom:.5rem">✅</div>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.7);line-height:1.6"><strong style="color:#fff">Candidature reçue !</strong><br>On vous recontacte sous 48h.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FAQ CONVERSION
+═══════════════════════════════════════════ -->
+<section class="faq" id="faq" aria-labelledby="faq-title">
+  <div class="container">
+    <header class="faq__head reveal">
+      <h2 id="faq-title">Questions <em>fréquentes</em></h2>
+      <p>Des questions ? On y répond directement.</p>
+    </header>
+    <div class="faq-list reveal">
+
+      <details class="faq-item">
+        <summary>Que se passe-t-il après ma demande ?</summary>
+        <div class="faq-body"><p>Un conseiller TravauxParfait spécialisé dans votre département analyse votre demande sous 2h. Il valide les détails techniques, puis vous met en relation avec <strong>2 à 3 artisans de confiance</strong> disponibles dans votre zone. Vous recevez un premier appel ou SMS sous <strong>24h</strong>. Vous n'avez rien d'autre à faire.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Et si aucun artisan n'est disponible ?</summary>
+        <div class="faq-body"><p>Si on ne trouve personne dans votre secteur ou pour votre type de besoin, <strong>votre demande n'est pas transmise</strong> et nous vous en informons. Nous ne vous exposons pas à un artisan inadapté.</p></div>
+      </details>
+
+      <details class="faq-item" open>
+        <summary>Mon numéro est-il envoyé à plusieurs pros ?</summary>
+        <div class="faq-body"><p><strong>Non.</strong> Votre numéro est transmis à <strong>3 artisans maximum</strong> sélectionnés pour votre demande. Jamais diffusé à une liste, jamais revendu à des tiers. C'est notre engagement principal.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Le service est-il payant ?</summary>
+        <div class="faq-body"><p>Non. La demande est <strong>entièrement gratuite</strong> et sans engagement pour les particuliers. Aucune commission n'est prélevée sur vos travaux. L'artisan vous facture directement.</p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Faut-il un artisan RGE pour tous les travaux ?</summary>
+        <div class="faq-body"><p>Pas nécessairement. La certification RGE est <strong>obligatoire pour accéder aux aides de l'État</strong> (MaPrimeRénov', CEE, éco-PTZ). Pour les interventions sans enjeu d'aides — dépannage, fuite, panne — nous vous mettons en relation avec un artisan vérifié, RGE ou non selon le besoin. <a href="/comment-ca-marche.html">En savoir plus</a></p></div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Sous combien de temps serai-je rappelé ?</summary>
+        <div class="faq-body"><p>Notre délai cible est de <strong>24 à 48h ouvrées</strong> après réception de votre demande. Pour les besoins urgents, nous priorisons les artisans disponibles rapidement dans votre zone.</p></div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CTA FINAL
+═══════════════════════════════════════════ -->
+
+<!-- ═══════════════════════════════════════════
+     VS GOOGLE MAPS — différenciation
+═══════════════════════════════════════════ -->
+<section class="vs-section" aria-labelledby="vs-title">
+  <div class="container">
+    <header class="vs__head reveal">
+      <h2 id="vs-title">Pourquoi pas juste <em>Google Maps</em> ?</h2>
+      <p>Bonne question. Voilà la différence concrète.</p>
+    </header>
+    <div class="vs-grid reveal">
+
+      <div class="vs-col vs-col--bad">
+        <div class="vs-col__label">Google Maps seul</div>
+        <ul>
+          <li>❌ Des dizaines d'artisans à appeler vous-même</li>
+          <li>❌ Aucune vérification des qualifications</li>
+          <li>❌ Avis facilement falsifiables</li>
+          <li>❌ Vous faites tout le tri</li>
+          <li>❌ Pas de suivi, pas d'interlocuteur</li>
+          <li>❌ Certains sans assurance décennale</li>
+        </ul>
+      </div>
+
+      <div class="vs-col vs-col--good">
+        <div class="vs-col__label">TravauxParfait</div>
+        <ul>
+          <li>✅ Max 3 artisans — sélectionnés pour vous</li>
+          <li>✅ RGE, SIRET et décennale vérifiés</li>
+          <li>✅ Artisans dans votre zone IDF</li>
+          <li>✅ On fait le tri à votre place</li>
+          <li>✅ Un conseiller suit votre demande</li>
+          <li>✅ 100 % gratuit pour vous</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" aria-labelledby="cta-final-title">
+  <div class="container cta-final__inner">
+    <h2 id="cta-final-title">Un besoin. <em>Jusqu'à 3 artisans vérifiés</em> vous contactent.</h2>
+    <p>On s'occupe de trouver le bon artisan pour vous. Gratuitement.</p>
+    <div class="cta-final__btns">
+      <a href="#formulaire" class="btn-white">Déposer mon projet →</a>
+      <a href="#artisans" class="btn-ghost-white">Je suis artisan RGE</a>
+    </div>
+    <p class="cta-final__micro">Spécialiste IDF (75, 92, 78…) · Lots techniques · Gratuit · Sans engagement</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     MAILLAGE LOCAL SEO
+═══════════════════════════════════════════ -->
+<section class="seo-local" aria-labelledby="seo-local-title">
+  <div class="container">
+    <h2 class="seo-local__title" id="seo-local-title">
+      Votre expert travaux de proximité<br>en <em>Île-de-France</em>
+    </h2>
+
+    <!-- Sections par métier — SEO longue traîne -->
+    <div class="seo-metiers">
+
+      <div class="seo-metier-card">
+        <h3>🔧 Plombier à Paris (75)</h3>
+        <p>Fuite urgente, rénovation salle de bain, remplacement chauffe-eau ? Trouvez un <strong>plombier honnête à Paris</strong> disponible sous 48h. Artisans vérifiés, devis gratuit.</p>
+        <div class="seo-metier-tags">
+          <span>Plombier urgence Paris</span>
+          <span>Rénovation salle de bain</span>
+          <span>Remplacement chauffe-eau</span>
+          <span>Débouchage canalisation</span>
+        </div>
+      </div>
+
+      <div class="seo-metier-card">
+        <h3>⚡ Électricien Paris (75, 92, 78)</h3>
+        <p>Tableau électrique, mise aux normes NF C 15-100, borne IRVE, domotique ? Un <strong>électricien qualifié RGE</strong> vous rappelle sous 48h. Devis gratuit, sans engagement.</p>
+        <div class="seo-metier-tags">
+          <span>Mise aux normes tableau</span>
+          <span>Dépannage électrique</span>
+          <span>Borne IRVE voiture électrique</span>
+          <span>Installation VMC</span>
+        </div>
+      </div>
+
+      <div class="seo-metier-card">
+        <h3>🔥 Chauffagiste / PAC — 92 & 78</h3>
+        <p>Installation pompe à chaleur air/eau, remplacement chaudière, entretien ? Nos <strong>chauffagistes RGE</strong> interviennent en Hauts-de-Seine et Yvelines. Éligible MaPrimeRénov'.</p>
+        <div class="seo-metier-tags">
+          <span>PAC air/eau installation</span>
+          <span>Remplacement chaudière gaz</span>
+          <span>MaPrimeRénov' éligible</span>
+          <span>Entretien chauffage</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sections par département -->
+    <div class="seo-grid">
+      <div class="seo-card">
+        <h3>📍 Paris (75) — Tous arrondissements</h3>
+        <p>Du 1er au 20e arrondissement, trouvez un artisan spécialisé dans les contraintes parisiennes : appartements haussmanniens, mise aux normes électriques, plomberie en immeuble collectif.</p>
+      </div>
+      <div class="seo-card">
+        <h3>📍 Hauts-de-Seine (92)</h3>
+        <p>Boulogne-Billancourt, Nanterre, Courbevoie, Levallois-Perret, Issy-les-Moulineaux — artisans RGE disponibles pour rénovation énergétique, PAC, isolation et dépannage urgent dans le 92.</p>
+      </div>
+      <div class="seo-card">
+        <h3>📍 Yvelines (78)</h3>
+        <p>Versailles, Saint-Germain-en-Laye, Poissy, Rambouillet — spécialistes de la rénovation de maisons individuelles : PAC, isolation des combles, électricité, plomberie.</p>
+      </div>
+    </div>
+
+    <p class="seo-local__note">
+      Également disponible : 77 (Meaux, Melun), 91 (Évry, Corbeil), 93 (Montreuil, Saint-Denis), 94 (Créteil, Vincennes), 95 (Cergy, Pontoise) —
+      <a href="#formulaire">vérifiez la disponibilité dans votre zone →</a>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════════════════
+     MAILLAGE LOCAL SEO (Paris, 92, 78)
+═══════════════════════════════════════════ -->
+<section class="seo-local" aria-label="Couverture géographique">
+  <div class="container">
+    <h2 class="seo-local__title">Nos zones d'intervention prioritaires</h2>
+    <div class="seo-local__grid">
+      <div class="seo-local__item">
+        <h3>📍 Artisans à Paris (75)</h3>
+        <p>Expertise spécifique pour les appartements parisiens : mise aux normes électriques NF C 15-100, rénovation complète de salle de bain et dépannage plomberie. Nous intervenons dans tous les arrondissements de Paris avec des artisans vérifiés disponibles rapidement.</p>
+      </div>
+      <div class="seo-local__item">
+        <h3>📍 Artisans Hauts-de-Seine (92)</h3>
+        <p>Spécialiste de la rénovation énergétique à Boulogne-Billancourt, Nanterre, Courbevoie et Levallois-Perret. Trouvez un artisan RGE pour votre pompe à chaleur, isolation des combles ou remplacement de chaudière. Devis gratuit sous 24h.</p>
+      </div>
+      <div class="seo-local__item">
+        <h3>📍 Artisans Yvelines (78)</h3>
+        <p>Aménagement, chauffage et rénovation à Versailles, Saint-Germain-en-Laye et Poissy. Des professionnels qualifiés pour vos projets de maison individuelle — PAC, isolation thermique, électricité et plomberie.</p>
+      </div>
+    </div>
+    <p class="seo-local__note">TravauxParfait intervient dans l'ensemble des 8 départements d'Île-de-France : Paris (75), Seine-et-Marne (77), Yvelines (78), Essonne (91), Hauts-de-Seine (92), Seine-Saint-Denis (93), Val-de-Marne (94), Val-d'Oise (95).</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════
+     SEO LOCAL — 75, 92, 78
+═══════════════════════════════════════════ -->
+<section class="seo-local" aria-labelledby="seo-local-title">
+  <div class="container">
+    <h2 class="seo-local__title" id="seo-local-title">
+      Votre expert travaux de proximité<br>en <em>Île-de-France</em>
+    </h2>
+    <div class="seo-grid">
+
+      <div class="seo-card">
+        <h3>📍 Paris (75)</h3>
+        <p>Spécialiste des contraintes parisiennes : rénovation d'appartements haussmanniens, mise aux normes électriques, plomberie urgente dans tous les arrondissements. Nos artisans vérifiés à Paris (75) interviennent rapidement sur devis gratuit.</p>
+      </div>
+
+      <div class="seo-card">
+        <h3>📍 Hauts-de-Seine (92)</h3>
+        <p>Interventions rapides à Boulogne-Billancourt, Nanterre, Courbevoie et Levallois. Expertise en isolation thermique, installation de pompes à chaleur (PAC) et rénovation électrique dans le 92.</p>
+      </div>
+
+      <div class="seo-card">
+        <h3>📍 Yvelines (78)</h3>
+        <p>Rénovation de maisons individuelles à Versailles, Saint-Germain-en-Laye et Rambouillet. Devis gratuit pour isolation des combles, remplacement chauffe-eau et mise aux normes électriques dans le 78.</p>
+      </div>
+
+    </div>
+    <p class="seo-local__note">
+      Également disponible dans toute l'IDF : 77 (Meaux, Melun), 91 (Évry, Corbeil), 93 (Montreuil, Saint-Denis), 94 (Créteil, Vincennes), 95 (Cergy, Pontoise) —
+      <a href="#formulaire">vérifiez la disponibilité dans votre zone →</a>
+    </p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">
+          <svg width="26" height="26" viewBox="0 0 34 34" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+            <rect width="34" height="34" rx="7" fill="rgba(255,255,255,.1)"/>
+            <path d="M17 8L7 16h3v9h6v-5h2v5h6v-9h3L17 8z" stroke="white" stroke-width="1.3" stroke-linejoin="round" fill="none" opacity=".7"/>
+            <circle cx="24" cy="24" r="5.5" fill="#15803D"/>
+            <path d="M21.8 24l1.6 1.6 2.8-2.8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Travaux<span style="color:var(--blue)">Parfait</span>
+        </div>
+        <p>On connecte les bons artisans avec les bons particuliers en IDF.</p>
+        <span class="footer__brand-badge">✓ Artisans vérifiés IDF</span>
+      </div>
+      <nav class="footer__col" aria-label="Navigation pied de page">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="#formulaire">Déposer un projet</a></li>
+          <li><a href="#lots">Nos métiers</a></li>
+          <li><a href="#how">Comment ça marche</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#artisans">Espace Artisans</a></li>
+        </ul>
+      </nav>
+      <div class="footer__col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="/contact.html">Formulaire de contact →</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>Légal</h4>
+        <ul>
+          <li><a href="/mentions-legales.html">Mentions légales</a></li>
+          <li><a href="/confidentialite.html">Confidentialité</a></li>
+          <li><a href="/cgu.html">CGU</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2025 TravauxParfait · Île-de-France · Réseau en construction</p>
+      <p style="font-size:.65rem;color:rgba(255,255,255,.18);margin-top:.3rem">Expertise locale reconnue pour vos projets de rénovation à Paris (75), Boulogne-Billancourt (92), Versailles (78) et dans toute l'Île-de-France.</p>
+      <nav class="footer__legal" aria-label="Liens légaux">
+        <a href="/mentions-legales.html">Mentions légales</a>
+        <a href="/confidentialite.html">Confidentialité</a>
+        <a href="/cgu.html">CGU</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+  <a href="#formulaire" class="sticky-cta__btn" onclick="closeStickyAndScroll()">Déposer mon projet →</a>
+</div>
+
+<script>
+'use strict';
+
+/* ── Nav scroll shadow ── */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+
+/* ── Smooth scroll ── */
+function getNavH(){return parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')||'64',10)}
+document.querySelectorAll('a[href^="#"]').forEach(l=>{
+  l.addEventListener('click',e=>{
+    const id=l.getAttribute('href').slice(1);
+    const t=document.getElementById(id);
+    if(!t)return;e.preventDefault();closeDrawer();
+    window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-getNavH()-8,behavior:'smooth'});
+  });
+});
+
+/* ── Formulaire 2 étapes ── */
+let selectedType='',selectedDept='';
+
+function selectType(btn){
+  document.querySelectorAll('.type-btn').forEach(b=>b.classList.remove('selected'));
+  btn.classList.add('selected');
+  selectedType=btn.dataset.val;
+  document.getElementById('dept-wrap').classList.add('visible');
+  // Vérifier si dept déjà sélectionné pour afficher le bouton
+  checkStep1Complete();
+}
+document.getElementById('dept-s1').addEventListener('change',function(){
+  selectedDept=this.value;
+  checkStep1Complete();
+});
+function checkStep1Complete(){
+  const cta=document.getElementById('step1-cta');
+  if(selectedType&&selectedDept){cta.classList.add('visible')}else{cta.classList.remove('visible')}
+}
+
+function goStep2(){
+  if(!selectedType||!selectedDept){return}
+  // Mise à jour dots
+  document.getElementById('dot1').classList.remove('active');
+  document.getElementById('dot2').classList.add('active');
+  // Récap
+  const labels={'electricien':'⚡ Électricité','plombier':'🔧 Plomberie','chauffagiste':'🔥 Chauffage / PAC','climatisation':'❄️ Climatisation','vmc':'🌬️ VMC','isolation':'🏠 Isolation'};
+  document.getElementById('step2-recap').textContent=(labels[selectedType]||selectedType)+' · Dept '+selectedDept;
+  document.getElementById('step2-confirm').textContent='Votre demande est bien prise en compte. Laissez vos coordonnées pour être rappelé.';
+  document.getElementById('step1').style.display='none';
+  document.getElementById('step2').style.display='flex';
+  document.getElementById('prenom').focus();
+}
+function goBack(){
+  document.getElementById('dot1').classList.add('active');
+  document.getElementById('dot2').classList.remove('active');
+  document.getElementById('step2').style.display='none';
+  document.getElementById('step1').style.display='flex';
+}
+
+/* ── Validation ── */
+function validTel(v){return/^(\+33|0033|0)[1-9](\s?\d{2}){4}$/.test(v.replace(/\s/g,''))}
+function setErr(el,msg){el.style.borderColor='#DC2626';let h=el.nextElementSibling;if(!h||!h.classList.contains('fe')){h=document.createElement('span');h.className='fe';h.style.cssText='font-size:.68rem;color:#DC2626;display:block;margin-top:.2rem';el.parentNode.insertBefore(h,el.nextSibling)}h.textContent=msg}
+function clrErr(el){el.style.borderColor='';const h=el.nextElementSibling;if(h&&h.classList.contains('fe'))h.remove()}
+
+/* ── Formulaire particulier ── */
+const tpForm=document.getElementById('tp-form');
+const formLoad=document.getElementById('form-loading');
+const formOk=document.getElementById('form-success');
+tpForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const honey=tpForm.querySelector('[name="_honey"]');if(honey&&honey.value)return;
+  const p=document.getElementById('prenom'),t=document.getElementById('tel'),r=document.getElementById('rgpd');
+  [p,t].forEach(clrErr);let ok=true;
+  if(!p.value.trim()){setErr(p,'Votre prénom est requis.');ok=false}
+  if(!validTel(t.value)){setErr(t,'Numéro invalide. Ex : 06 12 34 56 78');ok=false}
+  if(!r.checked){r.style.outline='2px solid #DC2626';ok=false}else{r.style.outline=''}
+  if(!ok){const fe=tpForm.querySelector('[style*="DC2626"]');if(fe)fe.focus();return}
+  document.getElementById('step2').style.display='none';
+  formLoad.style.display='flex';
+  try{
+    // PRODUCTION: await fetch('https://formspree.io/f/YOUR_ID',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({type:selectedType,dept:selectedDept,prenom:p.value,tel:t.value,description:document.getElementById('desc').value})});
+    await new Promise(r=>setTimeout(r,1200));
+    formLoad.style.display='none';formOk.style.display='flex';
+    formOk.setAttribute('tabindex','-1');
+    // Injecter le département dans le success state
+    const deptLabels={'75':'Paris (75)','92':'Hauts-de-Seine (92)','78':'Yvelines (78)',
+      '77':'Seine-et-Marne (77)','91':'Essonne (91)','93':'Seine-Saint-Denis (93)',
+      '94':'Val-de-Marne (94)','95':'Val-d\'Oise (95)'};
+    const deptEl=document.getElementById('success-dept');
+    if(deptEl)deptEl.textContent=deptLabels[selectedDept]||'votre département';
+    formOk.focus();tpForm.reset();
+    hideStickyForever();
+  }catch{formLoad.style.display='none';document.getElementById('step2').style.display='flex'}
+});
+
+/* ── Pré-remplir depuis lots/cas d'usage ── */
+function scrollToForm(type){
+  // Sélectionner le bouton correspondant
+  const btn=document.querySelector(`.type-btn[data-val="${type}"]`);
+  if(btn)selectType(btn);
+  const t=document.getElementById('formulaire');
+  if(!t)return;
+  window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-getNavH()-8,behavior:'smooth'});
+}
+
+/* ── Formulaire artisan ── */
+const artForm=document.getElementById('artisan-form');
+const artBtn=document.getElementById('art-btn');
+const artOk=document.getElementById('art-success');
+artForm.addEventListener('submit',async e=>{
+  e.preventDefault();
+  const honey=artForm.querySelector('[name="_honey"]');if(honey&&honey.value)return;
+  const n=document.getElementById('art-nom'),t=document.getElementById('art-tel'),m=document.getElementById('art-metier'),d=document.getElementById('art-dept');
+  [n,t,m,d].forEach(clrErr);let ok=true;
+  if(!n.value.trim()){setErr(n,'Requis.');ok=false}
+  if(!validTel(t.value)){setErr(t,'Numéro invalide.');ok=false}
+  if(!m.value){setErr(m,'Sélectionnez votre spécialité.');ok=false}
+  if(!d.value){setErr(d,'Sélectionnez votre zone.');ok=false}
+  if(!ok)return;
+  artBtn.disabled=true;artBtn.textContent='Envoi en cours…';
+  try{
+    // PRODUCTION: await fetch('https://formspree.io/f/YOUR_ID',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({nom:n.value,tel:t.value,metier:m.value,dept:d.value,source:'artisan'})});
+    await new Promise(r=>setTimeout(r,1000));
+    artForm.style.display='none';artOk.style.display='block';artForm.reset();
+  }catch{artBtn.disabled=false;artBtn.textContent='⚠ Réessayer'}
+});
+
+
+/* ── Scroll reveal ── */
+if('IntersectionObserver'in window){
+  const io=new IntersectionObserver((entries,obs)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  // Ré-observer après chargement complet (images lazy)
+  document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
+  });
+}else{document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'))}
+</script>
+</body>
+</html>
